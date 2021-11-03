@@ -7,13 +7,13 @@ import {
     Button
 } from 'react-native'
 
-import IllustrationImg from '../../assets/Logo_app.png'
+import IllustrationImg from '../../assets/Logo_app.png' 
 import { ButtonIconFacebook, ButtonIconGoogle } from "../../components/ButtonIcon"
 import { styles } from "./styles"
 
 export function SignIn(){
   return(
-    <View style={styles.container}>
+    <View style={styles.container} /*teste*/>
         <StatusBar 
             barStyle="dark-content"
             backgroundColor="transparent"
