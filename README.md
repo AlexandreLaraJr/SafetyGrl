@@ -14,9 +14,20 @@ Dependências:
 
 ## Editor de texto
 
+### Escolha apenas 1!!
+
 ### VSCode
 
 [![VSCode](https://img.shields.io/badge/VSCode-007ACC?logo=visual-studio-code&logoColor=white&style=for-the-badge&link=https://code.visualstudio.com/)](https://code.visualstudio.com/)
+
+### Sublime
+
+[![Sublime](https://img.shields.io/badge/Sublime-FF9800?logo=sublime-text&logoColor=white&style=for-the-badge&link=https://www.sublimetext.com/3)](https://www.sublimetext.com/3)
+
+### Atom
+
+[![Atom](https://img.shields.io/badge/Atom-66595C?logo=atom&logoColor=white&style=for-the-badge&link=https://atom.io/)](https://atom.io/)
+
 
 
 ```
