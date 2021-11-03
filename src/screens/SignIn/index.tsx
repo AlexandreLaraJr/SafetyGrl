@@ -24,6 +24,7 @@ export function SignIn(){
         source={IllustrationImg} 
         style={styles.image}
         //resizeMode= "cover" //n sei o que faz
+            //git dif parte 2
         />
         
         <View style={styles.content}>
