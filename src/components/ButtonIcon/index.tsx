@@ -14,18 +14,19 @@ import { styles } from './styles'
 export function ButtonIconFacebook(){
     return(
         <TouchableOpacity style={styles.containerFacebook}>
-            <View style={styles.iconWrapper}>
+            <View style={styles.iconWrapperFacebook}>
                 <Image source={FacebookLogo} style={styles.icon}/>
             </View>
-
+            
         </TouchableOpacity>
     )
+    
 }
 
 export function ButtonIconGoogle(){
     return(
         <TouchableOpacity style={styles.containerGoogle}>
-            <View style={styles.iconWrapper}>
+            <View style={styles.iconWrapperGoogle}>
                 <Image source={GoogleLogo} style={styles.icon}/>
             </View>
 

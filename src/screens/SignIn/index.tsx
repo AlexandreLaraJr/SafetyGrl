@@ -23,21 +23,23 @@ export function SignIn(){
         <Image
         source={IllustrationImg} 
         style={styles.image}
-        resizeMode= "cover" //n sei o que faz
+        //resizeMode= "cover" //n sei o que faz
         />
-
+        
         <View style={styles.content}>
 
             <Text style={styles.title}>
-                SafetyGrl titulo
+                SafetyGrl
             </Text>
 
             <Text style={styles.subtitle}>
-                pensar numa frase de efeito
+                isabella meu mozao
             </Text>
-            <ButtonIconFacebook />
-            <ButtonIconGoogle />
+            
         </View>
+        
+        <ButtonIconFacebook />
+        <ButtonIconGoogle />
     </View>
   )
 }
