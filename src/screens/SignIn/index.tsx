@@ -33,7 +33,7 @@ export function SignIn(){
             </Text>
 
             <Text style={styles.subtitle}>
-                isabella meu mozao
+                teste do git diff
             </Text>
             
         </View>
