@@ -14,7 +14,7 @@ import { styles } from "./styles"
 
 export function SignIn(){
   return(
-    <View style={styles.container}>
+    <View style={styles.container} /*teste*/>
         <StatusBar 
             barStyle="dark-content"
             backgroundColor="transparent"
@@ -34,7 +34,7 @@ export function SignIn(){
             </Text>
 
             <Text style={styles.subtitle}>
-                isabella meu mozao
+                teste do git diff
             </Text>
             <TextInput style={styles.inputLogin}>CPF</TextInput>
             <TextInput style={styles.inputLogin}>Senha</TextInput>
@@ -45,3 +45,5 @@ export function SignIn(){
     </View>
   )
 }
+
+//edição 2
