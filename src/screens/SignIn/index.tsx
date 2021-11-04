@@ -4,11 +4,12 @@ import {
     Text, 
     Image,
     StatusBar,
-    Button
+    Button,
+    TextInput
 } from 'react-native'
 
 import IllustrationImg from '../../assets/Logo_app.png'
-import { ButtonIconFacebook, ButtonIconGoogle } from "../../components/ButtonIcon"
+import { ButtonIconFacebook, ButtonIconGoogle, ButtonLogin } from "../../components/ButtonIcon"
 import { styles } from "./styles"
 
 export function SignIn(){
@@ -23,7 +24,7 @@ export function SignIn(){
         <Image
         source={IllustrationImg} 
         style={styles.image}
-        //resizeMode= "cover" //n sei o que faz
+        
         />
         
         <View style={styles.content}>
@@ -35,9 +36,10 @@ export function SignIn(){
             <Text style={styles.subtitle}>
                 isabella meu mozao
             </Text>
-            
+            <TextInput style={styles.inputLogin}>CPF</TextInput>
+            <TextInput style={styles.inputLogin}>Senha</TextInput>
         </View>
-        
+        <ButtonLogin />
         <ButtonIconFacebook />
         <ButtonIconGoogle />
     </View>

@@ -11,6 +11,14 @@ import GoogleLogo from '../../assets/icone_google.png'
 
 import { styles } from './styles'
 
+export function ButtonLogin(){
+    return(
+        <TouchableOpacity style={styles.container}>
+            <Text style={styles.title}>Login</Text>
+        </TouchableOpacity>
+    )
+}
+
 export function ButtonIconFacebook(){
     return(
         <TouchableOpacity style={styles.containerFacebook}>

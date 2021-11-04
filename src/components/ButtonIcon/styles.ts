@@ -1,6 +1,25 @@
 import { StyleSheet } from 'react-native'
+import { theme } from '../../global/styles/theme'
 
 export const styles = StyleSheet.create({
+    container: {
+        width: 80,
+        height: 40,
+        backgroundColor: theme.colors.primary,
+        borderRadius: 8,
+        flexDirection: 'row',
+        alignItems: 'center',
+        borderWidth: 2
+    },
+
+    title: {
+        flex: 1,
+        color: 'black',
+        fontSize: 15,
+        textAlign: 'center',
+        fontWeight: 'bold'
+    },
+    
     containerFacebook: {
         width: 30,
         height: 30,

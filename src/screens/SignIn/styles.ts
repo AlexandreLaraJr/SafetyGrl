@@ -11,27 +11,40 @@ export const styles = StyleSheet.create({
         backgroundColor: theme.colors.background
     },
 
+    inputLogin: {
+        width: 160,
+        height: 40,
+        backgroundColor: '#FFFFFF',
+        borderRadius: 8,
+        flexDirection: 'row',
+        alignItems: 'center',
+        borderWidth: 2,
+        marginTop: '5%',
+        marginBottom: '5%',
+    },
+
     image: {
-        marginTop: '20%',
+        //marginTop: '20%',
         width: 250,
         height:250
     },
 
     content: {
-        marginTop: 50
+        marginTop: 50,
+        paddingHorizontal: 60
     },
 
     title: { 
         color: theme.colors.heading,
         textAlign: 'center',
         fontSize: 40,
-        marginBottom: 16,
+        marginTop: -30,
     },
 
     subtitle: {
         color: theme.colors.heading,
         textAlign: 'center',
         fontSize: 15,
-        marginBottom: 90,
+        paddingBottom: 30
     }
 })
