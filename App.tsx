@@ -4,6 +4,7 @@ import { CreateAccount } from "./src/screens/CreateAccount";
 import { SignIn } from './src/screens/SignIn';
 
 import { StatusBar } from "expo-status-bar";
+import { Routes } from "./src/routes";
 
 export default function App(){
   return(
@@ -13,7 +14,7 @@ export default function App(){
           backgroundColor="transparent"
           translucent 
       />
-      <CreateAccount />
+      <Routes/>
     </>
   );
 }
