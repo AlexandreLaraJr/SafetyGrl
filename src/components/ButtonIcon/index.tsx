@@ -6,16 +6,19 @@ import {
     TouchableOpacity
 } from 'react-native'
 
+import { RectButton, RectButtonProps } from 'react-native-gesture-handler';
+
 import FacebookLogo from '../../assets/icone_facebook.png'
 import GoogleLogo from '../../assets/icone_google.png'
 
 import { styles } from './styles'
 
-export function ButtonLogin(){
+export function ButtonLogin({...rest}: RectButtonProps){
     return(
-        <TouchableOpacity style={styles.container}>
+        <RectButton style={styles.container} 
+            {...rest} >
             <Text style={styles.title}>Login</Text>
-        </TouchableOpacity>
+        </RectButton>
     )
 }
 
@@ -44,8 +47,8 @@ export function ButtonIconGoogle(){
 
 export function ButtonCreateAccount(){
     return(
-        <TouchableOpacity style={styles.containerCriarConta}>
+        <RectButton style={styles.containerCriarConta}>
             <Text style={styles.titleCriarConta}>CRIAR CONTA</Text>
-        </TouchableOpacity>
+        </RectButton>
     )
 }
