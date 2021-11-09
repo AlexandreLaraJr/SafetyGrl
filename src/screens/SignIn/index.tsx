@@ -8,7 +8,7 @@ import {
     TextInput
 } from 'react-native'
 
-import IllustrationImg from '../../assets/Logo_app.png'
+import IllustrationImgLogo from '../../assets/Logo_app.png'
 import { ButtonIconFacebook, ButtonIconGoogle, ButtonLogin } from "../../components/ButtonIcon"
 import { styles } from "./styles"
 
@@ -22,7 +22,7 @@ export function SignIn(){
         />
 
         <Image
-        source={IllustrationImg} 
+        source={IllustrationImgLogo} 
         style={styles.image}
         
         />

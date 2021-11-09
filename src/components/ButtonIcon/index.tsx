@@ -41,3 +41,11 @@ export function ButtonIconGoogle(){
         </TouchableOpacity>
     )
 }
+
+export function ButtonCreateAccount(){
+    return(
+        <TouchableOpacity style={styles.containerCriarConta}>
+            <Text style={styles.titleCriarConta}>CRIAR CONTA</Text>
+        </TouchableOpacity>
+    )
+}

@@ -9,12 +9,12 @@ export const styles = StyleSheet.create({
         borderRadius: 8,
         flexDirection: 'row',
         alignItems: 'center',
-        borderWidth: 2
+        //shadowColor: theme.colors.primary,
     },
 
     title: {
         flex: 1,
-        color: 'black',
+        color: 'white',
         fontSize: 15,
         textAlign: 'center',
         fontWeight: 'bold'
@@ -49,5 +49,23 @@ export const styles = StyleSheet.create({
     icon: { 
         width: 30,
         height: 30
-    }
+    },
+
+    containerCriarConta: {
+        width: 200,
+        height: 40,
+        backgroundColor: theme.colors.primary,
+        borderRadius: 8,
+        alignItems: 'center',
+        flexDirection: 'row', 
+        marginBottom: 120    
+        //shadowColor: theme.colors.primary,
+    },
+    titleCriarConta: {
+        flex: 1,
+        color: 'white',
+        fontSize: 15,
+        textAlign: 'center',
+        justifyContent: 'center'
+    },
 })

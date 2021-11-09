@@ -1,9 +1,20 @@
 import React from "react"
-import { SignIn } from './src/screens/SignIn'
+
+import { CreateAccount } from "./src/screens/CreateAccount";
+import { SignIn } from './src/screens/SignIn';
+
+import { StatusBar } from "expo-status-bar";
 
 export default function App(){
   return(
-    <SignIn/ >
+    <>
+      <StatusBar
+          //barStyle="light-content"
+          backgroundColor="transparent"
+          translucent 
+      />
+      <CreateAccount />
+    </>
   );
 }
 
