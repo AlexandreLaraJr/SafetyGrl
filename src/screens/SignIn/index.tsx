@@ -8,42 +8,56 @@ import {
     TextInput
 } from 'react-native'
 
+import 'react-native-gesture-handler';
+import { useNavigation } from "@react-navigation/native";
+import {StackNavigationProp} from '@react-navigation/stack';
+import {RootStackParamList} from '../RootStackPrams';
+
 import IllustrationImgLogo from '../../assets/Logo_app.png'
 import { ButtonIconFacebook, ButtonIconGoogle, ButtonLogin } from "../../components/ButtonIcon"
 import { styles } from "./styles"
 
+type createAccountScreenProp = StackNavigationProp<RootStackParamList, 'CreateAccount'>;
+
 export function SignIn(){
-  return(
-    <View style={styles.container} /*teste*/>
-        <StatusBar 
-            barStyle="dark-content"
-            backgroundColor="transparent"
-            translucent
-        />
 
-        <Image
-        source={IllustrationImgLogo} 
-        style={styles.image}
-        
-        />
-        
-        <View style={styles.content}>
+    const navigation = useNavigation<createAccountScreenProp>();
 
-            <Text style={styles.title}>
-                SafetyGrl
-            </Text>
+    function handleSignIn() {
+        navigation.navigate('CreateAccount');
+    }
 
-            <Text style={styles.subtitle}>
-                teste do git diff
-            </Text>
-            <TextInput style={styles.inputLogin}>CPF</TextInput>
-            <TextInput style={styles.inputLogin}>Senha</TextInput>
+    return(
+        <View style={styles.container} /*teste*/>
+            <StatusBar 
+                barStyle="dark-content"
+                backgroundColor="transparent"
+                translucent
+            />
+
+            <Image
+            source={IllustrationImgLogo} 
+            style={styles.image}
+            
+            />
+            
+            <View style={styles.content}>
+
+                <Text style={styles.title}>
+                    SafetyGrl
+                </Text>
+
+                <Text style={styles.subtitle}>
+                    teste do git diff
+                </Text>
+                <TextInput style={styles.inputLogin}>CPF</TextInput>
+                <TextInput style={styles.inputLogin}>Senha</TextInput>
+            </View>
+            <ButtonLogin 
+                onPress={() => navigation.navigate('CreateAccount')}
+            />
+            <ButtonIconFacebook />
+            <ButtonIconGoogle />
         </View>
-        <ButtonLogin />
-        <ButtonIconFacebook />
-        <ButtonIconGoogle />
-    </View>
-  )
+    )
 }
-
-//edição 2
