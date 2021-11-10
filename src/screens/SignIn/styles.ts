@@ -27,6 +27,7 @@ export const styles = StyleSheet.create({
     content: {
         paddingHorizontal: 60
     },
+
     inputLogin: {
         width: 210,
         height: 40,
@@ -37,8 +38,15 @@ export const styles = StyleSheet.create({
         marginBottom: 10,
     },
 
+    forgotPassword: {
+        color: theme.colors.primary,
+        textDecorationLine: 'underline',
+        left: 105,
+        paddingBottom: 10
+    },
+
     containerIcons: {
         flexDirection: 'row',
-        top: 60,
+        top: 70,
     }
 })

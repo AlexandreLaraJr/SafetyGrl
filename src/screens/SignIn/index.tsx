@@ -45,6 +45,7 @@ export function SignIn(){
             <View style={styles.content}>
                 <TextInput style={styles.inputLogin}>  CPF</TextInput>
                 <TextInput style={styles.inputLogin}>  Senha</TextInput>
+                <Text style={styles.forgotPassword}>Esqueci a senha</Text>
             </View>
 
             <ButtonLogin 

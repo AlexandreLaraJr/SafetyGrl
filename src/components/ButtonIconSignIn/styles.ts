@@ -27,7 +27,7 @@ export const styles = StyleSheet.create({
         //borderRadius: 8,
         alignItems: 'center',
         flexDirection: 'row', 
-        top: 40  
+        top: 45  
         //shadowColor: theme.colors.primary
     },
     titleCriarConta: {
