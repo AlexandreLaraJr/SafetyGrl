@@ -11,39 +11,34 @@ export const styles = StyleSheet.create({
         backgroundColor: theme.colors.background
     },
 
+    image: {
+        marginTop: -50,
+        marginBottom: 10,
+        width: 230,
+        height:230,
+    },
+
+    nameLogo: {
+        width: 205,
+        height: 48,
+        marginBottom: 40
+    },
+
+    content: {
+        paddingHorizontal: 60
+    },
     inputLogin: {
-        width: 160,
+        width: 210,
         height: 40,
         backgroundColor: '#FFFFFF',
         borderRadius: 8,
         alignItems: 'center',
-        borderWidth: 2,
-        marginTop: '5%',
-        marginBottom: '5%',
+        borderWidth: 0.5,
+        marginBottom: 10,
     },
 
-    image: {
-        //marginTop: '20%',
-        width: 250,
-        height:250
-    },
-
-    content: {
-        marginTop: 50,
-        paddingHorizontal: 60
-    },
-
-    title: { 
-        color: theme.colors.heading,
-        textAlign: 'center',
-        fontSize: 40,
-        marginTop: -30,
-    },
-
-    subtitle: {
-        color: theme.colors.heading,
-        textAlign: 'center',
-        fontSize: 15,
-        paddingBottom: 30
+    containerIcons: {
+        flexDirection: 'row',
+        top: 60,
     }
 })

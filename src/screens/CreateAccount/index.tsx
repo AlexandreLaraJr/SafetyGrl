@@ -11,7 +11,7 @@ import {
 import IllustrationImgLogo from '../../assets/Logo_app.png'
 import IllustrationImgNameLogo from '../../assets/SafetyGrl.png'
 
-import { ButtonCreateAccount } from "../../components/ButtonIcon"
+import { ButtonCreateAccount } from '../../components/ButtonIconCreateAccount'
 
 import { styles } from "./styles"
 
@@ -67,7 +67,7 @@ export function CreateAccount(){
                 
                 <TextInput style={styles.inputData} />
             </View>
-            
+
             <ButtonCreateAccount />
         </View>
     )

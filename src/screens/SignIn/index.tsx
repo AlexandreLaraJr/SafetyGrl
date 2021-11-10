@@ -4,7 +4,6 @@ import {
     Text, 
     Image,
     StatusBar,
-    Button,
     TextInput
 } from 'react-native'
 
@@ -14,7 +13,9 @@ import {StackNavigationProp} from '@react-navigation/stack';
 import {RootStackParamList} from '../RootStackPrams';
 
 import IllustrationImgLogo from '../../assets/Logo_app.png'
-import { ButtonIconFacebook, ButtonIconGoogle, ButtonLogin } from "../../components/ButtonIcon"
+import IllustrationImgNameLogo from '../../assets/SafetyGrl2.png'
+
+import { ButtonCreateAccountSignIn, ButtonIconFacebook, ButtonIconGoogle, ButtonLogin } from "../../components/ButtonIconSignIn"
 import { styles } from "./styles"
 
 type createAccountScreenProp = StackNavigationProp<RootStackParamList, 'CreateAccount'>;
@@ -23,12 +24,8 @@ export function SignIn(){
 
     const navigation = useNavigation<createAccountScreenProp>();
 
-    function handleSignIn() {
-        navigation.navigate('CreateAccount');
-    }
-
     return(
-        <View style={styles.container} /*teste*/>
+        <View style={styles.container}>
             <StatusBar 
                 barStyle="dark-content"
                 backgroundColor="transparent"
@@ -38,26 +35,30 @@ export function SignIn(){
             <Image
             source={IllustrationImgLogo} 
             style={styles.image}
-            
             />
             
+            <Image 
+                source={IllustrationImgNameLogo}
+                style={styles.nameLogo} 
+            />
+
             <View style={styles.content}>
-
-                <Text style={styles.title}>
-                    SafetyGrl
-                </Text>
-
-                <Text style={styles.subtitle}>
-                    teste do git diff
-                </Text>
-                <TextInput style={styles.inputLogin}>CPF</TextInput>
-                <TextInput style={styles.inputLogin}>Senha</TextInput>
+                <TextInput style={styles.inputLogin}>  CPF</TextInput>
+                <TextInput style={styles.inputLogin}>  Senha</TextInput>
             </View>
+
             <ButtonLogin 
+                //onPress={() => navigation.navigate('CreateAccount')}
+            />
+            <ButtonCreateAccountSignIn
                 onPress={() => navigation.navigate('CreateAccount')}
             />
-            <ButtonIconFacebook />
-            <ButtonIconGoogle />
+
+            <View style={styles.containerIcons}>
+                <ButtonIconFacebook />
+                <ButtonIconGoogle />
+            </View>
+            
         </View>
     )
 }

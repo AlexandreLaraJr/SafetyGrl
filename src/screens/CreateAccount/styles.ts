@@ -41,6 +41,7 @@ export const styles = StyleSheet.create({
         alignItems: 'center',
         borderWidth: 0.5,
         marginTop: 3,
-    }
+    },
+    
 
 })
