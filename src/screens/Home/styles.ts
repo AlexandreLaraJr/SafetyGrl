@@ -18,23 +18,28 @@ export const styles = StyleSheet.create({
         justifyContent: 'space-between',
         marginTop: 25
     },
+    rectUser: {
+        marginLeft: 20,
+    },
     iconUser: {
         width: 40,
         height: 40,
-        marginLeft: 20
+        //backgroundColor: 'white'
     },
     textName: {
         fontSize: 18,
         fontWeight: 'bold',
-        left: -60
+        left: -50
+    },
+    rectOff: {
+        marginRight: 20,
     },
     iconOff: {
         width: 25,
         height: 25,
-        right: 20
     },
     content2: {
-        height: 400,
+        height: 450,
         backgroundColor: theme.colors.secundaryBackgroung,
         borderRadius: 8,
         marginLeft: 35,
@@ -50,18 +55,34 @@ export const styles = StyleSheet.create({
     subContent2:{
         flexDirection:'row',  
         justifyContent: 'space-between',  
-        backgroundColor: theme.colors.footer,
-        borderRadius: 8,
-        //alignItems:'center'   
+        marginTop: 280,
     },
     contentIconAlert: {
-
+        width:70,
+        height: 50,
+        backgroundColor: theme.colors.footer,
+        borderRadius: 8,
+        marginRight: 80,
+        alignItems: 'center',
+        justifyContent: 'center',
     },
     icon: {
-
+        width: 32,
+        height: 32,
     },
     contentIconDepoiment: {
-        
+        width:70,
+        height: 50,
+        backgroundColor: theme.colors.footer,
+        borderRadius: 8,
+        alignItems: 'center',
+        justifyContent: 'center',
+    },
+    rectMaps: {
+        backgroundColor: "white",
+        width: 50,
+        height: 50,
     }
+
 
 })

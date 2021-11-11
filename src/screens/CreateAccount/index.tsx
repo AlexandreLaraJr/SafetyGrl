@@ -8,6 +8,10 @@ import {
     TextInput
 } from 'react-native'
 
+import { useNavigation } from "@react-navigation/native";
+import {StackNavigationProp} from '@react-navigation/stack';
+import {RootStackParamList} from '../RootStackPrams';
+
 import IllustrationImgLogo from '../../assets/Logo_app.png'
 import IllustrationImgNameLogo from '../../assets/SafetyGrl.png'
 
@@ -15,7 +19,12 @@ import { ButtonCreateAccount } from '../../components/ButtonIconCreateAccount'
 
 import { styles } from "./styles"
 
+type HomeScreenProp = StackNavigationProp<RootStackParamList, 'Home'>;
+
 export function CreateAccount(){
+
+    const navigation = useNavigation<HomeScreenProp>();
+
     return(
         <View style={styles.container} >
             <View style={styles.content}>
@@ -68,7 +77,9 @@ export function CreateAccount(){
                 <TextInput style={styles.inputData} />
             </View>
 
-            <ButtonCreateAccount />
+            <ButtonCreateAccount 
+                onPress={() => navigation.navigate('Home')}
+            />
         </View>
     )
 }

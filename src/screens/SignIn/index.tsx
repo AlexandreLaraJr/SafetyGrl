@@ -49,7 +49,7 @@ export function SignIn(){
             </View>
 
             <ButtonLogin 
-                //onPress={() => navigation.navigate('CreateAccount')}
+                onPress={() => navigation.navigate('Home')}
             />
             <ButtonCreateAccountSignIn
                 onPress={() => navigation.navigate('CreateAccount')}

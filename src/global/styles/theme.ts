@@ -5,6 +5,7 @@ export const theme = {
         primary: '#92A3F8',
         blackopacity: '#735A5A',
         secundaryBackgroung: '#F66691',
-        footer: '#E11552'
+        footer: '#E11552',
+        title: '#515983',
     }
 }
