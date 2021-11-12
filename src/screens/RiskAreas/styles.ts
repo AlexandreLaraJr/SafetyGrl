@@ -43,5 +43,14 @@ export const styles = StyleSheet.create({
     iconSearch: {
         width: 20,
         height: 20,
+    },
+    subtitle: {
+        top: 60,
+        fontSize: 15,
+    },
+    textRegion: {
+        position: "absolute",
+        bottom: 40,
+        fontSize: 15
     }
 })

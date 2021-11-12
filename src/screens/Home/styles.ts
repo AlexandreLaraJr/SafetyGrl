@@ -18,14 +18,7 @@ export const styles = StyleSheet.create({
         justifyContent: 'space-between',
         marginTop: 25
     },
-    rectUser: {
-        marginLeft: 20,
-    },
-    iconUser: {
-        width: 40,
-        height: 40,
-        //backgroundColor: 'white'
-    },
+    
     textName: {
         fontSize: 18,
         fontWeight: 'bold',
@@ -56,15 +49,6 @@ export const styles = StyleSheet.create({
         flexDirection:'row',  
         justifyContent: 'space-between',  
         marginTop: 280,
-    },
-    contentIconAlert: {
-        width:70,
-        height: 50,
-        backgroundColor: theme.colors.footer,
-        borderRadius: 8,
-        marginRight: 80,
-        alignItems: 'center',
-        justifyContent: 'center',
     },
     icon: {
         width: 32,

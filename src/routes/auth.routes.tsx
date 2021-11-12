@@ -7,6 +7,8 @@ import { CreateAccount } from '../screens/CreateAccount'
 import { SignIn } from '../screens/SignIn'
 import { Home } from "../screens/Home";
 import { RiskAreas } from "../screens/RiskAreas";
+import { User } from "../screens/User";
+import { Complaint } from "../screens/Complaint";
 
 const { Navigator, Screen } = createStackNavigator();
 
@@ -36,6 +38,14 @@ export function AuthRoutes( ) {
                 <Screen //telas disponiveis para navegação
                     name="RiskAreas"
                     component={RiskAreas}
+                />
+                <Screen //telas disponiveis para navegação
+                    name="User"
+                    component={User}
+                />
+                <Screen //telas disponiveis para navegação
+                    name="Complaint"
+                    component={Complaint}
                 />
 
             </Navigator>

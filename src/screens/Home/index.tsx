@@ -12,7 +12,6 @@ import { useNavigation } from "@react-navigation/native";
 import {StackNavigationProp} from '@react-navigation/stack';
 import {RootStackParamList} from '../RootStackPrams';
 
-import IllustrationUser from '../../assets/icone_user.png'
 import IllustrationOff from '../../assets/icone_sair.png'
 import IllustrationAlert from '../../assets/icone-_alert.png'
 import IllustrationDepoiment from '../../assets/icone_depoimento.png'
@@ -21,6 +20,7 @@ import { styles } from "./styles"
 import { LogoHeader } from "../../components/LogoHeader";
 import { RectButton } from "react-native-gesture-handler";
 import { Footer } from "../../components/Footer";
+import { ButtonComplaint, ButtonUser } from "../../components/ButtonHome";
 
 type RiskAreasScreenProp = StackNavigationProp<RootStackParamList, 'RiskAreas'>;
 
@@ -33,14 +33,10 @@ export function Home(){
             <LogoHeader />
 
             <View style={styles.content}>
-                
-                <RectButton style={styles.rectUser}>
-                    <Image 
-                        style={styles.iconUser}
-                        source={IllustrationUser}
-                    />
-                </RectButton>
-                    
+
+            <ButtonUser
+                onPress={() => navigation.navigate('User')}
+            />
                 <Text style={styles.textName}>
                     Olá, Amanda!
                 </Text>
@@ -63,12 +59,9 @@ export function Home(){
                 />
 
                 <View style={styles.subContent2}> 
-                    <RectButton style={styles.contentIconAlert}>
-                        <Image
-                            style={styles.icon} 
-                            source={IllustrationAlert}
-                        />
-                    </RectButton>
+                    <ButtonComplaint
+                        onPress={() => navigation.navigate('Complaint')}
+                    />
 
                     <RectButton style={styles.contentIconDepoiment}>
                         <Image

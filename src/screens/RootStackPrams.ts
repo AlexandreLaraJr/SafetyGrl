@@ -2,5 +2,7 @@ export type RootStackParamList = {
     SignIn: undefined;
     CreateAccount: undefined;
     Home: undefined;
-    RiskAreas: undefined
+    RiskAreas: undefined;
+    User: undefined;
+    Complaint: undefined;
 };

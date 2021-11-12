@@ -41,6 +41,14 @@ export function RiskAreas(){
                         />
                     </RectButton>
                 </View>
+
+                <Text style={styles.subtitle}>
+                    Áreas de risco próximas de você
+                </Text>
+                 
+                <Text style={styles.textRegion}>
+                    Região de Santos/SP
+                </Text>
             </View>
 
             <Footer />
