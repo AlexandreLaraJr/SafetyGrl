@@ -71,7 +71,7 @@ export function Complaint(){
                             </View>
                         </View>
 
-                        <View style={styles.content4}>
+                        <View>
                             <View style={styles.contentItems} >
                                 <Text style={styles.items}>
                                     Horário:
@@ -91,23 +91,24 @@ export function Complaint(){
                         </View>
                     </View>
 
-                    <View style={styles.contentItems} >
-                        <Text style={styles.items}>
-                            Local: 
-                        </Text>
-                        <Text style={styles.textRed}>
-                            *
-                        </Text>
-                    </View>
+                    <View>
+                        <View style={styles.contentItems} >
+                            <Text style={styles.items}>
+                                Local: 
+                            </Text>
+                            <Text style={styles.textRed}>
+                                *
+                            </Text>
+                        </View>
 
-                    <View style={styles.contentIcon} >
-                        <TextInput style={styles.input} />
-                        <Image 
-                            style={styles.icon}
-                            source={IllustrationMapa}
-                        />
+                        <View style={styles.contentIcon} >
+                            <TextInput style={styles.input} />
+                            <Image 
+                                style={styles.icon}
+                                source={IllustrationMapa}
+                            />
+                        </View>
                     </View>
-
                 </View>
             </View>
             <Footer />

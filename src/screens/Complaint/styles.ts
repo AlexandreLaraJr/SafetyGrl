@@ -41,8 +41,9 @@ export const styles = StyleSheet.create({
     },
     content3: {
         flexDirection: 'row',
+        justifyContent: 'space-between'
     },
-    contentItems:{
+    contentItems: {
         flexDirection: 'row',
     },
     items: {
