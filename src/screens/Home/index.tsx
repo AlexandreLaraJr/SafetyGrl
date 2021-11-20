@@ -34,9 +34,10 @@ export function Home(){
 
             <View style={styles.content}>
 
-            <ButtonUser
-                onPress={() => navigation.navigate('User')}
-            />
+                <ButtonUser
+                    onPress={() => navigation.navigate('User')}
+                    //onPress={() => navigation.goBack()}
+                />
                 <Text style={styles.textName}>
                     Olá, Amanda!
                 </Text>
@@ -49,29 +50,29 @@ export function Home(){
                 </RectButton>
             </View>
 
-            <View style={styles.content2}>
-                <Text style={styles.textNameRegiao}>
-                    Região de Santos/SP
-                </Text>
+                <View style={styles.content2}>
+                    <Text style={styles.textNameRegiao}>
+                        Região de Santos/SP
+                    </Text>
 
-                <RectButton style={styles.rectMaps} 
-                    onPress={() => navigation.navigate('RiskAreas')} 
-                />
-
-                <View style={styles.subContent2}> 
-                    <ButtonComplaint
-                        onPress={() => navigation.navigate('Complaint')}
+                    <RectButton style={styles.rectMaps} 
+                        onPress={() => navigation.navigate('RiskAreas')} 
                     />
 
-                    <RectButton style={styles.contentIconDepoiment}>
-                        <Image
-                            style={styles.icon}  
-                            source={IllustrationDepoiment}
+                    <View style={styles.subContent2}> 
+                        <ButtonComplaint
+                            onPress={() => navigation.navigate('Complaint')}
                         />
-                    </RectButton>
-                </View>
 
-            </View>
+                        <RectButton style={styles.contentIconDepoiment}>
+                            <Image
+                                style={styles.icon}  
+                                source={IllustrationDepoiment}
+                            />
+                        </RectButton>
+                    </View>
+
+                </View>
 
             <Footer />
         </View>

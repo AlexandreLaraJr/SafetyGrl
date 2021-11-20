@@ -54,6 +54,7 @@ export const styles = StyleSheet.create({
     },
     personalDatas: {
         fontSize: 15,
+        padding: 5,
     },
     contentEdit: {
         flexDirection: 'row',

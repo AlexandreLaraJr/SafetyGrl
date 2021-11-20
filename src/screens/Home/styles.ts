@@ -32,14 +32,14 @@ export const styles = StyleSheet.create({
         height: 25,
     },
     content2: {
-        height: 450,
         backgroundColor: theme.colors.secundaryBackgroung,
-        borderRadius: 8,
+        flex: 1,
+        marginTop: 24,
         marginLeft: 35,
         marginRight: 35,
-        alignItems: 'center',
-        //justifyContent: 'space-between',
-        marginTop: 25
+        marginBottom: 70,
+        borderRadius: 8,
+        alignItems: 'center'
     },
     textNameRegiao: {
         fontSize: 15,

@@ -16,7 +16,7 @@ export const styles = StyleSheet.create({
         marginRight: 35,
         marginBottom: 70,
         borderRadius: 8,
-        alignItems: 'center'
+        alignItems: 'center',
     },
     contentTitle: {
         flexDirection: 'row',
@@ -29,19 +29,19 @@ export const styles = StyleSheet.create({
         fontSize: 22,
         fontWeight: 'bold',
         color: theme.colors.title,
-        right: -30
+        //right: -30
     },
     iconAlert: {
         width: 40,
         height: 40,
     },
     content2: {
-        //left: -70,
-        top: 60,
+        top: 45,
+        //justifyContent: 'space-between'
     },
     content3: {
         flexDirection: 'row',
-        justifyContent: 'space-between'
+        justifyContent: 'space-between',
     },
     contentItems: {
         flexDirection: 'row',
@@ -60,21 +60,21 @@ export const styles = StyleSheet.create({
         backgroundColor: 'white',
         borderWidth: 0.5,
         borderRadius: 8,
-        top: 10,
-        marginBottom: 30,
+        padding: 5
     },
     contentIcon: {
         flexDirection: 'row',
         alignItems: 'center',
+        marginBottom: 15,
+        top: 8, 
     },
     inputHalf: {
         width: 120,
         height: 25,
         backgroundColor: 'white',
         borderWidth: 0.5,
-        borderRadius: 8,
-        top: 10,
-        marginBottom: 20,
+        borderRadius: 8,  
+        padding: 5,
     },
     icon: {
         width: 15,
@@ -82,7 +82,23 @@ export const styles = StyleSheet.create({
         right: 20
     },
     content4: {
-        left: 25
+        //left: 25
+    },
+    title2: {
+        fontSize: 16,
+        fontWeight: 'bold',
+        right: -2,
+        marginTop: 12,
+        marginBottom: 16
+    },
+    buttons: {
+        flexDirection: 'row',
+        justifyContent: 'space-around',
+        bottom: -30 
+    },
+    contentItems2: {
+        //flexDirection: 'row',
+        right: 16,
     }
 
 })

@@ -21,6 +21,7 @@ import { useNavigation } from "@react-navigation/native";
 import {StackNavigationProp} from '@react-navigation/stack';
 
 import { styles } from "./styles"
+import { ButtonCancelar, ButtonOk } from "../../components/ButtonComplaint";
 
 export function Complaint(){
 
@@ -49,7 +50,9 @@ export function Complaint(){
                         </Text>
                     </View>
 
-                    <TextInput style={styles.input} />
+                    <View style={styles.contentIcon}>
+                        <TextInput style={styles.input} />
+                    </View>
 
                     <View style={styles.content3} >
                         <View>
@@ -82,11 +85,11 @@ export function Complaint(){
                             </View>
 
                             <View style={styles.contentIcon} >
-                                <TextInput style={styles.inputHalf} />
-                                <Image 
+                                <TextInput style={styles.inputHalf}/>
+                                    <Image 
                                     style={styles.icon}
                                     source={IllustrationRelogio}
-                                />
+                                /> 
                             </View>
                         </View>
                     </View>
@@ -109,7 +112,83 @@ export function Complaint(){
                             />
                         </View>
                     </View>
-                </View>
+
+                    <Text style={styles.title2}>
+                        Características do agressor 
+                    </Text>
+
+                    
+                    {/* <View style={styles.content3} >
+                        <View>
+                            <View style={styles.contentItems} >
+                            <Text style={styles.items}>
+                                    Altura:
+                                </Text>                                
+                            </View>
+
+                            <View style={styles.contentIcon} >
+                                <TextInput style={styles.inputHalf} />                               
+                            </View>
+                        </View>
+
+                        <View>
+                            <View style={styles.contentItems} >
+                                <Text style={styles.items}>
+                                    Idade:
+                                </Text>                            
+                            </View>
+
+                            <View style={styles.contentIcon} >
+                                <TextInput style={styles.inputHalf} />                                
+                            </View>
+                        </View>
+                    </View>
+
+                    <View style={styles.contentItems} >
+                        <Text style={styles.items}>
+                            Outros: 
+                        </Text>
+                    </View>  */}
+
+                    <View style={styles.content3} >
+                        <View>
+                            <View style={styles.contentItems} >
+                                <Text style={styles.items}>
+                                    Altura:
+                                </Text>                               
+                            </View>
+
+                            <View style={styles.contentIcon} >
+                                <TextInput style={styles.inputHalf} />
+                            </View>
+                        </View>
+
+                        <View style={styles.contentItems2}>
+                            <View  style={styles.contentItems}>
+                                <Text style={styles.items}>
+                                    Idade:
+                                </Text>
+                            </View>
+
+                            <View style={styles.contentIcon} >
+                                <TextInput style={styles.inputHalf} />  
+                            </View>
+                        </View>
+                    </View>
+                    
+                    <Text>
+                        Outros:
+                     </Text>
+
+                    <View style={styles.contentIcon} >                        
+                        <TextInput style={styles.input} placeholder=" Roupas, cor da pele, cor do cabelo" />                        
+                    </View>
+
+                    <View style={styles.buttons}>
+                        <ButtonOk />
+                        <ButtonCancelar /> 
+                    </View> 
+                </View>       
             </View>
             <Footer />
         </View>
