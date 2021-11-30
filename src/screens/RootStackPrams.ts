@@ -5,4 +5,6 @@ export type RootStackParamList = {
     RiskAreas: undefined;
     User: undefined;
     Complaint: undefined;
+    Statements: undefined;
+    Statements2: undefined;
 };

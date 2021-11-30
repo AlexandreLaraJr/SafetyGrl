@@ -14,13 +14,13 @@ import {RootStackParamList} from '../RootStackPrams';
 
 import IllustrationOff from '../../assets/icone_sair.png'
 import IllustrationAlert from '../../assets/icone-_alert.png'
-import IllustrationDepoiment from '../../assets/icone_depoimento.png'
+
 
 import { styles } from "./styles"
 import { LogoHeader } from "../../components/LogoHeader";
 import { RectButton } from "react-native-gesture-handler";
 import { Footer } from "../../components/Footer";
-import { ButtonComplaint, ButtonUser } from "../../components/ButtonHome";
+import { ButtonComplaint, ButtonUser, ButtonBack, ButtonStatement } from "../../components/ButtonHome";
 
 type RiskAreasScreenProp = StackNavigationProp<RootStackParamList, 'RiskAreas'>;
 
@@ -30,14 +30,15 @@ export function Home(){
 
     return(
         <View style={styles.container}>
+            
             <LogoHeader />
-
+           
             <View style={styles.content}>
 
                 <ButtonUser
                     onPress={() => navigation.navigate('User')}
-                    //onPress={() => navigation.goBack()}
                 />
+
                 <Text style={styles.textName}>
                     Olá, Amanda!
                 </Text>
@@ -64,16 +65,11 @@ export function Home(){
                             onPress={() => navigation.navigate('Complaint')}
                         />
 
-                        <RectButton style={styles.contentIconDepoiment}>
-                            <Image
-                                style={styles.icon}  
-                                source={IllustrationDepoiment}
-                            />
-                        </RectButton>
+                        <ButtonStatement
+                            onPress={() => navigation.navigate('Statements')}
+                        />                        
                     </View>
-
                 </View>
-
             <Footer />
         </View>
     )

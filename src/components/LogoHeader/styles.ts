@@ -6,8 +6,13 @@ export const styles = StyleSheet.create({
         flexDirection: 'row',
         justifyContent:'center',
         alignItems: 'center',
-        marginTop: 35,
-               
+        marginTop: 35,  
+    
+    },
+    containerLogo:{
+        flexDirection: 'row',
+        alignItems: 'center',
+        marginLeft: 20,
     },
     logo: {
         width: 80,

@@ -23,5 +23,23 @@ export const styles = StyleSheet.create({
     iconComplaint: {
         width: 32,
         height: 32,
-    }
+    },
+    icon: {
+        width: 32,
+        height: 32,
+        //marginLeft: -20,
+    },
+    contentBack: {
+        marginLeft: -55,
+    },
+    contentIconDepoiment: {
+        width:70,
+        height: 50,
+        backgroundColor: theme.colors.footer,
+        borderRadius: 8,
+        alignItems: 'center',
+        justifyContent: 'center',
+    },
+    
+
 })

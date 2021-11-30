@@ -18,6 +18,7 @@ import IllustrationImgNameLogo from '../../assets/SafetyGrl.png'
 import { ButtonCreateAccount } from '../../components/ButtonIconCreateAccount'
 
 import { styles } from "./styles"
+import { LogoHeader } from "../../components/LogoHeader";
 
 type HomeScreenProp = StackNavigationProp<RootStackParamList, 'Home'>;
 
@@ -27,17 +28,8 @@ export function CreateAccount(){
 
     return(
         <View style={styles.container} >
-            <View style={styles.content}>
-                <Image 
-                    source={IllustrationImgLogo}
-                    style={styles.logo} 
-                />
-
-                <Image 
-                    source={IllustrationImgNameLogo}
-                    style={styles.nameLogo} 
-                />
-            </View>
+            
+            <LogoHeader />
 
             <View style={styles.content2}>
                 <Text style={styles.NameData}>

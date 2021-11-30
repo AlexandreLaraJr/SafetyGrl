@@ -23,7 +23,11 @@ import {StackNavigationProp} from '@react-navigation/stack';
 import { styles } from "./styles"
 import { ButtonCancelar, ButtonOk } from "../../components/ButtonComplaint";
 
+type RiskAreasScreenProp = StackNavigationProp<RootStackParamList, 'RiskAreas'>;
+
 export function Complaint(){
+
+    const navigation = useNavigation<RiskAreasScreenProp>();
 
     return(
         <View style={styles.container}>
@@ -116,40 +120,7 @@ export function Complaint(){
                     <Text style={styles.title2}>
                         Características do agressor 
                     </Text>
-
-                    
-                    {/* <View style={styles.content3} >
-                        <View>
-                            <View style={styles.contentItems} >
-                            <Text style={styles.items}>
-                                    Altura:
-                                </Text>                                
-                            </View>
-
-                            <View style={styles.contentIcon} >
-                                <TextInput style={styles.inputHalf} />                               
-                            </View>
-                        </View>
-
-                        <View>
-                            <View style={styles.contentItems} >
-                                <Text style={styles.items}>
-                                    Idade:
-                                </Text>                            
-                            </View>
-
-                            <View style={styles.contentIcon} >
-                                <TextInput style={styles.inputHalf} />                                
-                            </View>
-                        </View>
-                    </View>
-
-                    <View style={styles.contentItems} >
-                        <Text style={styles.items}>
-                            Outros: 
-                        </Text>
-                    </View>  */}
-
+                
                     <View style={styles.content3} >
                         <View>
                             <View style={styles.contentItems} >
@@ -186,7 +157,9 @@ export function Complaint(){
 
                     <View style={styles.buttons}>
                         <ButtonOk />
-                        <ButtonCancelar /> 
+                        <ButtonCancelar 
+                            onPress={() => navigation.goBack()}
+                        /> 
                     </View> 
                 </View>       
             </View>
