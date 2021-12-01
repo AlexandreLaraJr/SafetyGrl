@@ -32,7 +32,8 @@ export const styles = StyleSheet.create({
         right: -10
     },
     iconUser: {
-        width: 45,
+        width: 35,
+        height: 35,
     },
     contentDatas: {
         top: 60,   

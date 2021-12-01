@@ -11,6 +11,9 @@ import { User } from "../screens/User";
 import { Complaint } from "../screens/Complaint";
 import { Statements } from "../screens/Statements";
 import { Statements2 } from "../screens/Statements2";
+import { ChangePassword } from "../screens/ChangePassword";
+import { Settings } from "../screens/Settings";
+import { Notifications } from "../screens/Notifications";
 
 const { Navigator, Screen } = createStackNavigator();
 
@@ -56,6 +59,18 @@ export function AuthRoutes( ) {
                 <Screen //telas disponiveis para navegação
                     name="Statements2"
                     component={Statements2}
+                />
+                <Screen //telas disponiveis para navegação
+                    name="ChangePassword"
+                    component={ChangePassword}
+                />
+                <Screen //telas disponiveis para navegação
+                    name="Settings"
+                    component={Settings}
+                />
+                <Screen //telas disponiveis para navegação
+                    name="Notifications"
+                    component={Notifications}
                 />
 
             </Navigator>

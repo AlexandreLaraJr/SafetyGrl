@@ -18,8 +18,14 @@ import IllustrationUser from '../../assets/icone_user.png'
 import { styles } from "./styles"
 import { LogoHeader } from "../../components/LogoHeader";
 import { Footer } from "../../components/Footer";
+import { ButtonAlterarSenha, ButtonEditarDados } from "../../components/ButtonUser";
+
+type ChangePasswordScreenProp = StackNavigationProp<RootStackParamList, 'ChangePassword'>;
 
 export function User(){
+
+    const navigation = useNavigation<ChangePasswordScreenProp>();
+
     return(
         <View style={styles.container}>
             <LogoHeader />
@@ -78,13 +84,11 @@ export function User(){
                 </View>
 
                 <View style={styles.contentEdit}>
-                    <Text style={styles.datasEdit}>
-                        Editar Dados
-                    </Text>
+                    <ButtonEditarDados />
 
-                    <Text style={styles.passwordEdit}>
-                        Alterar Senha
-                    </Text>
+                    <ButtonAlterarSenha 
+                        onPress={() => navigation.navigate('ChangePassword')}
+                    /> 
                 </View>
             </View>
 

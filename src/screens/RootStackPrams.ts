@@ -7,4 +7,7 @@ export type RootStackParamList = {
     Complaint: undefined;
     Statements: undefined;
     Statements2: undefined;
+    ChangePassword: undefined;
+    Settings: undefined;
+    Notifications: undefined;
 };

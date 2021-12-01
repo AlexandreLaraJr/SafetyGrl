@@ -7,7 +7,7 @@ import { RectButton } from "react-native-gesture-handler";
 
 import { useNavigation } from "@react-navigation/native";
 import {StackNavigationProp} from '@react-navigation/stack';
-//import {RootStackParamList} from '../RootStackPrams';
+import {RootStackParamList} from '../../screens/RootStackPrams';
 
 import IllustrationSettings from '../../assets/icone-settings.png'
 import IllustrationBell from '../../assets/icone-bell.png'
@@ -15,15 +15,21 @@ import IllustrationSOS from '../../assets/icone_sos.png'
 
 import { styles } from "./styles"
 
+type NotificationsScreenProp = StackNavigationProp<RootStackParamList, 'Notifications'>;
+
 export function Footer(){
+
+    const navigation = useNavigation<NotificationsScreenProp>();
 
     return(
         <View style={styles.footer}>
-            <RectButton style={styles.rectConfig}>
+            <RectButton style={styles.rectConfig}
+                onPress={() => navigation.navigate('Settings')}
+            >
                 <Image 
                     style={styles.iconConfig}
                     source={IllustrationSettings}
-                />
+                />                
             </RectButton>
 
             <RectButton style={styles.buttonSOS}>
@@ -33,7 +39,9 @@ export function Footer(){
                 />
             </RectButton>
 
-            <RectButton style={styles.rectBell}>
+            <RectButton style={styles.rectBell}
+                onPress={() => navigation.navigate('Notifications')}
+            >
                 <Image
                     style={styles.iconBell} 
                     source={IllustrationBell}
