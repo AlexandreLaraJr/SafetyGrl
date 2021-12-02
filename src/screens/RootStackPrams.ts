@@ -10,4 +10,5 @@ export type RootStackParamList = {
     ChangePassword: undefined;
     Settings: undefined;
     Notifications: undefined;
+    Sos: undefined;
 };
