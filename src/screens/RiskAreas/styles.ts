@@ -13,8 +13,7 @@ export const styles = StyleSheet.create({
         borderRadius: 8,
         marginLeft: 35,
         marginRight: 35,
-        alignItems: 'center',
-        //justifyContent: 'space-between',
+        alignItems: 'center',       
         marginTop: 25
     },
     title: {

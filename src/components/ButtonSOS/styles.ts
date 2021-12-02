@@ -8,9 +8,7 @@ export const styles = StyleSheet.create({
         backgroundColor: 'red',
         borderRadius: 8,
         flexDirection: 'row',
-        alignItems: 'center',
-        //top: 30
-        //shadowColor: theme.colors.primary,
+        alignItems: 'center',        
     },
     titleLogin: {
         flex: 1,

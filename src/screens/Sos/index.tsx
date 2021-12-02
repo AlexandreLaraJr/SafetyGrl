@@ -2,7 +2,7 @@ import React from "react"
 import { 
     View, 
     Text, 
-    Linking
+    //Linking
 } from 'react-native'
 
 import 'react-native-gesture-handler';

@@ -3,7 +3,6 @@ import {
     View, 
     Text, 
     Image,
-    StatusBar,
     TextInput
 } from 'react-native'
 import 'react-native-gesture-handler';

@@ -2,9 +2,7 @@ import React from "react"
 import { 
     View, 
     Text, 
-    Image,
-    StatusBar,
-    TextInput
+    Image
 } from 'react-native'
 
 import 'react-native-gesture-handler';
@@ -13,14 +11,12 @@ import {StackNavigationProp} from '@react-navigation/stack';
 import {RootStackParamList} from '../RootStackPrams';
 
 import IllustrationOff from '../../assets/icone_sair.png'
-import IllustrationAlert from '../../assets/icone-_alert.png'
-
 
 import { styles } from "./styles"
 import { LogoHeader } from "../../components/LogoHeader";
 import { RectButton } from "react-native-gesture-handler";
 import { Footer } from "../../components/Footer";
-import { ButtonComplaint, ButtonUser, ButtonBack, ButtonStatement } from "../../components/ButtonHome";
+import { ButtonComplaint, ButtonUser, ButtonStatement } from "../../components/ButtonHome";
 
 type RiskAreasScreenProp = StackNavigationProp<RootStackParamList, 'RiskAreas'>;
 

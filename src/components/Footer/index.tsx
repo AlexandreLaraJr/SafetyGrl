@@ -14,8 +14,20 @@ import IllustrationBell from '../../assets/icone-bell.png'
 import IllustrationSOS from '../../assets/icone_sos.png'
 
 import { styles } from "./styles"
+//import { call } from "../../../babel.config";
 
 type NotificationsScreenProp = StackNavigationProp<RootStackParamList, 'Notifications'>;
+
+/** 
+export function makeCall (number: any) {
+    const args = {
+        number: number, // String value with the number to call
+        Prompt: true // Optional boolean property. Determines if the user should be Prompt prior to the call 
+    }
+   return
+    call(args).catch(console.error)
+   
+}**/
 
 export function Footer(){
 
@@ -34,7 +46,7 @@ export function Footer(){
 
             <RectButton style={styles.buttonSOS}
                 onPress={() => navigation.navigate('Sos') } 
-                onPress={() => { Linking.openURL('tel:190')} }
+                //onPress={() => { Linking.openURL('tel:190')} }
             >
                 <Image 
                     style={styles.iconSOS}  
