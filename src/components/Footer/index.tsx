@@ -45,8 +45,8 @@ export function Footer(){
             </RectButton>
 
             <RectButton style={styles.buttonSOS}
-                onPress={() => navigation.navigate('Sos') } 
-                //onPress={() => { Linking.openURL('tel:190')} }
+                //onPress={() => navigation.navigate('Sos') } 
+                onPress={() => { Linking.openURL('tel:190')} }
             >
                 <Image 
                     style={styles.iconSOS}  
