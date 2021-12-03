@@ -17,8 +17,7 @@ export const styles = StyleSheet.create({
         borderRadius: 8,
         alignItems: 'center',
     },
-    contentTitle: {
-        //flexDirection: 'row',
+    contentTitle: {        
         alignItems: 'center',
         justifyContent: 'center',
         top: 50,
@@ -27,7 +26,6 @@ export const styles = StyleSheet.create({
         fontSize: 22,
         fontWeight: 'bold',
         color: 'white',
-        paddingLeft: 20,
         textAlign: 'center',
     },
     
