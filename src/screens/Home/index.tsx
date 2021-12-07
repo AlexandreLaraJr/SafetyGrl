@@ -2,7 +2,8 @@ import React from "react"
 import { 
     View, 
     Text, 
-    Image
+    Image,
+    TextInput
 } from 'react-native'
 
 import MapView from 'react-native-maps';
@@ -11,6 +12,8 @@ import 'react-native-gesture-handler';
 import { useNavigation } from "@react-navigation/native";
 import {StackNavigationProp} from '@react-navigation/stack';
 import {RootStackParamList} from '../RootStackPrams';
+
+import IllustrationSearch from '../../assets/icon-search.png'
 
 import { styles } from "./styles"
 import { LogoHeader } from "../../components/LogoHeader";
@@ -118,11 +121,23 @@ export function Home(){
                />
             </View>
 
-                <View style={styles.content2}>
-                    <Text style={styles.textNameRegiao}>
-                        Região de Santos/SP
-                    </Text>
-                    <View style={{ alignSelf: 'center', marginTop: 10, borderRadius: 10, overflow: 'hidden' }}>
+            <View style={styles.content2}>
+
+                <Text style={styles.title}>
+                    Áreas de Risco 
+                </Text>
+                
+                <View style={styles.contentSearch} >
+                    <TextInput style={styles.search} />
+                    <RectButton style={styles.rectSearch}>
+                        <Image
+                            style={styles.iconSearch}
+                            source={IllustrationSearch}
+                        />
+                    </RectButton>
+                </View>
+               
+                <View style={{ alignSelf: 'center', marginTop: 10, borderRadius: 10, overflow: 'hidden' }}>
                     <MapView
                         style={styles.map}
                         initialRegion={{
@@ -134,29 +149,21 @@ export function Home(){
                     >
                     </MapView>
                 </View>
-                <RectButton style={styles.rectMaps} 
-                    onPress={() => navigation.navigate('RiskAreas')} 
-                >
-                <Text style={styles.buttonText}>Faça uma denuncia</Text>
-                </RectButton>
 
+                <Text style={styles.textNameRegiao}>
+                    Região de Santos/SP
+                </Text>                              
+                  
+                <View style={styles.subContent2}> 
+                    <ButtonComplaint
+                        onPress={() => navigation.navigate('Complaint')}
+                    />
+
+                    <ButtonStatement
+                        onPress={() => navigation.navigate('Statements')}
+                    />                        
                 </View>
-                
-                <View>
-                    
-                    <View style={styles.subContent2}> 
-                        <ButtonComplaint
-                            onPress={() => navigation.navigate('Complaint')}
-                        />
-
-                        <ButtonStatement
-                            onPress={() => navigation.navigate('Statements')}
-                        />                        
-                    </View>
-                </View>
-
-            <Footer />
-            
-        </View>
-    )
-}
+            </View>
+        <Footer />            
+    </View>
+)}

@@ -22,7 +22,7 @@ export const styles = StyleSheet.create({
     textName: {
         fontSize: 18,
         fontWeight: 'bold',
-        left: -50
+        left: -90
     },
     rectOff: {
         marginRight: 20,
@@ -34,21 +34,54 @@ export const styles = StyleSheet.create({
     content2: {
         backgroundColor: theme.colors.secundaryBackgroung,
         flex: 1,
-        marginTop: 24,
+        marginTop: 10,
         marginLeft: 35,
         marginRight: 35,
-        marginBottom: -50,
+        marginBottom: 70,
         borderRadius: 8,
         alignItems: 'center',
     },
-    textNameRegiao: {
+    title: {
+        fontSize: 22,
+        fontWeight: 'bold',
+        color: theme.colors.title,
+        top: 15,
+    },
+    contentSearch: {
+        flexDirection: "row",
+        top: 25,
+        justifyContent: 'center',
+        alignItems: 'center',
+        marginBottom: 30,
+    },
+    search: {
+        width: 315,
+        height: 30,
+        backgroundColor: 'white',
+        borderRadius: 6,
+        borderWidth: 0.5,
+        right: -8
+    },
+    rectSearch: {
+        right: 20
+    },
+    iconSearch: {
+        width: 20,
+        height: 20,
+    },
+    subtitle: {
+        top: 60,
         fontSize: 15,
-        marginTop: 20,
+    },
+    textNameRegiao: {
+        fontSize: 14,
+        marginTop: 10,
+        marginBottom: 25
     },
     subContent2:{
         flexDirection:'row',  
         justifyContent: 'space-between',  
-        marginTop: 280,
+        marginBottom: -50,
     },
     icon: {
         width: 32,
@@ -78,7 +111,7 @@ export const styles = StyleSheet.create({
         overflow: 'hidden',
     },
     buttonText: {
-        fontFamily: 'Roboto_500Medium',
+        //fontFamily: 'Roboto_500Medium',
         fontSize: 16,
         fontWeight: 'bold',
         color: '#000',
