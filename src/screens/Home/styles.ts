@@ -49,7 +49,7 @@ export const styles = StyleSheet.create({
     },
     contentSearch: {
         flexDirection: "row",
-        top: 25,
+        top: 30,
         justifyContent: 'center',
         alignItems: 'center',
         marginBottom: 30,
