@@ -29,7 +29,7 @@ export const styles = StyleSheet.create({
         fontSize: 22,
         fontWeight: 'bold',
         color: theme.colors.title,
-        //right: -30
+        right: -30
     },
     iconAlert: {
         width: 40,

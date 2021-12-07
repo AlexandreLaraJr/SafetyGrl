@@ -6,7 +6,7 @@ export const styles = StyleSheet.create({
     footer: {
         backgroundColor: theme.colors.footer,
         width: '100%',
-        height: 60,
+        height: 50,
         position: 'absolute', //deixa em cima ou em baixo
         bottom: 0,
         flexDirection: 'row',
@@ -18,8 +18,8 @@ export const styles = StyleSheet.create({
         left: 40,
     },
     iconConfig: {
-        width: 40,
-        height: 40,
+        width: 35,
+        height: 35,
     },
     buttonSOS: {
         backgroundColor: 'white',
@@ -38,7 +38,7 @@ export const styles = StyleSheet.create({
         right: 40,
     },
     iconBell: {
-        width: 35,
-        height: 35,
+        width: 30,
+        height: 30,
     },
 })
