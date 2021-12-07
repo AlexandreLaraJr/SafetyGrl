@@ -12,7 +12,7 @@ export const styles = StyleSheet.create({
         //backgroundColor: 'white'
     },
     contentIconAlert: {
-        width:70,
+        width: 80,
         height: 50,
         backgroundColor: theme.colors.footer,
         borderRadius: 8,
@@ -33,7 +33,7 @@ export const styles = StyleSheet.create({
         marginLeft: -55,
     },
     contentIconDepoiment: {
-        width:70,
+        width:80,
         height: 50,
         backgroundColor: theme.colors.footer,
         borderRadius: 8,
