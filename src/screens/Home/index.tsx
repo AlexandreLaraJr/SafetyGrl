@@ -22,11 +22,11 @@ import { Footer } from "../../components/Footer";
 import { ButtonComplaint, ButtonUser, ButtonStatement } from "../../components/ButtonHome";
 import { ButtonLogoff } from "../../components/Logoff";
 
-type RiskAreasScreenProp = StackNavigationProp<RootStackParamList, 'RiskAreas'>;
+type userScreenProp = StackNavigationProp<RootStackParamList, 'User'>;
 
 export function Home(){
 
-    const navigation = useNavigation<RiskAreasScreenProp>();
+    const navigation = useNavigation<userScreenProp>();
 
     let points = [{latitude: 6.83646681, longitude: 79.77121907, weight: 1},
         {latitude: 6.82776681, longitude: 79.871319, weight: 1},

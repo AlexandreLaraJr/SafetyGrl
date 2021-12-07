@@ -27,8 +27,6 @@ import {StackNavigationProp} from '@react-navigation/stack';
 import { styles } from "./styles"
 import { ButtonCancelar, ButtonOk } from "../../components/ButtonComplaint";
 
-
-
 export function Settings(){
 
     return(

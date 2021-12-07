@@ -1,8 +1,7 @@
 import { 
     View, 
     Text, 
-    //Linking
-} from 'react-native'
+}from 'react-native'
 
 import 'react-native-gesture-handler';
 import { useNavigation } from "@react-navigation/native";
@@ -15,11 +14,11 @@ import { LogoHeader } from "../../components/LogoHeader";
 import { Footer } from "../../components/Footer";
 import { ButtonCancelar } from "../../components/ButtonSOS";
 
-type RiskAreasScreenProp = StackNavigationProp<RootStackParamList, 'Statements2'>;
+type ScreenProp = StackNavigationProp<RootStackParamList, 'Statements2'>;
 
 export function Sos(){
 
-    const navigation = useNavigation<RiskAreasScreenProp>();
+    const navigation = useNavigation<ScreenProp>();
 
     return(
         <View style={styles.container}>
