@@ -6,7 +6,6 @@ import { createStackNavigator } from "@react-navigation/stack";
 import { CreateAccount } from '../screens/CreateAccount'
 import { SignIn } from '../screens/SignIn'
 import { Home } from "../screens/Home";
-import { RiskAreas } from "../screens/RiskAreas";
 import { User } from "../screens/User";
 import { Complaint } from "../screens/Complaint";
 import { Statements } from "../screens/Statements";
@@ -40,10 +39,6 @@ export function AuthRoutes( ) {
                 <Screen //telas disponiveis para navegação
                     name="Home"
                     component={Home}
-                />
-                <Screen //telas disponiveis para navegação
-                    name="RiskAreas"
-                    component={RiskAreas}
                 />
                 <Screen //telas disponiveis para navegação
                     name="User"
