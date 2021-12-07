@@ -63,10 +63,6 @@ export function SignIn(){
                 <Text style={styles.forgotPassword}>Esqueci a senha</Text>
             </View>
 
-        
-            <Text>{"CPF ==> " + cpf}</Text>
-            <Text>{"Senha ==> " + password}</Text>
-
             <ButtonLogin 
                 onPress={() => {
                     
