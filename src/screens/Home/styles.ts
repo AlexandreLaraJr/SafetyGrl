@@ -1,5 +1,5 @@
 import { setStatusBarBackgroundColor } from "expo-status-bar";
-import { StyleSheet } from "react-native";
+import { Dimensions, StyleSheet } from "react-native";
 import { theme } from "../../global/styles/theme";
 
 export const styles = StyleSheet.create({
@@ -37,9 +37,9 @@ export const styles = StyleSheet.create({
         marginTop: 24,
         marginLeft: 35,
         marginRight: 35,
-        marginBottom: 70,
+        marginBottom: -50,
         borderRadius: 8,
-        alignItems: 'center'
+        alignItems: 'center',
     },
     textNameRegiao: {
         fontSize: 15,
@@ -63,8 +63,26 @@ export const styles = StyleSheet.create({
         justifyContent: 'center',
     },
     rectMaps: {
-        backgroundColor: "white",
-        width: 50,
+        backgroundColor: "#D4AB8E",
+        marginTop: 20,
+        width: 200,
         height: 50,
+        borderRadius: 8,
+        borderWidth: 1,
     },
+    map: {
+        width: Dimensions.get('window').width/1.3,
+        height: Dimensions.get('window').height/3,
+        borderRadius: 4, 
+        borderWidth: 1,
+        overflow: 'hidden',
+    },
+    buttonText: {
+        fontFamily: 'Roboto_500Medium',
+        fontSize: 16,
+        fontWeight: 'bold',
+        color: '#000',
+        textAlign: 'center',
+        marginTop: 10
+    }
 })

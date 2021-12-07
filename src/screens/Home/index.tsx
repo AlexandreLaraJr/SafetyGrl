@@ -5,12 +5,12 @@ import {
     Image
 } from 'react-native'
 
+import MapView from 'react-native-maps';
+
 import 'react-native-gesture-handler';
 import { useNavigation } from "@react-navigation/native";
 import {StackNavigationProp} from '@react-navigation/stack';
 import {RootStackParamList} from '../RootStackPrams';
-
-
 
 import { styles } from "./styles"
 import { LogoHeader } from "../../components/LogoHeader";
@@ -25,6 +25,79 @@ export function Home(){
 
     const navigation = useNavigation<RiskAreasScreenProp>();
 
+    let points = [{latitude: 6.83646681, longitude: 79.77121907, weight: 1},
+        {latitude: 6.82776681, longitude: 79.871319, weight: 1},
+        {latitude: 6.82176681, longitude: 79.871319, weight: 1},
+        {latitude: 6.83776681, longitude: 79.871319, weight: 1},
+        {latitude: 6.83176681, longitude: 79.871319, weight: 1},
+        {latitude: 6.83976681, longitude: 79.861319, weight: 1},
+        {latitude: 6.83076681, longitude: 79.861319, weight: 1},
+        {latitude: 6.82776681, longitude: 79.861319, weight: 1},
+        {latitude: 6.82076681, longitude: 79.871319, weight: 1},
+        {latitude: 6.82076681, longitude: 79.861319, weight: 1},
+        {latitude: 6.81076681, longitude: 79.861319, weight: 1},
+        {latitude: 6.83776681, longitude: 79.869319, weight: 1},
+        {latitude: 6.83276681, longitude: 79.869319, weight: 1},
+        {latitude: 6.81976681, longitude: 79.869319, weight: 1},
+        {latitude: 6.83776681, longitude: 79.867319, weight: 1},
+        {latitude: 6.83776681, longitude: 79.865319, weight: 1},
+        {latitude: 6.83646681, longitude: 79.77121907, weight: 1},
+        {latitude: 6.82776681, longitude: 79.871319, weight: 1},
+        {latitude: 6.82176681, longitude: 79.871319, weight: 1},
+        {latitude: 6.83776681, longitude: 79.871319, weight: 1},
+        {latitude: 6.83176681, longitude: 79.871319, weight: 1},
+        {latitude: 6.83976681, longitude: 79.861319, weight: 1},
+        {latitude: 6.83076681, longitude: 79.861319, weight: 1},
+        {latitude: 6.82776681, longitude: 79.861319, weight: 1},
+        {latitude: 6.82076681, longitude: 79.871319, weight: 1},
+        {latitude: 6.82076681, longitude: 79.861319, weight: 1},
+        {latitude: 6.81076681, longitude: 79.861319, weight: 1},
+        {latitude: 6.83776681, longitude: 79.869319, weight: 1},
+        {latitude: 6.83276681, longitude: 79.869319, weight: 1},
+        {latitude: 6.81976681, longitude: 79.869319, weight: 1},
+        {latitude: 6.83776681, longitude: 79.867319, weight: 1},
+        {latitude: 6.83776681, longitude: 79.865319, weight: 1},
+        {latitude: 6.84076681, longitude: 79.871319, weight: 1},
+        {latitude: 6.83646681, longitude: 79.77121907, weight: 1},
+        {latitude: 6.82776681, longitude: 79.871319, weight: 1},
+        {latitude: 6.82176681, longitude: 79.871319, weight: 1},
+        {latitude: 6.83776681, longitude: 79.871319, weight: 1},
+        {latitude: 6.83176681, longitude: 79.871319, weight: 1},
+        {latitude: 6.83976681, longitude: 79.861319, weight: 1},
+        {latitude: 6.83076681, longitude: 79.861319, weight: 1},
+        {latitude: 6.82776681, longitude: 79.861319, weight: 1},
+        {latitude: 6.82076681, longitude: 79.871319, weight: 1},
+        {latitude: 6.82076681, longitude: 79.861319, weight: 1},
+        {latitude: 6.81076681, longitude: 79.861319, weight: 1},
+        {latitude: 6.83776681, longitude: 79.869319, weight: 1},
+        {latitude: 6.83276681, longitude: 79.869319, weight: 1},
+        {latitude: 6.81976681, longitude: 79.869319, weight: 1},
+        {latitude: 6.83776681, longitude: 79.867319, weight: 1},
+        {latitude: 6.83776681, longitude: 79.865319, weight: 1},
+        {latitude: 6.84076681, longitude: 79.871319, weight: 1},
+        {latitude: 6.841776681, longitude: 79.869319, weight: 1},
+        {latitude: 6.83646681, longitude: 79.77121907, weight: 1},
+        {latitude: 6.82776681, longitude: 79.871319, weight: 1},
+        {latitude: 6.82176681, longitude: 79.871319, weight: 1},
+        {latitude: 6.83776681, longitude: 79.871319, weight: 1},
+        {latitude: 6.83176681, longitude: 79.871319, weight: 1},
+        {latitude: 6.83976681, longitude: 79.861319, weight: 1},
+        {latitude: 6.83076681, longitude: 79.861319, weight: 1},
+        {latitude: 6.82776681, longitude: 79.861319, weight: 1},
+        {latitude: 6.82076681, longitude: 79.871319, weight: 1},
+        {latitude: 6.82076681, longitude: 79.861319, weight: 1},
+        {latitude: 6.81076681, longitude: 79.861319, weight: 1},
+        {latitude: 6.83776681, longitude: 79.869319, weight: 1},
+        {latitude: 6.83276681, longitude: 79.869319, weight: 1},
+        {latitude: 6.81976681, longitude: 79.869319, weight: 1},
+        {latitude: 6.83776681, longitude: 79.867319, weight: 1},
+        {latitude: 6.83776681, longitude: 79.865319, weight: 1},
+        {latitude: 6.84076681, longitude: 79.871319, weight: 1},
+        {latitude: 6.841776681, longitude: 79.869319, weight: 1},
+        {latitude: 6.84076681, longitude: 79.871319, weight: 1},
+
+];
+
     return(
         <View style={styles.container}>
             
@@ -37,24 +110,40 @@ export function Home(){
                 />
 
                 <Text style={styles.textName}>
-                    Olá, Amanda!
+                    Olá!
                 </Text>
 
                <ButtonLogoff 
                     onPress={() => navigation.navigate('SignIn')}
                />
-
             </View>
 
                 <View style={styles.content2}>
                     <Text style={styles.textNameRegiao}>
                         Região de Santos/SP
                     </Text>
+                    <View style={{ alignSelf: 'center', marginTop: 10, borderRadius: 10, overflow: 'hidden' }}>
+                    <MapView
+                        style={styles.map}
+                        initialRegion={{
+                            latitude: -23.94177584803194,
+                            longitude: -46.326133375794406,
+                            latitudeDelta: 0.05,
+                            longitudeDelta: 0.05,
+                        }}
+                    >
+                    </MapView>
+                </View>
+                <RectButton style={styles.rectMaps} 
+                    onPress={() => navigation.navigate('RiskAreas')} 
+                >
+                <Text style={styles.buttonText}>Faça uma denuncia</Text>
+                </RectButton>
 
-                    <RectButton style={styles.rectMaps} 
-                        onPress={() => navigation.navigate('RiskAreas')} 
-                    />
-
+                </View>
+                
+                <View>
+                    
                     <View style={styles.subContent2}> 
                         <ButtonComplaint
                             onPress={() => navigation.navigate('Complaint')}
@@ -65,7 +154,9 @@ export function Home(){
                         />                        
                     </View>
                 </View>
+
             <Footer />
+            
         </View>
     )
 }
