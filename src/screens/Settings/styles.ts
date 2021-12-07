@@ -61,8 +61,14 @@ export const styles = StyleSheet.create({
     },    
     text: {
         fontSize: 15,
-        marginBottom: 13,
+        paddingBottom: 10,
         marginLeft: 3,
+    },
+    button: {
+        width: 50,
+        height: 50,
+        borderRadius: 50,
+        paddingLeft: 150,
     }
 
 })
