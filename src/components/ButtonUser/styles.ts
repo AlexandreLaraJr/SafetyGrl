@@ -15,5 +15,6 @@ export const styles = StyleSheet.create({
         textAlign: 'center',
         justifyContent: 'center',
         textDecorationLine: 'underline',
+        fontWeight: '600'
     },
 })

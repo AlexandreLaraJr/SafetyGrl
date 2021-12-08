@@ -58,7 +58,7 @@ export const styles = StyleSheet.create({
     },
     inputData2:{
         width: 270,
-        height: 110,
+        height: 150,
         backgroundColor: 'white',
         borderRadius: 6,
         borderWidth: 0.5,
@@ -67,14 +67,14 @@ export const styles = StyleSheet.create({
     },
     statement: {
         color: 'white',
-        marginTop: 20,
+        marginTop: 40,
         marginHorizontal: -5,
         textAlign: 'center'
     },
     buttons: {
         flexDirection: 'row',
         position: 'absolute', //deixa em cima ou em baixo
-        bottom: 30,
+        bottom: 65,
         justifyContent: 'center',
         right: 20,       
     }

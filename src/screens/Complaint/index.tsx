@@ -147,7 +147,7 @@ export function Complaint(){
                         </View>
                     </View>
                     
-                    <Text>
+                    <Text style={styles.contentItems}>
                         Outros:
                      </Text>
 

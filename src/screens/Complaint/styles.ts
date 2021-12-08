@@ -36,7 +36,7 @@ export const styles = StyleSheet.create({
         height: 40,
     },
     content2: {
-        top: 45,
+        top: 50,
         //justifyContent: 'space-between'
     },
     content3: {
@@ -45,6 +45,8 @@ export const styles = StyleSheet.create({
     },
     contentItems: {
         flexDirection: 'row',
+        marginTop: 7,
+        marginBottom: 7
     },
     items: {
         fontSize: 15,
@@ -94,7 +96,7 @@ export const styles = StyleSheet.create({
     buttons: {
         flexDirection: 'row',
         justifyContent: 'space-around',
-        bottom: -30 
+        bottom: -50 
     },
     contentItems2: {
         //flexDirection: 'row',

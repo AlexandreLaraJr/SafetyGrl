@@ -11,10 +11,10 @@ export const styles = StyleSheet.create({
     content: {
         backgroundColor: theme.colors.secundaryBackgroung,
         flex: 1,
-        marginTop: 24,
+        marginTop: 100,
         marginLeft: 35,
         marginRight: 35,
-        marginBottom: 70,
+        marginBottom: 200,
         borderRadius: 8,
         alignItems: 'center',
     },
@@ -37,7 +37,7 @@ export const styles = StyleSheet.create({
         borderWidth: 0.5,
         borderRadius: 8,
         padding: 5,
-        marginTop: 10,
+        marginTop: 15,
         marginBottom: 20,
     },    
     buttons: {

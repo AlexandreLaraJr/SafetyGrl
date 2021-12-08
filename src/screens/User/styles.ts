@@ -41,12 +41,12 @@ export const styles = StyleSheet.create({
         color: theme.colors.blackopacity,
         fontSize: 16,
         fontWeight: '600',
-        marginBottom: 10
+        marginBottom: 15
     },
     contentPersonalDatas: {
         backgroundColor: theme.colors.datasBackgroung,
         width: 290,
-        height: 30,
+        height: 35,
         borderRadius: 8,
         borderWidth: 0.5,
         marginBottom: 20, 
@@ -60,19 +60,12 @@ export const styles = StyleSheet.create({
         flexDirection: 'row',
         justifyContent: 'center',
         position: 'absolute',
-        bottom: 60,      
+        bottom: 130,      
     },
     datasEdit: {
         fontSize: 15,
         textDecorationLine: 'underline',
         color: theme.colors.footer,
-        fontWeight: '500',
-    },
-    passwordEdit: {
-        fontSize: 15,
-        textDecorationLine: 'underline',
-        color: theme.colors.footer,
-        marginLeft: 40,
         fontWeight: '500',
     },
 })
