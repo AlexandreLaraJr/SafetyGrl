@@ -55,28 +55,8 @@ export function Gambiarra() {
               <View style={styles.contentStatement2}>
                 <Text style={styles.statementTitle}>Fulana de tal</Text>
                 <ScrollView>
-                  <Text style={styles.statement}>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                    Pellentesque euismod, urna eu porttitor consectetur, nisl
-                    nisi consectetur nunc, eget porttitor nisl nisi consectetur
-                    nunc. Lorem ipsum dolor sit amet, consectetur adipiscing
-                    elit. Pellentesque euismod, urna eu porttitor consectetur,
-                    nisl nisi consectetur nunc, eget porttitor nisl nisi
-                    consectetur nunc. Lorem ipsum dolor sit amet, consectetur
-                    adipiscing elit. Pellentesque euismod, urna eu porttitor
-                    consectetur, nisl nisi consectetur nunc, eget porttitor nisl
-                    nisi consectetur nunc.
-                  </Text>
+                  <Text style={styles.statement}>Depoimento teste</Text>
                 </ScrollView>
-              </View>
-
-              <View style={styles.contentStatement2}>
-                <Text style={styles.statementTitle}>Ciclana da Silva</Text>
-                <Text style={styles.statement}>
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                  Pellentesque euismod, urna eu porttitor consectetur, nisl nisi
-                  consectetur nunc, eget porttitor nisl nisi consectetur nunc.
-                </Text>
               </View>
             </View>
           </View>

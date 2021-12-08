@@ -54,6 +54,7 @@ export const styles = StyleSheet.create({
   statement: {
     fontSize: 18,
     width: 260,
+    paddingBottom: 10,
   },
   statementTitle: {
     fontSize: 18,
