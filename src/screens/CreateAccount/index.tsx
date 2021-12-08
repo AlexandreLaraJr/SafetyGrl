@@ -12,9 +12,6 @@ import { useNavigation } from "@react-navigation/native";
 import {StackNavigationProp} from '@react-navigation/stack';
 import {RootStackParamList} from '../RootStackPrams';
 
-import IllustrationImgLogo from '../../assets/Logo_app.png'
-import IllustrationImgNameLogo from '../../assets/SafetyGrl.png'
-
 import { ButtonCreateAccount } from '../../components/ButtonIconCreateAccount'
 
 import { styles } from "./styles"

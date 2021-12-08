@@ -26,10 +26,11 @@ export const styles = StyleSheet.create({
     },
     content2: {
         flex: 1,
-        marginTop: 20,
+        marginTop: 50,
     },
     NameData: {
         marginTop: 15,
+        marginBottom: 10,
         color: theme.colors.blackopacity,
     },
     inputData: {
