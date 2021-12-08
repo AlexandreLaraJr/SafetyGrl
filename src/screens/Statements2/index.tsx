@@ -30,10 +30,7 @@ export function Statements2() {
         </View>
 
         <View style={styles.contentStatement}>
-          <Text style={styles.data}>Nome</Text>
-
-          <TextInput style={styles.inputData} />
-
+          
           <Text style={styles.subtitle}>* Seu depoimento é anônimo *</Text>
 
           <Text style={styles.data}>Depoimento</Text>

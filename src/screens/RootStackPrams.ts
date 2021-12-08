@@ -11,4 +11,5 @@ export type RootStackParamList = {
     Settings: undefined;
     Notifications: undefined;
     Sos: undefined;
+    Gambiarra: undefined;
 };

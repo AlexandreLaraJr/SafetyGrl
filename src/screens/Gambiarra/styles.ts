@@ -46,6 +46,7 @@ export const styles = StyleSheet.create({
     left: 25,
     backgroundColor: "white",
     width: 280,
+    height: 100,
     marginRight: 85,
     marginTop: 20,
     borderRadius: 8,
@@ -54,13 +55,13 @@ export const styles = StyleSheet.create({
   statement: {
     fontSize: 18,
     width: 260,
-    paddingBottom: 10,
+    top: 5,  
   },
   statementTitle: {
     fontSize: 18,
     fontWeight: "bold",
     color: "#000",
-    marginBottom: 5,
+    marginBottom: 10,
     paddingTop: 10,
     width: 150,
     marginRight: 110,

@@ -40,7 +40,7 @@ export const styles = StyleSheet.create({
         marginHorizontal: 35
     },
     data:{
-        marginTop: 20,
+        marginTop: 30,
         fontSize: 16
     },
     inputData: {
@@ -53,8 +53,9 @@ export const styles = StyleSheet.create({
         paddingLeft: 5,        
     },
     subtitle: {
-        marginTop: 10,
-        fontSize: 14,
+        marginTop: 15,
+        fontSize: 15,
+        textAlign: "center"
     },
     inputData2:{
         width: 270,

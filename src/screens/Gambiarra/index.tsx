@@ -30,30 +30,28 @@ export function Gambiarra() {
     <View style={styles.container}>
       <LogoHeader />
 
+      <RectButton style={{ //backgroundColor: 'black',
+                           top: -15,
+                           width: 30,
+                           height:10,
+                           left: 30
+      }}
+         onPress={() => navigation.navigate("Home")}
+      >
+
+      </RectButton>
       <View style={styles.content}>
+        
         <View style={styles.contentTitle}>
           <Image style={styles.iconStatement} source={IllustrationStatement2} />
           <Text style={styles.title}>Depoimentos</Text>
         </View>
-        <ButtonStatement2
-          style={{
-            marginTop: 50,
-            height: 40,
-            width: 240,
-            backgroundColor: "#499ff5",
-            borderRadius: 8,
-            alignContent: "center",
-            justifyContent: "center",
-            paddingTop: 9,
-            marginBottom: 7,
-          }}
-          onPress={() => navigation.navigate("Statements2")}
-        />
-        <ScrollView style={{ height: 700, marginTop: 10 }}>
+        
+        <ScrollView style={{ height: 700, marginTop: 50 }}>
           <View style={{ paddingBottom: 10 }}>
             <View style={styles.contentStatement}>
               <View style={styles.contentStatement2}>
-                <Text style={styles.statementTitle}>Fulana de tal</Text>
+                <Text style={styles.statementTitle}>Anônimo</Text>
                 <ScrollView>
                   <Text style={styles.statement}>Depoimento teste</Text>
                 </ScrollView>
@@ -61,6 +59,10 @@ export function Gambiarra() {
             </View>
           </View>
         </ScrollView>
+
+        <ButtonStatement2
+          onPress={() => navigation.goBack()}
+        />
       </View>
       <Footer />
     </View>
