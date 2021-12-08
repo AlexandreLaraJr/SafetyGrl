@@ -10,10 +10,10 @@ export const styles = StyleSheet.create({
     content: {
         backgroundColor: theme.colors.secundaryBackgroung,
         flex: 1,
-        marginTop: 24,
+        marginTop: 50,
         marginLeft: 35,
         marginRight: 35,
-        marginBottom: 70,
+        marginBottom: 150,
         borderRadius: 8,
         alignItems: 'center',
     },
@@ -53,12 +53,12 @@ export const styles = StyleSheet.create({
         paddingLeft: 5,        
     },
     subtitle: {
-        marginTop: 15,
+        marginTop: 10,
         fontSize: 14,
     },
     inputData2:{
         width: 270,
-        height: 150,
+        height: 130,
         backgroundColor: 'white',
         borderRadius: 6,
         borderWidth: 0.5,
@@ -67,14 +67,14 @@ export const styles = StyleSheet.create({
     },
     statement: {
         color: 'white',
-        marginTop: 40,
+        marginTop: 20,
         marginHorizontal: -5,
         textAlign: 'center'
     },
     buttons: {
         flexDirection: 'row',
         position: 'absolute', //deixa em cima ou em baixo
-        bottom: 65,
+        bottom: 45,
         justifyContent: 'center',
         right: 20,       
     }

@@ -52,7 +52,7 @@ export function Statements2(){
                     <TextInput style={styles.inputData} />
         
                     <Text style={styles.subtitle}>
-                        Anônimo
+                        * Seu depoimento é anônimo *
                     </Text>
 
                     <Text style={styles.data}>
@@ -66,7 +66,6 @@ export function Statements2(){
                     </Text>
 
                 </View>
-
 
                 <View style={styles.buttons}>            
                     <ButtonOk />
