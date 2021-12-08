@@ -45,14 +45,14 @@ export const styles = StyleSheet.create({
         fontSize: 22,
         fontWeight: 'bold',
         color: theme.colors.title,
-        top: 15,
+        top: 25,
     },
     contentSearch: {
         flexDirection: "row",
-        top: 30,
+        top: 45,
         justifyContent: 'center',
         alignItems: 'center',
-        marginBottom: 30,
+        marginBottom: 60,
     },
     search: {
         width: 315,
@@ -81,7 +81,7 @@ export const styles = StyleSheet.create({
     subContent2:{
         flexDirection:'row',  
         justifyContent: 'space-between',  
-        marginBottom: -50,
+        bottom: -20,
     },
     icon: {
         width: 32,

@@ -10,10 +10,10 @@ import {StackNavigationProp} from '@react-navigation/stack';
 import {RootStackParamList} from '../../screens/RootStackPrams';
 
 import { styles } from './styles'
-type RiskAreasScreenProp = StackNavigationProp<RootStackParamList, 'RiskAreas'>;
+type ScreenProp = StackNavigationProp<RootStackParamList>;
 
 export function LogoHeader(){
-    const navigation = useNavigation<RiskAreasScreenProp>();
+    const navigation = useNavigation<ScreenProp>();
 
     return(
         <View style={styles.container}>

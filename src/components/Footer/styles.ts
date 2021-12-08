@@ -6,7 +6,7 @@ export const styles = StyleSheet.create({
     footer: {
         backgroundColor: theme.colors.footer,
         width: '100%',
-        height: 50,
+        height: 55,
         position: 'absolute', //deixa em cima ou em baixo
         bottom: 0,
         flexDirection: 'row',
