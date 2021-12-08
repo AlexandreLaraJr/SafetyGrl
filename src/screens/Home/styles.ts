@@ -60,7 +60,8 @@ export const styles = StyleSheet.create({
         backgroundColor: 'white',
         borderRadius: 6,
         borderWidth: 0.5,
-        right: -8
+        right: -8,
+        paddingLeft: 3
     },
     rectSearch: {
         right: 20
