@@ -23,11 +23,11 @@ import { Footer } from "../../components/Footer";
 import { ButtonComplaint, ButtonUser, ButtonBack } from "../../components/ButtonHome";
 import { ButtonStatement2 } from "../../components/ButtonStatement";
 
-type RiskAreasScreenProp = StackNavigationProp<RootStackParamList, 'Statements2'>;
+type ScreenProp = StackNavigationProp<RootStackParamList, 'Statements2'>;
 
 export function Statements(){
 
-    const navigation = useNavigation<RiskAreasScreenProp>();
+    const navigation = useNavigation<ScreenProp>();
 
     return(
         <View style={styles.container}>

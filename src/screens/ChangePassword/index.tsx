@@ -23,11 +23,11 @@ import {StackNavigationProp} from '@react-navigation/stack';
 import { styles } from "./styles"
 import { ButtonCancelar, ButtonOk } from "../../components/ButtonComplaint";
 
-type RiskAreasScreenProp = StackNavigationProp<RootStackParamList, 'RiskAreas'>;
+type ScreenProp = StackNavigationProp<RootStackParamList>;
 
 export function ChangePassword(){
 
-    const navigation = useNavigation<RiskAreasScreenProp>();
+    const navigation = useNavigation<ScreenProp>();
 
     return(
         <View style={styles.container}>
