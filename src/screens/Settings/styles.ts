@@ -41,6 +41,7 @@ export const styles = StyleSheet.create({
   },
   content2: {
     top: 35,
+    
   },
   contentItems: {
     width: 300,
@@ -58,14 +59,19 @@ export const styles = StyleSheet.create({
     marginLeft: 8,
     fontWeight: "bold",
   },
+  contentItem2: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    top: 10
+    //left: -5
+  },
   text: {
     fontSize: 15,
-    marginLeft: 3,
+    //marginRight: 35,
   },
   button: {
     width: 50,
     height: 50,
     borderRadius: 50,
-    paddingLeft: 150,
   },
 });

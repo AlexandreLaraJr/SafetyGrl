@@ -49,7 +49,7 @@ export function Settings() {
             <Text style={styles.items}>Notificações</Text>
           </View>
 
-          <View style={{ flexDirection: "row" }}>
+          <View style={styles.contentItem2}>
             <Text style={styles.text}>Mostrar notificações</Text>
 
             <Switch
@@ -60,7 +60,8 @@ export function Settings() {
               value={isEnabled1}
             />
           </View>
-          <View style={{ flexDirection: "row" }}>
+          
+          <View style={styles.contentItem2}>
             <Text style={styles.text}>Mostrar pré-visualização</Text>
             <Switch
               style={styles.button}
@@ -71,7 +72,7 @@ export function Settings() {
             />
           </View>
 
-          <View style={{ flexDirection: "row" }}>
+          <View style={styles.contentItem2}>
             <Text style={styles.text}>Som</Text>
             <Switch
               style={styles.button}
@@ -87,8 +88,18 @@ export function Settings() {
             <Text style={styles.items}>Região</Text>
           </View>
 
-          <Text style={styles.text}>Definir localização padrão</Text>
-          <View style={{ flexDirection: "row" }}>
+          <View style={styles.contentItem2}>
+            <Text style={styles.text}>Definir localização padrão</Text>
+            <Switch
+              style={styles.button}
+              trackColor={{ false: "#767577", true: "#32CD32" }}
+              thumbColor={isEnabled4 ? "#f4f3f4" : "#f4f3f4"}
+              onChange={toggleSwitch4}
+              value={isEnabled4}
+            />
+          </View>
+          
+          <View style={styles.contentItem2}>
             <Text style={styles.text}>Usar localização atual</Text>
             <Switch
               style={styles.button}
@@ -103,7 +114,8 @@ export function Settings() {
             <Image style={styles.icon2} source={IllustrationPhone} />
             <Text style={styles.items}>Chamadas</Text>
           </View>
-          <View style={{ flexDirection: "row" }}>
+
+          <View style={styles.contentItem2}>
             <Text style={styles.text}>
               Permitir acesso às chamadas {"\n"}
               (Recomendado)
