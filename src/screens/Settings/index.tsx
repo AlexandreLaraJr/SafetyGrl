@@ -27,11 +27,13 @@ export function Settings() {
   const [isEnabled3, setIsEnabled3] = React.useState(false);
   const [isEnabled4, setIsEnabled4] = React.useState(false);
   const [isEnabled5, setIsEnabled5] = React.useState(false);
+  const [isEnabled6, setIsEnabled6] = React.useState(false);
   const toggleSwitch1 = () => setIsEnabled1((previousState) => !previousState);
   const toggleSwitch2 = () => setIsEnabled2((previousState) => !previousState);
   const toggleSwitch3 = () => setIsEnabled3((previousState) => !previousState);
   const toggleSwitch4 = () => setIsEnabled4((previousState) => !previousState);
   const toggleSwitch5 = () => setIsEnabled5((previousState) => !previousState);
+  const toggleSwitch6 = () => setIsEnabled6((previousState) => !previousState);
 
   return (
     <View style={styles.container}>
@@ -60,7 +62,7 @@ export function Settings() {
               value={isEnabled1}
             />
           </View>
-          
+
           <View style={styles.contentItem2}>
             <Text style={styles.text}>Mostrar pré-visualização</Text>
             <Switch
@@ -98,15 +100,15 @@ export function Settings() {
               value={isEnabled4}
             />
           </View>
-          
+
           <View style={styles.contentItem2}>
             <Text style={styles.text}>Usar localização atual</Text>
             <Switch
               style={styles.button}
               trackColor={{ false: "#767577", true: "#32CD32" }}
-              thumbColor={isEnabled4 ? "#f4f3f4" : "#f4f3f4"}
-              onChange={toggleSwitch4}
-              value={isEnabled4}
+              thumbColor={isEnabled5 ? "#f4f3f4" : "#f4f3f4"}
+              onChange={toggleSwitch5}
+              value={isEnabled5}
             />
           </View>
 
@@ -123,9 +125,9 @@ export function Settings() {
             <Switch
               style={styles.button}
               trackColor={{ false: "#767577", true: "#32CD32" }}
-              thumbColor={isEnabled5 ? "#f4f3f4" : "#f4f3f4"}
-              onChange={toggleSwitch5}
-              value={isEnabled5}
+              thumbColor={isEnabled6 ? "#f4f3f4" : "#f4f3f4"}
+              onChange={toggleSwitch6}
+              value={isEnabled6}
             />
           </View>
         </View>
