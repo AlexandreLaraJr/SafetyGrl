@@ -23,7 +23,7 @@ type createAccountScreenProp = StackNavigationProp<
   "CreateAccount"
 >;
 
-export function SignIn() {
+export function SignIn(): any {
   const [cpf, setCPF] = React.useState("");
   const [password, setPassword] = React.useState("");
 
@@ -42,13 +42,12 @@ export function SignIn() {
       <Image source={IllustrationImgNameLogo} style={styles.nameLogo} />
 
       <View style={styles.content}>
-        <TextInputMask
-          type={"cpf"}
-          value={cpf}
+        <TextInput
           style={styles.inputLogin}
-          placeholder=" CPF"
+          placeholder=" CPF (sem digitos e pontos)"
           length={11}
           onChangeText={(cpf) => setCPF(cpf)}
+          keyboardType="numeric"
         />
 
         <TextInput
@@ -57,16 +56,17 @@ export function SignIn() {
           secureTextEntry={true}
           onChangeText={(password) => setPassword(password)}
         />
-
+        <Text>
+          {cpf} {password}
+        </Text>
         <Text style={styles.forgotPassword}>Esqueci a senha</Text>
       </View>
       <ButtonLogin
-        onPress={() => {
-          if (cpf == "123.456.789-00" && password == "123456") {
-            navigation.navigate("Home");
-          } else {
-            Alert.alert("CPF ou senha incorretos");
-          }
+        onPress={async () => {
+          var result: number = await checkDatabase(cpf, password);
+          if (result == -1) Alert.alert("Erro", "CPF não cadastrado!");
+          if (result == 0) Alert.alert("Senha incorreta");
+          if (result == 1) navigation.navigate("Home");
         }}
       />
       <ButtonCreateAccountSignIn
@@ -79,4 +79,21 @@ export function SignIn() {
       </View>
     </View>
   );
+}
+
+async function checkDatabase(cpf, senha) {
+  const db = require("../../../database/firebase");
+  console.log(`cpf: ${cpf}`);
+  console.log(`senha: ${senha}`);
+  let result = await db
+    .ref("/users/" + cpf)
+    .once("value")
+    .then(async (snap) => {
+      console.log(snap.val());
+      if (!snap.val()) return -1; //cpf incorreto
+      if ((await snap?.val()?.senha) != senha) return 0; //senha incorreta
+      return 1; //senha correta
+    });
+  console.log(`result = ${result}`);
+  return result;
 }
