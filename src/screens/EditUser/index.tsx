@@ -11,11 +11,7 @@ import IllustrationUser from "../../assets/icone_user.png";
 import { styles } from "./styles";
 import { LogoHeader } from "../../components/LogoHeader";
 import { Footer } from "../../components/Footer";
-import {
-  ButtonAlterarSenha,
-  ButtonEditarDados,
-} from "../../components/ButtonUser";
-import { ButtonCancelar, ButtonOk } from "../../components/ButtonComplaint";
+import { RectButton } from "react-native-gesture-handler";
 
 type ChangePasswordScreenProp = StackNavigationProp<
   RootStackParamList,
@@ -76,9 +72,13 @@ export function EditUser(dbUser: any) {
           </View>
         </View>
 
-        <View style={styles.contentEdit}>
-          <ButtonOk />
-          <ButtonCancelar />
+        <View style={styles.buttonContainer}>
+          <RectButton style={styles.buttonStyle}>
+            <Text style={styles.buttonText}>Ok!</Text>
+          </RectButton>
+          <RectButton style={styles.buttonStyle}>
+            <Text style={styles.buttonText}>Cancelar</Text>
+          </RectButton>
         </View>
       </View>
 
