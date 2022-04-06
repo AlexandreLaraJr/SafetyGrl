@@ -1,25 +1,14 @@
 import React from "react";
-import { View, Text, Image, StatusBar, TextInput, Switch } from "react-native";
+import { View, Text, Image, Switch } from "react-native";
 import "react-native-gesture-handler";
-
 import { Footer } from "../../components/Footer";
 import { LogoHeader } from "../../components/LogoHeader";
-
-import IllustrationAlert from "../../assets/icone-_alert_1.png";
-import IllustrationCalendar from "../../assets/icone-calendar.png";
-import IllustrationRelogio from "../../assets/icone-relogio.png";
-import IllustrationMapa from "../../assets/icone-mapa.png";
 import IllustrationSettings from "../../assets/icone-settings.png";
 import IllustrationBell from "../../assets/icone-bell.png";
 import IllustrationMaps from "../../assets/icone_mapa.png";
 import IllustrationPhone from "../../assets/akar-icons_phone.png";
 
-import { RootStackParamList } from "../RootStackPrams";
-import { useNavigation } from "@react-navigation/native";
-import { StackNavigationProp } from "@react-navigation/stack";
-
 import { styles } from "./styles";
-import { ButtonCancelar, ButtonOk } from "../../components/ButtonComplaint";
 
 export function Settings() {
   const [isEnabled1, setIsEnabled1] = React.useState(false);

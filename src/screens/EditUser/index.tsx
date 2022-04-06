@@ -15,16 +15,18 @@ import {
   ButtonAlterarSenha,
   ButtonEditarDados,
 } from "../../components/ButtonUser";
+import { ButtonCancelar, ButtonOk } from "../../components/ButtonComplaint";
 
 type ChangePasswordScreenProp = StackNavigationProp<
   RootStackParamList,
   "ChangePassword"
 >;
 
-export function User(dbUser: any, edit: any) {
+export function EditUser(dbUser: any) {
   const navigation = useNavigation<ChangePasswordScreenProp>();
 
-  let user = dbUser?.route?.params[0];
+  console.log(dbUser);
+  let user = dbUser?.route?.params.route?.params[0];
 
   return (
     <View style={styles.container}>
@@ -40,40 +42,43 @@ export function User(dbUser: any, edit: any) {
           <Text style={styles.datas}>NOME</Text>
 
           <View style={styles.contentPersonalDatas}>
-            <Text style={styles.personalDatas}>
-              {user?.name ? user.name : "ERRO"}
-            </Text>
+            <TextInput
+              style={styles.personalDatas}
+              placeholder={user?.name}
+            ></TextInput>
           </View>
 
           <Text style={styles.datas}>EMAIL</Text>
 
           <View style={styles.contentPersonalDatas}>
-            <Text style={styles.personalDatas}>{user?.email}</Text>
+            <TextInput
+              style={styles.personalDatas}
+              placeholder={user?.email}
+            ></TextInput>
           </View>
 
           <Text style={styles.datas}>CPF</Text>
 
           <View style={styles.contentPersonalDatas}>
-            <Text style={styles.personalDatas}>{user?.cpf}</Text>
+            <TextInput
+              style={styles.personalDatas}
+              placeholder={user?.cpf}
+            ></TextInput>
           </View>
 
           <Text style={styles.datas}>TELEFONE</Text>
 
           <View style={styles.contentPersonalDatas}>
-            <Text style={styles.personalDatas}>{user?.telefone}</Text>
+            <TextInput
+              style={styles.personalDatas}
+              placeholder={user?.telefone}
+            ></TextInput>
           </View>
         </View>
 
         <View style={styles.contentEdit}>
-          <ButtonEditarDados
-            onPress={() => {
-              navigation.navigate("EditUser", dbUser);
-            }}
-          />
-
-          <ButtonAlterarSenha
-            onPress={() => navigation.navigate("ChangePassword", user)}
-          />
+          <ButtonOk />
+          <ButtonCancelar />
         </View>
       </View>
 

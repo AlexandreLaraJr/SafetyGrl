@@ -1,22 +1,21 @@
-import React from "react"
+import React from "react";
 
 import { CreateAccount } from "./src/screens/CreateAccount";
-import { SignIn } from './src/screens/SignIn';
+import { SignIn } from "./src/screens/SignIn";
 
 import { StatusBar } from "expo-status-bar";
 import { Routes } from "./src/routes";
 import { Home } from "./src/screens/Home";
-import { RiskAreas } from './src/screens/RiskAreas'
 
-export default function App(){
-  return(
+export default function App() {
+  return (
     <>
       <StatusBar
-          //barStyle="light-content"
-          backgroundColor="transparent"
-          translucent 
+        //barStyle="light-content"
+        backgroundColor="transparent"
+        translucent
       />
-      <Routes/>
+      <Routes />
     </>
   );
 }

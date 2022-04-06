@@ -15,6 +15,7 @@ import { Settings } from "../screens/Settings";
 import { Notifications } from "../screens/Notifications";
 import { Sos } from "../screens/Sos";
 import { Gambiarra } from "../screens/Gambiarra";
+import { EditUser } from "../screens/EditUser";
 
 const { Navigator, Screen } = createStackNavigator();
 
@@ -79,6 +80,8 @@ export function AuthRoutes() {
         name="Gambiarra"
         component={Gambiarra}
       />
+
+      <Screen name="EditUser" component={EditUser} />
     </Navigator>
   );
 }

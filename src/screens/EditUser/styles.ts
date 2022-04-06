@@ -59,8 +59,9 @@ export const styles = StyleSheet.create({
   contentEdit: {
     flexDirection: "row",
     justifyContent: "center",
-    position: "absolute",
-    bottom: 130,
+    marginLeft: 20,
+    marginRight: 20,
+    marginTop: 100,
   },
   datasEdit: {
     fontSize: 15,

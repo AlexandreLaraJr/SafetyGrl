@@ -40,6 +40,7 @@ export function CreateAccount() {
 
         <TextInput
           style={styles.inputData}
+          returnKeyType="next"
           placeholder="Digite seu nome"
           onChangeText={(name) => setName(name)}
         />
@@ -48,6 +49,8 @@ export function CreateAccount() {
 
         <TextInput
           style={styles.inputData}
+          returnKeyType="next"
+          keyboardType="email-address"
           placeholder="Digite seu email"
           onChangeText={(email) => setEmail(email)}
         />
@@ -56,6 +59,7 @@ export function CreateAccount() {
 
         <TextInput
           style={styles.inputData}
+          returnKeyType="next"
           placeholder="Digite seu CPF sem pontuação"
           keyboardType="numeric"
           onChangeText={(cpf) => setCpf(cpf)}
@@ -65,6 +69,7 @@ export function CreateAccount() {
 
         <TextInput
           style={styles.inputData}
+          returnKeyType="next"
           placeholder="Digite seu telefone com o ddd sem parenteses e sem espaços"
           onChangeText={(telefone) => setTelefone(telefone)}
         />
@@ -73,6 +78,7 @@ export function CreateAccount() {
 
         <TextInput
           style={styles.inputData}
+          returnKeyType="next"
           secureTextEntry={true}
           onChangeText={(password) => setPassword(password)}
         />
@@ -81,6 +87,7 @@ export function CreateAccount() {
 
         <TextInput
           style={styles.inputData}
+          returnKeyType="next"
           secureTextEntry={true}
           onChangeText={(confirmPassword) =>
             setConfirmPassword(confirmPassword)
@@ -109,7 +116,15 @@ export function CreateAccount() {
               Alert.alert("Erro", "As senhas não coincidem");
               break;
             case -2:
-              Alert.alert("Erro", "A senha deve ter no minimo 6 caracteres");
+              Alert.alert(
+                "Erro",
+                `A senha deve ter:
+                Mínimo de 8 caracteres
+                1 letra maiúscula
+                1 letra minúscula
+                1 caractere especial
+                1 número`
+              );
               break;
             case -3:
               Alert.alert("Erro", "Email inválido");
@@ -147,14 +162,11 @@ async function createUserDB(
   cpf = cpf.replace(/[^\d]+/g, "");
   telefone = telefone.replace(/[^\d]+/g, "");
   if (senha != senha2) return -1; // senhas diferentes
-  if (senha.length < 6) return -2; // senha muito curta
+  if (isPasswordValid(senha)) return -2; // senha inválida.
   if (isEmailValid(email)) return -3; // email invalido
   if (cpf.length != 11) return -4; // cpf invalido
   if (telefone.length < 11 || telefone.length > 11) return -5; // telefone invalido
   if (name.length < 3) return -6; // nome muito curto
-
-  console.log("cpf: " + cpf);
-
   let user = {
     name: name,
     email: email,
@@ -162,8 +174,6 @@ async function createUserDB(
     telefone: telefone,
     senha: senha,
   };
-
-  console.log("user.cpf = " + user.cpf);
 
   if (await verifyCPFOnDb(user.cpf)) return -7; // cpf ja cadastrado
   if (await verifyEmailOnDb(user.email)) return -8; // email ja cadastrado
@@ -174,7 +184,7 @@ async function createUserDB(
 
 async function verifyCPFOnDb(cpf: string) {
   if (cpf.length != 11) return -4; // cpf invalido;
-  let isOnDB: boolean | number | void = false;
+  let isOnDB: boolean | Promise<any> = false;
   isOnDB = await db
     .ref("users")
     .once("value")
@@ -183,12 +193,11 @@ async function verifyCPFOnDb(cpf: string) {
         if (child.val().cpf == cpf) return true;
       });
     });
-  console.log(isOnDB);
   return isOnDB;
 }
 
 async function verifyEmailOnDb(email: string) {
-  let isOnDB: boolean | number | void = false;
+  let isOnDB: boolean | Promise<any> = false;
   isOnDB = await db
     .ref("users")
     .once("value")
@@ -197,11 +206,15 @@ async function verifyEmailOnDb(email: string) {
         if (child.val().email == email) return true;
       });
     });
-  console.log(isOnDB);
   return isOnDB;
 }
 
 function isEmailValid(email: string) {
   let reg = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
-  return reg.test(email) == 0;
+  return reg.test(email) == false;
+}
+
+function isPasswordValid(password: string) {
+  let reg = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z]).{8,}$/;
+  return reg.test(password) == false;
 }
