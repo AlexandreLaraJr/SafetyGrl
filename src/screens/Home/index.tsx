@@ -29,6 +29,11 @@ type userScreenProp = StackNavigationProp<RootStackParamList, "User">;
 
 export function Home(user: any) {
   const navigation = useNavigation<userScreenProp>();
+  if (user?.route?.params?.socialName.split(" ")[0] == "") {
+    let displayName = user?.route?.params?.socialName.split(" ")[0];
+  } else {
+    let displayName = user?.route?.params?.name.split(" ")[0];
+  }
 
   return (
     <View style={styles.container}>
@@ -37,15 +42,12 @@ export function Home(user: any) {
       <View style={styles.content}>
         <ButtonUser
           onPress={async () => {
-            await getUserFromDB().then((value) => {
-              navigation.navigate("User", value);
-            });
+            console.log(await getUserFromDB());
+            navigation.navigate("User", await getUserFromDB());
           }}
         />
 
-        <Text style={styles.textName}>
-          Olá {user?.route?.params?.name.split(" ")[0]}!
-        </Text>
+        <Text style={styles.textName}>Olá {displayName}!</Text>
 
         <ButtonLogoff
           onPress={() => {

@@ -25,6 +25,7 @@ export function CreateAccount() {
   const navigation = useNavigation<HomeScreenProp>();
 
   const [name, setName] = React.useState("");
+  const [socialName, setSocialName] = React.useState("");
   const [email, setEmail] = React.useState("");
   const [cpf, setCpf] = React.useState("");
   const [telefone, setTelefone] = React.useState("");
@@ -43,6 +44,15 @@ export function CreateAccount() {
           returnKeyType="next"
           placeholder="Digite seu nome"
           onChangeText={(name) => setName(name)}
+        />
+
+        <Text style={styles.NameData}>Nome Social (opcional)</Text>
+
+        <TextInput
+          style={styles.inputData}
+          returnKeyType="next"
+          placeholder="Digite seu nome social"
+          onChangeText={(socialName) => setSocialName(socialName)}
         />
 
         <Text style={styles.NameData}>Email</Text>
@@ -99,6 +109,7 @@ export function CreateAccount() {
         onPress={async () => {
           let statusCode = await createUserDB(
             name,
+            socialName || null,
             email,
             cpf,
             telefone,
@@ -153,6 +164,7 @@ export function CreateAccount() {
 
 async function createUserDB(
   name: string,
+  socialName: string | null,
   email: string,
   cpf: string,
   telefone: string,
@@ -169,6 +181,7 @@ async function createUserDB(
   if (name.length < 3) return -6; // nome muito curto
   let user = {
     name: name,
+    socialName: socialName || "",
     email: email,
     cpf: cpf,
     telefone: telefone,
@@ -216,5 +229,5 @@ function isEmailValid(email: string) {
 
 function isPasswordValid(password: string) {
   let reg = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z]).{8,}$/;
-  return reg.test(password) == false;
+  return reg.test(password) == true;
 }

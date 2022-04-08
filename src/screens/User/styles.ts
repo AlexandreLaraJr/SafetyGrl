@@ -60,7 +60,7 @@ export const styles = StyleSheet.create({
     flexDirection: "row",
     justifyContent: "center",
     position: "absolute",
-    bottom: 130,
+    bottom: "10%",
   },
   datasEdit: {
     fontSize: 15,
