@@ -34,6 +34,7 @@ export const styles = StyleSheet.create({
   },
   contentDatas: {
     top: "7%",
+    left: "10%",
   },
   datas: {
     color: theme.colors.blackopacity,
@@ -44,7 +45,7 @@ export const styles = StyleSheet.create({
   contentPersonalDatas: {
     backgroundColor: theme.colors.datasBackgroung,
     width: 290,
-    height: 35,
+    height: "auto",
     borderRadius: 8,
     borderWidth: 0.5,
     marginBottom: 20,
@@ -88,5 +89,7 @@ export const styles = StyleSheet.create({
     flex: 1,
     flexDirection: "row",
     width: "100%",
+    marginTop: "10%",
+    marginBottom: "10%",
   },
 });
