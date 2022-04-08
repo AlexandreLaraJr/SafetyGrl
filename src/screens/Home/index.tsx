@@ -29,12 +29,7 @@ type userScreenProp = StackNavigationProp<RootStackParamList, "User">;
 
 export function Home(user: any) {
   const navigation = useNavigation<userScreenProp>();
-  if (user?.route?.params?.socialName.split(" ")[0] == "") {
-    let displayName = user?.route?.params?.socialName.split(" ")[0];
-  } else {
-    let displayName = user?.route?.params?.name.split(" ")[0];
-  }
-
+  console.log(user);
   return (
     <View style={styles.container}>
       <LogoHeader />
@@ -47,7 +42,12 @@ export function Home(user: any) {
           }}
         />
 
-        <Text style={styles.textName}>Olá {displayName}!</Text>
+        <Text style={styles.textName}>
+          Olá!{" "}
+          {user?.route.params.socialName == ""
+            ? user?.route.params.name
+            : user?.route.params.socialName}
+        </Text>
 
         <ButtonLogoff
           onPress={() => {

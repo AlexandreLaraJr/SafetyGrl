@@ -18,7 +18,14 @@ export function LogoHeader() {
     <View style={styles.container}>
       <ButtonBack
         onPress={() => {
-          if (navigation.getState().routes[1].name == "Home") return;
+          console.log(navigation.getState());
+          if (
+            navigation.getState().routes[
+              navigation.getState().routes.length - 1
+            ].name == "Home"
+          ) {
+            return;
+          }
           navigation.goBack();
         }}
       />
