@@ -1,8 +1,6 @@
 import React from "react";
 import { View, Text, Image, TextInput } from "react-native";
 
-import MapView from "react-native-maps";
-
 import "react-native-gesture-handler";
 import { useNavigation } from "@react-navigation/native";
 import { StackNavigationProp } from "@react-navigation/stack";
@@ -75,15 +73,7 @@ export function Home(user: any) {
             overflow: "hidden",
           }}
         >
-          <MapView
-            style={styles.map}
-            initialRegion={{
-              latitude: -23.94177584803194,
-              longitude: -46.326133375794406,
-              latitudeDelta: 0.05,
-              longitudeDelta: 0.05,
-            }}
-          ></MapView>
+          <Text> Mapa quebrado atualmente </Text>
         </View>
 
         <Text style={styles.textNameRegiao}>Região de Santos/SP</Text>
