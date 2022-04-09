@@ -1,13 +1,12 @@
 import React from "react";
 
-import { CreateAccount } from "./src/screens/CreateAccount";
-import { SignIn } from "./src/screens/SignIn";
-
 import { StatusBar } from "expo-status-bar";
 import { Routes } from "./src/routes";
-import { Home } from "./src/screens/Home";
+
+import { LogBox } from "react-native";
 
 export default function App() {
+  LogBox.ignoreLogs(["Setting a timer"]);
   return (
     <>
       <StatusBar
