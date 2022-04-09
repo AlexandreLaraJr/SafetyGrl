@@ -1,6 +1,6 @@
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import db from "../database/firebase";
-import { verifyCPFOnDb } from "../src/screens/CreateAccount/index";
+import { verifyCPFOnDb } from "./verifications";
 import {
   isEmailValid,
   isPasswordValid,
