@@ -18,7 +18,6 @@ export function LogoHeader() {
     <View style={styles.container}>
       <ButtonBack
         onPress={() => {
-          console.log(navigation.getState());
           if (
             navigation.getState().routes[
               navigation.getState().routes.length - 1
