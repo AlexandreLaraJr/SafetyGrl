@@ -26,7 +26,6 @@ type userScreenProp = StackNavigationProp<RootStackParamList, "User">;
 
 export function Home(user: any) {
   const navigation = useNavigation<userScreenProp>();
-  console.log(user);
   return (
     <View style={styles.container}>
       <LogoHeader />
@@ -34,7 +33,6 @@ export function Home(user: any) {
       <View style={styles.content}>
         <ButtonUser
           onPress={async () => {
-            console.log(await getUserFromDB());
             navigation.navigate("User", await getUserFromDB());
           }}
         />
