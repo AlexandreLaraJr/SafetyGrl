@@ -2,7 +2,6 @@ import { useNavigation } from "@react-navigation/native";
 import { StackNavigationProp } from "@react-navigation/stack";
 import React from "react";
 import { Alert, Text, TextInput, View } from "react-native";
-import db from "../../../database/firebase";
 import { ButtonCreateAccount } from "../../components/ButtonIconCreateAccount";
 import { LogoHeader } from "../../components/LogoHeader";
 import { RootStackParamList } from "../RootStackPrams";
@@ -152,18 +151,4 @@ function switchStatusCode(statusCode: any, navigation: HomeScreenProp) {
       Alert.alert("Erro", "Email já cadastrado");
       break;
   }
-}
-
-export async function verifyCPFOnDb(cpf: string) {
-  if (cpf.length != 11) return -4; // cpf invalido;
-  let isOnDB: boolean | Promise<any> = false;
-  isOnDB = await db
-    .ref("users")
-    .once("value")
-    .then((snap) => {
-      return snap.forEach((child) => {
-        if (child.val().cpf == cpf) return true;
-      });
-    });
-  return isOnDB;
 }
