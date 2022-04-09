@@ -1,24 +1,14 @@
-import React from "react";
-import {
-  View,
-  Text,
-  Image,
-  StatusBar,
-  Button,
-  TextInput,
-  Alert,
-} from "react-native";
-
 import { useNavigation } from "@react-navigation/native";
 import { StackNavigationProp } from "@react-navigation/stack";
-import { RootStackParamList } from "../RootStackPrams";
-
-import { ButtonCreateAccount } from "../../components/ButtonIconCreateAccount";
-
-import { styles } from "./styles";
-import { LogoHeader } from "../../components/LogoHeader";
-
+import React from "react";
+import { Alert, Text, TextInput, View } from "react-native";
 import db from "../../../database/firebase";
+import { ButtonCreateAccount } from "../../components/ButtonIconCreateAccount";
+import { LogoHeader } from "../../components/LogoHeader";
+import { RootStackParamList } from "../RootStackPrams";
+import { createUserDB } from "../../../resources/userFunctions";
+import { styles } from "./styles";
+
 type HomeScreenProp = StackNavigationProp<RootStackParamList, "Home">;
 
 export function CreateAccount() {
@@ -116,86 +106,55 @@ export function CreateAccount() {
             password,
             confirmPassword
           );
-
-          switch (statusCode) {
-            case 0:
-              Alert.alert(
-                "Usuário criado com sucesso, por favor faça o login para continuar"
-              );
-              break;
-            case -1:
-              Alert.alert("Erro", "As senhas não coincidem");
-              break;
-            case -2:
-              Alert.alert(
-                "Erro",
-                `A senha deve ter:
-                Mínimo de 8 caracteres
-                1 letra maiúscula
-                1 letra minúscula
-                1 caractere especial
-                1 número`
-              );
-              break;
-            case -3:
-              Alert.alert("Erro", "Email inválido");
-              break;
-            case -4:
-              Alert.alert("Erro", "CPF inválido");
-              break;
-            case -5:
-              Alert.alert("Erro", "Telefone inválido");
-              break;
-            case -6:
-              Alert.alert("Erro", "Nome muito curto");
-              break;
-            case -7:
-              Alert.alert("Erro", "CPF já cadastrado");
-              break;
-            case -8:
-              Alert.alert("Erro", "Email já cadastrado");
-              break;
-          }
+          switchStatusCode(statusCode, navigation);
         }}
       />
     </View>
   );
 }
 
-async function createUserDB(
-  name: string,
-  socialName: string | null,
-  email: string,
-  cpf: string,
-  telefone: string,
-  senha: string,
-  senha2: string
-) {
-  cpf = cpf.replace(/[^\d]+/g, "");
-  telefone = telefone.replace(/[^\d]+/g, "");
-  if (senha != senha2) return -1; // senhas diferentes
-  if (isPasswordValid(senha)) return -2; // senha inválida.
-  if (isEmailValid(email)) return -3; // email invalido
-  if (cpf.length != 11) return -4; // cpf invalido
-  if (telefone.length < 11 || telefone.length > 11) return -5; // telefone invalido
-  if (name.length < 3) return -6; // nome muito curto
-  let user = {
-    name: name,
-    socialName: socialName || "",
-    email: email,
-    cpf: cpf,
-    telefone: telefone,
-    senha: senha,
-  };
-
-  if (await verifyCPFOnDb(user.cpf)) return -7; // cpf ja cadastrado
-  if (await verifyEmailOnDb(user.email)) return -8; // email ja cadastrado
-
-  await db.ref("users/" + cpf).set(user); // cadastra usuario no banco de dados
-  return 0; // sucesso
+function switchStatusCode(statusCode: any, navigation: HomeScreenProp) {
+  switch (statusCode["result"]) {
+    case 0:
+      Alert.alert("Usuário criado com sucesso!");
+      navigation.navigate("Home", statusCode["user"]);
+      break;
+    case -1:
+      Alert.alert("Erro", "As senhas não coincidem");
+      break;
+    case -2:
+      Alert.alert(
+        "Erro",
+        `A senha deve ter:
+                Mínimo de 8 caracteres
+                1 letra maiúscula
+                1 letra minúscula
+                1 caractere especial
+                1 número`
+      );
+      break;
+    case -3:
+      Alert.alert("Erro", "Email inválido");
+      break;
+    case -4:
+      Alert.alert("Erro", "CPF inválido");
+      break;
+    case -5:
+      Alert.alert("Erro", "Telefone inválido");
+      break;
+    case -6:
+      Alert.alert("Erro", "Nome muito curto");
+      break;
+    case -7:
+      Alert.alert("Erro", "CPF já cadastrado");
+      break;
+    case -8:
+      Alert.alert("Erro", "Email já cadastrado");
+      break;
+  }
 }
 
-async function verifyCPFOnDb(cpf: string) {
+export async function verifyCPFOnDb(cpf: string) {
   if (cpf.length != 11) return -4; // cpf invalido;
   let isOnDB: boolean | Promise<any> = false;
   isOnDB = await db
@@ -207,27 +166,4 @@ async function verifyCPFOnDb(cpf: string) {
       });
     });
   return isOnDB;
-}
-
-async function verifyEmailOnDb(email: string) {
-  let isOnDB: boolean | Promise<any> = false;
-  isOnDB = await db
-    .ref("users")
-    .once("value")
-    .then((snap) => {
-      return snap.forEach((child) => {
-        if (child.val().email == email) return true;
-      });
-    });
-  return isOnDB;
-}
-
-function isEmailValid(email: string) {
-  let reg = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
-  return reg.test(email) == false;
-}
-
-function isPasswordValid(password: string) {
-  let reg = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z]).{8,}$/;
-  return reg.test(password) == true;
 }

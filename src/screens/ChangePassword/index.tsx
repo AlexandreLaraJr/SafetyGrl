@@ -12,6 +12,10 @@ import { StackNavigationProp } from "@react-navigation/stack";
 import { styles } from "./styles";
 import { ButtonCancelar, ButtonOk } from "../../components/ButtonComplaint";
 import { Alert } from "react-native";
+import {
+  verifyPasswordOnDB,
+  updatePasswordOnDB,
+} from "../../../resources/verifications";
 
 type ScreenProp = StackNavigationProp<RootStackParamList>;
 
@@ -66,30 +70,4 @@ export function ChangePassword(pUser: any) {
       <Footer />
     </View>
   );
-}
-
-async function updatePasswordOnDB(cpf: string, password: string) {
-  const db = require("../../../database/firebase");
-  await db.ref("users/" + cpf).update({ senha: password });
-}
-
-async function verifyPasswordOnDB(cpf: string, password: string): Promise<any> {
-  const db = require("../../../database/firebase");
-
-  return await db
-    .ref("users/" + cpf)
-    .once("value")
-    .then((snap: any) => {
-      if (snap.val().senha == password) {
-        return true;
-      } else return false;
-    });
-}
-
-function validatePassword(password: string): boolean {
-  if (password.length < 6) {
-    return false;
-  } else {
-    return true;
-  }
 }

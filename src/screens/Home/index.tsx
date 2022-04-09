@@ -19,9 +19,8 @@ import {
 } from "../../components/ButtonHome";
 import { ButtonLogoff } from "../../components/Logoff";
 
-import db from "../../../database/firebase";
-
 import AsyncStorage from "@react-native-async-storage/async-storage";
+import { getUserFromDB } from "../../../resources/userFunctions";
 
 type userScreenProp = StackNavigationProp<RootStackParamList, "User">;
 
@@ -87,19 +86,4 @@ export function Home(user: any) {
       <Footer />
     </View>
   );
-}
-
-async function getUserFromDB() {
-  let cpf: any = AsyncStorage.getItem("cpf").then((value) => {
-    return value;
-  });
-  let user: any = [];
-  cpf = await cpf;
-  await db
-    .ref("users/" + cpf)
-    .once("value")
-    .then((snap) => {
-      user.push(snap.val());
-    });
-  return user;
 }
