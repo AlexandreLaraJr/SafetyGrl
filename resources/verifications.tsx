@@ -26,14 +26,29 @@ export async function verifyPasswordOnDB(
       } else return false;
     });
 }
+
 export async function verifyEmailOnDb(email: string): Promise<boolean> {
   let isOnDB: boolean | Promise<any> = false;
   isOnDB = await db
     .ref("users")
     .once("value")
-    .then((snap) => {
+    .then((snap: any[]) => {
       return snap.forEach((child) => {
         if (child.val().email == email) return true;
+      });
+    });
+  return isOnDB;
+}
+
+export async function verifyCPFOnDb(cpf: string) {
+  if (cpf.length != 11) return -4; // cpf invalido;
+  let isOnDB: boolean | Promise<any> = false;
+  isOnDB = await db
+    .ref("users")
+    .once("value")
+    .then((snap: any[]) => {
+      return snap.forEach((child) => {
+        if (child.val().cpf == cpf) return true;
       });
     });
   return isOnDB;
