@@ -10,8 +10,6 @@ import IllustrationUser from "../../assets/icone_user.png";
 
 import { styles } from "./styles";
 import { LogoHeader } from "../../components/LogoHeader";
-import { Footer } from "../../components/Footer";
-import { RectButton } from "react-native-gesture-handler";
 
 import { ButtonOk } from "../../components/ButtonOk";
 import { ButtonCancel } from "../../components/ButtonCancel";
@@ -96,8 +94,6 @@ export function EditUser(dbUser: any) {
             <ButtonCancel onPress={() => navigation.goBack()} />
           </View>
         </View>
-
-        <Footer />
       </View>
     </View>
   );

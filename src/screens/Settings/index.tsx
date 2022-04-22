@@ -1,7 +1,6 @@
 import React from "react";
 import { View, Text, Image, Switch } from "react-native";
 import "react-native-gesture-handler";
-import { Footer } from "../../components/Footer";
 import { LogoHeader } from "../../components/LogoHeader";
 import IllustrationSettings from "../../assets/icone-settings.png";
 import IllustrationBell from "../../assets/icone-bell.png";
@@ -121,7 +120,6 @@ export function Settings() {
           </View>
         </View>
       </View>
-      <Footer />
     </View>
   );
 }

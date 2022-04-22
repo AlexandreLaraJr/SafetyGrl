@@ -2,7 +2,6 @@ import React from "react";
 import { View, Text, TextInput } from "react-native";
 import "react-native-gesture-handler";
 
-import { Footer } from "../../components/Footer";
 import { LogoHeader } from "../../components/LogoHeader";
 
 import { RootStackParamList } from "../RootStackPrams";
@@ -67,7 +66,6 @@ export function ChangePassword(pUser: any) {
           </View>
         </View>
       </View>
-      <Footer />
     </View>
   );
 }

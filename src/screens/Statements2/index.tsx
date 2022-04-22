@@ -10,8 +10,6 @@ import IllustrationStatement2 from "../../assets/icone_depoimento.png";
 
 import { styles } from "./styles";
 import { LogoHeader } from "../../components/LogoHeader";
-import { RectButton } from "react-native-gesture-handler";
-import { Footer } from "../../components/Footer";
 import { ButtonCancelar, ButtonOk } from "../../components/ButtonStatement2";
 
 type ScreenProp = StackNavigationProp<RootStackParamList>;
@@ -30,7 +28,6 @@ export function Statements2() {
         </View>
 
         <View style={styles.contentStatement}>
-          
           <Text style={styles.subtitle}>* Seu depoimento é anônimo *</Text>
 
           <Text style={styles.data}>Depoimento</Text>
@@ -48,7 +45,6 @@ export function Statements2() {
           <ButtonCancelar onPress={() => navigation.goBack()} />
         </View>
       </View>
-      <Footer />
     </View>
   );
 }

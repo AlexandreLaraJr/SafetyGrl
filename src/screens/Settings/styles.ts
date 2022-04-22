@@ -6,6 +6,7 @@ export const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: theme.colors.background,
+    paddingBottom: 20,
   },
   content: {
     backgroundColor: theme.colors.secundaryBackgroung,
@@ -41,7 +42,6 @@ export const styles = StyleSheet.create({
   },
   content2: {
     top: 35,
-    
   },
   contentItems: {
     width: 300,
@@ -60,9 +60,9 @@ export const styles = StyleSheet.create({
     fontWeight: "bold",
   },
   contentItem2: {
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    top: 10
+    flexDirection: "row",
+    justifyContent: "space-between",
+    top: 10,
     //left: -5
   },
   text: {

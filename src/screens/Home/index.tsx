@@ -11,7 +11,6 @@ import IllustrationSearch from "../../assets/icon-search.png";
 import { styles } from "./styles";
 import { LogoHeader } from "../../components/LogoHeader";
 import { RectButton } from "react-native-gesture-handler";
-import { Footer } from "../../components/Footer";
 import {
   ButtonComplaint,
   ButtonUser,
@@ -24,7 +23,8 @@ import { getUserFromDB } from "../../../resources/userFunctions";
 
 type userScreenProp = StackNavigationProp<RootStackParamList, "User">;
 
-export function Home(user: any) {
+export function Home() {
+  const user: any = getUserFromDB();
   const navigation = useNavigation<userScreenProp>();
   return (
     <View style={styles.container}>
@@ -38,10 +38,7 @@ export function Home(user: any) {
         />
 
         <Text style={styles.textName}>
-          Olá!{" "}
-          {user?.route.params.socialName == ""
-            ? user?.route.params.name
-            : user?.route.params.socialName}
+          Olá! {user?.socialName == "" ? user?.name : user?.socialName}
         </Text>
 
         <ButtonLogoff
@@ -81,7 +78,6 @@ export function Home(user: any) {
           <ButtonStatement onPress={() => navigation.navigate("Statements")} />
         </View>
       </View>
-      <Footer />
     </View>
   );
 }

@@ -10,7 +10,6 @@ import IllustrationStatement2 from "../../assets/icone_depoimento.png";
 
 import { styles } from "./styles";
 import { LogoHeader } from "../../components/LogoHeader";
-import { Footer } from "../../components/Footer";
 import { ButtonStatement2 } from "../../components/ButtonStatement";
 
 type ScreenProp = StackNavigationProp<RootStackParamList, "Statements2">;
@@ -30,7 +29,6 @@ export function Statements() {
 
         <ButtonStatement2 onPress={() => navigation.navigate("Statements2")} />
       </View>
-      <Footer />
     </View>
   );
 }

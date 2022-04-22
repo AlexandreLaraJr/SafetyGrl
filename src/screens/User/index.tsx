@@ -10,7 +10,6 @@ import IllustrationUser from "../../assets/icone_user.png";
 
 import { styles } from "./styles";
 import { LogoHeader } from "../../components/LogoHeader";
-import { Footer } from "../../components/Footer";
 import {
   ButtonAlterarSenha,
   ButtonEditarDados,
@@ -76,8 +75,6 @@ export function User(dbUser: any, edit: any) {
           />
         </View>
       </View>
-
-      <Footer />
     </View>
   );
 }

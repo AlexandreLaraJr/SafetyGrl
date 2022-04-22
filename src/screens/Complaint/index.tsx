@@ -2,7 +2,6 @@ import React from "react";
 import { View, Text, Image, TextInput } from "react-native";
 import "react-native-gesture-handler";
 
-import { Footer } from "../../components/Footer";
 import { LogoHeader } from "../../components/LogoHeader";
 
 import IllustrationAlert from "../../assets/icone-_alert_1.png";
@@ -119,7 +118,6 @@ export function Complaint() {
           </View>
         </View>
       </View>
-      <Footer />
     </View>
   );
 }
