@@ -11,37 +11,40 @@ export const styles = StyleSheet.create({
   content: {
     backgroundColor: theme.colors.secundaryBackgroung,
     flex: 1,
-    marginTop: 24,
-    marginLeft: 35,
-    marginRight: 35,
+    marginTop: '5%',
+    marginLeft: '7%',
+    marginRight: '7%',
     marginBottom: 70,
     borderRadius: 8,
-    alignItems: "center",
+    //alignItems: "center",
   },
   contentTitle: {
     flexDirection: "row",
     alignItems: "center",
-    justifyContent: "center",
-    top: 25,
-    left: -40,
+    top: '5%',
+    left: '5%',
   },
   title: {
     fontSize: 22,
     fontWeight: "bold",
     color: theme.colors.title,
-    right: -30,
+    left: '20%',
   },
   iconAlert: {
     width: 40,
     height: 40,
   },
   content2: {
-    top: 50,
-    //justifyContent: 'space-between'
+    top: '7%',
+    //alignItems: 'flex-start'
+    left: '8%',
+    //flexDirection: 'column',
   },
   content3: {
     flexDirection: "row",
-    justifyContent: "space-between",
+    justifyContent: 'space-around',
+    left: '2%',
+    
   },
   contentItems: {
     flexDirection: "row",
@@ -54,10 +57,10 @@ export const styles = StyleSheet.create({
   textRed: {
     fontSize: 16,
     color: "red",
-    right: -5,
+    //right: -5,
   },
   input: {
-    width: 280,
+    width: '83%',
     height: 25,
     backgroundColor: "white",
     borderWidth: 0.5,
@@ -71,7 +74,7 @@ export const styles = StyleSheet.create({
     top: 8,
   },
   inputHalf: {
-    width: 120,
+    width: '58%',
     height: 25,
     backgroundColor: "white",
     borderWidth: 0.5,
@@ -81,7 +84,7 @@ export const styles = StyleSheet.create({
   icon: {
     width: 15,
     height: 15,
-    right: 20,
+    left: '-75%'
   },
   content4: {
     //left: 25
