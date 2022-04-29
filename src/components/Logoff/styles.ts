@@ -2,7 +2,7 @@ import { StyleSheet } from 'react-native'
 
 export const styles = StyleSheet.create({
     rectOff: {
-        marginRight: 20,
+        marginRight: '4%',
     },
     iconOff: {
         width: 25,

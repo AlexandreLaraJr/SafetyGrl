@@ -54,9 +54,8 @@ export function Home() {
 
         <View style={styles.contentSearch}>
           <TextInput style={styles.search} />
-          <RectButton style={styles.rectSearch}>
-            <Image style={styles.iconSearch} source={IllustrationSearch} />
-          </RectButton>
+          <Image style={styles.iconSearch} source={IllustrationSearch} />
+            
         </View>
 
         <View

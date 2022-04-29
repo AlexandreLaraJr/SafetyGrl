@@ -4,11 +4,11 @@ import { theme } from "../../global/styles/theme";
 
 export const styles = StyleSheet.create({
     rectUser: {
-        marginLeft: 20,
+        marginLeft: '3%',
     },
     iconUser: {
-        width: 45,
-        height: 45,
+        width: 40,
+        height: 40,
         //backgroundColor: 'white'
     },
     contentIconAlert: {

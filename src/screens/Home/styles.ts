@@ -23,7 +23,7 @@ export const styles = StyleSheet.create({
   textName: {
     fontSize: 18,
     fontWeight: "bold",
-    left: -90,
+    left: '-150%',
   },
   rectOff: {
     marginRight: 20,
@@ -38,7 +38,7 @@ export const styles = StyleSheet.create({
     marginTop: 10,
     marginLeft: 35,
     marginRight: 35,
-    marginBottom: 70,
+    marginBottom: '5%',
     borderRadius: 8,
     alignItems: "center",
   },
@@ -51,25 +51,26 @@ export const styles = StyleSheet.create({
   contentSearch: {
     flexDirection: "row",
     top: 45,
-    justifyContent: "center",
+    //justifyContent: "center",
     alignItems: "center",
+    //left: '2%',
     marginBottom: 60,
   },
   search: {
-    width: 315,
+    width: '90%',
     height: 30,
     backgroundColor: "white",
     borderRadius: 6,
     borderWidth: 0.5,
-    right: -8,
-    paddingLeft: 3,
+    left: '35%'
   },
   rectSearch: {
-    right: 20,
+    right: '10%',
   },
   iconSearch: {
     width: 20,
     height: 20,
+    right: '40%'
   },
   subtitle: {
     top: 60,
