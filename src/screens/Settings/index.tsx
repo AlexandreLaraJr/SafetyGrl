@@ -29,7 +29,7 @@ export function Settings() {
 
       <View style={styles.content}>
         <View style={styles.contentTitle}>
-          <Image style={styles.iconAlert} source={IllustrationSettings} />
+          <Image style={styles.icon} source={IllustrationSettings} />
           <Text style={styles.title}>Configurações</Text>
         </View>
 

@@ -8,6 +8,7 @@ import IllustrationAlert from "../../assets/icone-_alert_1.png";
 import IllustrationCalendar from "../../assets/icone-calendar.png";
 import IllustrationRelogio from "../../assets/icone-relogio.png";
 import IllustrationMapa from "../../assets/icone-mapa.png";
+import IllustrationTransparent from "../../assets/branco.png";
 
 import { RootStackParamList } from "../RootStackPrams";
 import { useNavigation } from "@react-navigation/native";
@@ -24,7 +25,7 @@ export function Complaint() {
   return (
     <View style={styles.container}>
       <LogoHeader />
-
+     
       <View style={styles.content}>
         <View style={styles.contentTitle}>
           <Image style={styles.iconAlert} source={IllustrationAlert} />
@@ -50,11 +51,11 @@ export function Complaint() {
 
               <View style={styles.contentIcon}>
                 <TextInput style={styles.inputHalf} />
-                <Image style={styles.icon} source={IllustrationCalendar} />
+                
               </View>
             </View>
 
-            <View>
+            <View style={styles.content5}>
               <View style={styles.contentItems}>
                 <Text style={styles.items}>Horário:</Text>
                 <Text style={styles.textRed}>*</Text>
@@ -62,7 +63,7 @@ export function Complaint() {
 
               <View style={styles.contentIcon}>
                 <TextInput style={styles.inputHalf} />
-                <Image style={styles.icon} source={IllustrationRelogio} />
+                
               </View>
             </View>
           </View>
@@ -88,11 +89,11 @@ export function Complaint() {
               </View>
 
               <View style={styles.contentIcon}>
-                <TextInput style={styles.inputHalf} />
+                <TextInput style={styles.inputHalf} />                
               </View>
             </View>
 
-            <View style={styles.contentItems2}>
+            <View style={styles.content5}>
               <View style={styles.contentItems}>
                 <Text style={styles.items}>Idade:</Text>
               </View>

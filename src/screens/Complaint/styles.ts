@@ -6,7 +6,7 @@ export const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: theme.colors.background,
-    paddingBottom: 20,
+    //paddingBottom: 20,
   },
   content: {
     backgroundColor: theme.colors.secundaryBackgroung,
@@ -38,14 +38,18 @@ export const styles = StyleSheet.create({
     top: '7%',
     //alignItems: 'flex-start'
     left: '8%',
+    right: '8%'
     //flexDirection: 'column',
   },
   content3: {
     flexDirection: "row",
-    justifyContent: 'space-around',
-    left: '2%',
-    
+    //justifyContent: 'center',
+    //left: '9%',
+    //right: '5%'    
   },
+  content5: {
+    right: '45%'
+  },  
   contentItems: {
     flexDirection: "row",
     marginTop: 7,
@@ -84,7 +88,7 @@ export const styles = StyleSheet.create({
   icon: {
     width: 15,
     height: 15,
-    left: '-75%'
+    left: '-85%'
   },
   content4: {
     //left: 25
@@ -100,9 +104,7 @@ export const styles = StyleSheet.create({
     flexDirection: "row",
     justifyContent: "space-around",
     bottom: -50,
+    right: "6%"
   },
-  contentItems2: {
-    //flexDirection: 'row',
-    right: 16,
-  },
+  
 });
