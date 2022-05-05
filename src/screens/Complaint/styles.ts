@@ -6,17 +6,15 @@ export const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: theme.colors.background,
-    //paddingBottom: 20,
   },
   content: {
     backgroundColor: theme.colors.secundaryBackgroung,
     flex: 1,
     marginTop: '5%',
-    marginLeft: '7%',
-    marginRight: '7%',
-    marginBottom: 70,
-    borderRadius: 8,
-    //alignItems: "center",
+    marginLeft: "8%",
+    marginRight: "8%",
+    marginBottom: "5%",
+    borderRadius: 8, 
   },
   contentTitle: {
     flexDirection: "row",
@@ -35,17 +33,13 @@ export const styles = StyleSheet.create({
     height: 40,
   },
   content2: {
-    top: '7%',
-    //alignItems: 'flex-start'
+    top: '5%',
     left: '8%',
-    right: '8%'
-    //flexDirection: 'column',
+    right: '8%',
+    marginBottom: 200,
   },
   content3: {
     flexDirection: "row",
-    //justifyContent: 'center',
-    //left: '9%',
-    //right: '5%'    
   },
   content5: {
     right: '45%'

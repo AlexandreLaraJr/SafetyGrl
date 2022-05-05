@@ -1,5 +1,5 @@
 import React from "react";
-import { View, Text, Image } from "react-native";
+import { View, Text, Image, ScrollView } from "react-native";
 
 import "react-native-gesture-handler";
 import { useNavigation } from "@react-navigation/native";
@@ -26,8 +26,9 @@ export function Statements() {
           <Image style={styles.iconStatement} source={IllustrationStatement2} />
           <Text style={styles.title}>Depoimentos</Text>
         </View>
-
-        <ButtonStatement2 onPress={() => navigation.navigate("Statements2")} />
+       
+          <ButtonStatement2 onPress={() => navigation.navigate("Statements2")} />
+       
       </View>
     </View>
   );

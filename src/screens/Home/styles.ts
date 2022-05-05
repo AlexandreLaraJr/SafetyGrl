@@ -40,32 +40,30 @@ export const styles = StyleSheet.create({
     marginRight: 35,
     marginBottom: '5%',
     borderRadius: 8,
-    alignItems: "center",
+    //alignItems: "center",
   },
   title: {
     fontSize: 22,
     fontWeight: "bold",
     color: theme.colors.title,
-    top: 25,
+    alignSelf: 'center',
+    top: '8%',
   },
   contentSearch: {
     flexDirection: "row",
-    top: 45,
-    //justifyContent: "center",
+    top: '17%',
     alignItems: "center",
-    //left: '2%',
-    marginBottom: 60,
+    alignSelf: 'center',
+    marginBottom: 60,    
   },
   search: {
-    width: '90%',
-    height: 30,
+    width: '85%',
+    height: 25,
     backgroundColor: "white",
     borderRadius: 6,
     borderWidth: 0.5,
-    left: '35%'
-  },
-  rectSearch: {
-    right: '10%',
+    paddingLeft: '1%',
+    left: '40%'
   },
   iconSearch: {
     width: 20,
@@ -78,13 +76,15 @@ export const styles = StyleSheet.create({
   },
   textNameRegiao: {
     fontSize: 14,
-    marginTop: 10,
+    marginTop: '3%',
     marginBottom: 25,
+    alignSelf: 'center'
   },
   subContent2: {
     flexDirection: "row",
     justifyContent: "space-between",
-    bottom: -20,
+    alignSelf: 'center',
+    marginBottom: 150, 
   },
   icon: {
     width: 32,

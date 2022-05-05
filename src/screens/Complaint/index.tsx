@@ -1,5 +1,5 @@
 import React from "react";
-import { View, Text, Image, TextInput } from "react-native";
+import { View, ScrollView, Text, Image, TextInput } from "react-native";
 import "react-native-gesture-handler";
 
 import { LogoHeader } from "../../components/LogoHeader";
@@ -26,7 +26,7 @@ export function Complaint() {
     <View style={styles.container}>
       <LogoHeader />
      
-      <View style={styles.content}>
+      <ScrollView style={styles.content}>
         <View style={styles.contentTitle}>
           <Image style={styles.iconAlert} source={IllustrationAlert} />
           <Text style={styles.title}>Fazer Denúncia</Text>
@@ -118,7 +118,7 @@ export function Complaint() {
             <ButtonCancelar onPress={() => navigation.goBack()} />
           </View>
         </View>
-      </View>
+      </ScrollView>
     </View>
   );
 }

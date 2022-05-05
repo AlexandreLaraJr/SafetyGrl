@@ -1,5 +1,5 @@
 import React from "react";
-import { View, Text, Image, Switch } from "react-native";
+import { View,ScrollView , Text, Image, Switch, } from "react-native";
 import "react-native-gesture-handler";
 import { LogoHeader } from "../../components/LogoHeader";
 import IllustrationSettings from "../../assets/icone-settings.png";
@@ -27,7 +27,7 @@ export function Settings() {
     <View style={styles.container}>
       <LogoHeader />
 
-      <View style={styles.content}>
+      <ScrollView style={styles.content}>
         <View style={styles.contentTitle}>
           <Image style={styles.icon} source={IllustrationSettings} />
           <Text style={styles.title}>Configurações</Text>
@@ -119,7 +119,7 @@ export function Settings() {
             />
           </View>
         </View>
-      </View>
+      </ScrollView>
     </View>
   );
 }

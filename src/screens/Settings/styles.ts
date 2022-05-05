@@ -13,7 +13,7 @@ export const styles = StyleSheet.create({
     marginTop: '5%',
     marginLeft: "8%",
     marginRight: "8%",
-    bottom: "5%",
+    marginBottom: "5%",
     borderRadius: 8,    
   },
   contentTitle: {
@@ -39,7 +39,8 @@ export const styles = StyleSheet.create({
   },
   content2: {
     top: "6%",
-    left: "8%",    
+    left: "8%", 
+    marginBottom: 150   
   },
   contentItems: {
     width:  '85%',

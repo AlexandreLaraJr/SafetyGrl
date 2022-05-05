@@ -1,5 +1,5 @@
 import React from "react";
-import { View, Text, Image, TextInput } from "react-native";
+import { View, Text, Image, TextInput, ScrollView } from "react-native";
 
 import "react-native-gesture-handler";
 import { useNavigation } from "@react-navigation/native";
@@ -49,7 +49,7 @@ export function Home() {
         />
       </View>
 
-      <View style={styles.content2}>
+      <ScrollView style={styles.content2}>
         <Text style={styles.title}>Áreas de Risco</Text>
 
         <View style={styles.contentSearch}>
@@ -76,7 +76,8 @@ export function Home() {
 
           <ButtonStatement onPress={() => navigation.navigate("Statements")} />
         </View>
-      </View>
+
+      </ScrollView>
     </View>
   );
 }

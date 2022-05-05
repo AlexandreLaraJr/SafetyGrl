@@ -34,4 +34,10 @@ export const styles = StyleSheet.create({
     width: 35,
     height: 35,
   },
+  content2: {
+    top: '5%',
+    left: '8%',
+    right: '8%',
+    marginBottom: 200
+  }
 });
