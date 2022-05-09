@@ -2,30 +2,30 @@ import React from "react";
 import { View, Text, Image, TextInput, ScrollView } from "react-native";
 
 import "react-native-gesture-handler";
+import AsyncStorage from "@react-native-async-storage/async-storage";
 import { useNavigation } from "@react-navigation/native";
-import { StackNavigationProp } from "@react-navigation/stack";
-import { RootStackParamList } from "../RootStackPrams";
+import {
+  createStackNavigator,
+  StackNavigationProp,
+} from "@react-navigation/stack";
 
+import { RootStackParamList } from "../RootStackPrams";
 import IllustrationSearch from "../../assets/icon-search.png";
 
 import { styles } from "./styles";
 import { LogoHeader } from "../../components/LogoHeader";
-import { RectButton } from "react-native-gesture-handler";
-import {
-  ButtonComplaint,
-  ButtonUser,
-  ButtonStatement,
-} from "../../components/ButtonHome";
+import { ButtonUser } from "../../components/ButtonHome";
 import { ButtonLogoff } from "../../components/Logoff";
 
-import AsyncStorage from "@react-native-async-storage/async-storage";
 import { getUserFromDB } from "../../../resources/userFunctions";
+import { User } from "../User";
+import { SignIn } from "../SignIn";
 
 type userScreenProp = StackNavigationProp<RootStackParamList, "User">;
 
-export function Home() {
+function HomeScreen({ navigation }: any) {
   const user: any = getUserFromDB();
-  const navigation = useNavigation<userScreenProp>();
+
   return (
     <View style={styles.container}>
       <LogoHeader />
@@ -55,7 +55,6 @@ export function Home() {
         <View style={styles.contentSearch}>
           <TextInput style={styles.search} />
           <Image style={styles.iconSearch} source={IllustrationSearch} />
-            
         </View>
 
         <View
@@ -71,13 +70,23 @@ export function Home() {
 
         <Text style={styles.textNameRegiao}>Região de Santos/SP</Text>
 
-        <View style={styles.subContent2}>
-          <ButtonComplaint onPress={() => navigation.navigate("Complaint")} />
-
-          <ButtonStatement onPress={() => navigation.navigate("Statements")} />
-        </View>
-
+        <View style={styles.subContent2}></View>
       </ScrollView>
     </View>
+  );
+}
+
+export function Home() {
+  const stackNavigator = createStackNavigator();
+  return (
+    <stackNavigator.Navigator
+      screenOptions={{
+        headerShown: false,
+      }}
+    >
+      <stackNavigator.Screen name="HomeScreen" component={HomeScreen} />
+      <stackNavigator.Screen name="User" component={User} />
+      <stackNavigator.Screen name="SignIn" component={SignIn} />
+    </stackNavigator.Navigator>
   );
 }
