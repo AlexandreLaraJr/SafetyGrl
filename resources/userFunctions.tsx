@@ -1,5 +1,6 @@
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import db from "../database/firebase";
+import { encrypt } from "./securePassword";
 import { verifyCPFOnDb } from "./verifications";
 import {
   isEmailValid,
@@ -25,7 +26,7 @@ export async function createUserDB(
     email: email,
     cpf: cpf,
     telefone: telefone,
-    senha: senha,
+    senha: encrypt(senha),
   };
 
   result = await makeVerifications(senha, senha2, email, cpf, telefone, name);

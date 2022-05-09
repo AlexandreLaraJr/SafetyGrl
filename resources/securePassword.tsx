@@ -1,20 +1,16 @@
-const crypt = require("crypto");
-const algorithm = "aes-256-cbc";
-const key = crypt.randomBytes(32);
-const iv = crypt.randomBytes(16);
+import * as Crypto from "expo-crypto";
+import { useEffect, useState } from "react";
 
-export function encrypt(text: any) {
-  let cipher = crypt.createCipheriv("aes-256-cbc", Buffer.from(key), iv);
-  let encrypted = cipher.update(text);
-  encrypted = Buffer.concat([encrypted, cipher.final()]);
-  return { iv: iv.toString("hex"), encryptedData: encrypted.toString("hex") };
-}
-
-export function decrypt(text: any) {
-  let iv = Buffer.from(text.iv, "hex");
-  let encryptedText = Buffer.from(text.encryptedData, "hex");
-  let decipher = crypt.createDecipheriv("aes-256-cbc", Buffer.from(key), iv);
-  let decrypted = decipher.update(encryptedText);
-  decrypted = Buffer.concat([decrypted, decipher.final()]);
-  return decrypted.toString();
+export function encrypt(password: string) {
+  const [encrypted, setEncrypted] = useState("");
+  useEffect(() => {
+    (async () => {
+      const digest = await Crypto.digestStringAsync(
+        Crypto.CryptoDigestAlgorithm.SHA256,
+        password
+      );
+      setEncrypted(digest);
+    })();
+  }, []);
+  return encrypted;
 }
