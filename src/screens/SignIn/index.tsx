@@ -3,7 +3,10 @@ import { View, Text, Image, StatusBar, TextInput, Alert } from "react-native";
 
 import "react-native-gesture-handler";
 import { useNavigation } from "@react-navigation/native";
-import { StackNavigationProp } from "@react-navigation/stack";
+import {
+  createStackNavigator,
+  StackNavigationProp,
+} from "@react-navigation/stack";
 import { RootStackParamList } from "../RootStackPrams";
 
 import IllustrationImgLogo from "../../assets/Logo_app.png";
@@ -19,13 +22,25 @@ import {
 } from "../../components/ButtonIconSignIn";
 
 import { styles } from "./styles";
+import { CreateAccount } from "../CreateAccount";
 
 type createAccountScreenProp = StackNavigationProp<
   RootStackParamList,
   "CreateAccount"
 >;
 
+const StackNav = createStackNavigator();
+
 export function SignIn(): any {
+  return (
+    <StackNav.Navigator screenOptions={{ headerShown: false }}>
+      <StackNav.Screen name="SignInStack" component={SignInScreen} />
+      <StackNav.Screen name="CreateAccountStack" component={CreateAccount} />
+    </StackNav.Navigator>
+  );
+}
+
+function SignInScreen(): any {
   const [login, setLogin] = React.useState("");
   const [password, setPassword] = React.useState("");
   const navigation = useNavigation<createAccountScreenProp>();

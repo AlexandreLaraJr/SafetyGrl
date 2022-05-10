@@ -35,10 +35,12 @@ export async function createUserDB(
   return { result, user };
 }
 
-export async function getUserFromDB() {
-  let cpf: any = AsyncStorage.getItem("cpf").then((value) => {
-    return value;
-  });
+export async function getUserFromDB(cpf: any) {
+  if (!cpf) {
+    cpf = AsyncStorage.getItem("cpf").then((value) => {
+      return value;
+    });
+  }
   let user: any = [];
   cpf = await cpf;
   await db
@@ -50,7 +52,7 @@ export async function getUserFromDB() {
   return user;
 }
 
-async function makeVerifications(
+export async function makeVerifications(
   senha: string,
   senha2: string,
   email: string,
