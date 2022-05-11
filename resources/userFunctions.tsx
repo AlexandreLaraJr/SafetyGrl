@@ -8,6 +8,20 @@ import {
   verifyEmailOnDb,
 } from "./verifications";
 
+/**
+ *
+ * Cria um usário no banco de dados baseado
+ * nos parametros informados
+ *
+ * @param name Nome do usuário
+ * @param socialName Nome Social do usuário
+ * @param email Email do usuário
+ * @param cpf CPF do usuário
+ * @param telefone Telefone do usuário
+ * @param senha Senha do usuário (não criptografada)
+ * @param senha2 Confirmação de senha (não criptografada)
+ * @returns Promise<number, JSON>
+ */
 export async function createUserDB(
   name: string,
   socialName: string | null,
@@ -35,8 +49,16 @@ export async function createUserDB(
   return { result, user };
 }
 
-export async function getUserFromDB(cpf: any) {
-  if (!cpf) {
+/**
+ *
+ * Retorna um objeto JSON do banco de dados
+ * baseado no CPF do usuário
+ *
+ * @param cpf CPF do usuário
+ * @returns Promise<JSON>
+ */
+export async function getUserFromDB(cpf?: any) {
+  if (typeof cpf === "undefined") {
     cpf = AsyncStorage.getItem("cpf").then((value) => {
       return value;
     });
@@ -51,7 +73,11 @@ export async function getUserFromDB(cpf: any) {
     });
   return user;
 }
-
+/**
+ * Verifica se todos os dados são validos
+ *
+ * @returns Numero baseado nas verificações 0 = Todos os dados são validos
+ */
 export async function makeVerifications(
   senha: string,
   senha2: string,

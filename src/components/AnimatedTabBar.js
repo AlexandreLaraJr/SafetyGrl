@@ -1,12 +1,11 @@
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import React, { useEffect, useRef } from 'react'
-import { StyleSheet, View, Text, TouchableOpacity } from "react-native";
+import { StyleSheet, View, TouchableOpacity } from "react-native";
 import { Complaint } from "../screens/Complaint";
 import { Home } from "../screens/Home";
 import { Settings } from "../screens/Settings";
 import { Sos } from "../screens/Sos";
 import { Statements } from "../screens/Statements";
-import { SignIn } from "../screens/SignIn";
 import Icon, { Icons } from '../components/Icons';
 import { theme } from "../global/styles/theme";
 import * as Animatable from 'react-native-animatable';

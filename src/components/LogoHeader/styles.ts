@@ -1,5 +1,4 @@
 import { StyleSheet } from "react-native";
-import { theme } from "../../global/styles/theme";
 
 export const styles = StyleSheet.create({
   container: {
@@ -11,7 +10,6 @@ export const styles = StyleSheet.create({
   containerLogo: {
     flexDirection: "row",
     alignItems: "center",
-    paddingLeft: "5%",
   },
   logo: {
     width: 80,

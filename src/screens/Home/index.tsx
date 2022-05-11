@@ -1,62 +1,114 @@
+/*
+TODO:
+- Logo
+- Icone notificações
+- Usuario
+- Barra de Pesquisa
+- Botão logout
+- Mapa
+*/
+
 import React from "react";
-import { View, Text, Image, TextInput, ScrollView } from "react-native";
 
-import "react-native-gesture-handler";
-import AsyncStorage from "@react-native-async-storage/async-storage";
-import { useNavigation } from "@react-navigation/native";
-import {
-  createStackNavigator,
-  StackNavigationProp,
-} from "@react-navigation/stack";
-
-import { RootStackParamList } from "../RootStackPrams";
-import IllustrationSearch from "../../assets/icon-search.png";
+import { View, Image, Text, TextInput, Platform } from "react-native";
+import MapView, { Heatmap, PROVIDER_GOOGLE } from "react-native-maps";
 
 import { styles } from "./styles";
+
+import { RectButton, RectButtonProps } from "react-native-gesture-handler";
+
 import { LogoHeader } from "../../components/LogoHeader";
+
+import IllustrationNotification from "../../assets/icone-bell.png";
+import IllustrationSearch from "../../assets/icon-search.png";
+
 import { ButtonUser } from "../../components/ButtonHome";
 import { ButtonLogoff } from "../../components/Logoff";
 
-import { getUserFromDB } from "../../../resources/userFunctions";
-import { User } from "../User";
-import { SignIn } from "../SignIn";
+import {
+  getAddFromApi,
+  saveLocationDB,
+} from "../../../resources/locationFunctions";
+import { useNavigation } from "@react-navigation/native";
+import { StackNavigationProp } from "@react-navigation/stack";
+import { RootStackParamList } from "../RootStackPrams";
 
-type userScreenProp = StackNavigationProp<RootStackParamList, "User">;
+let points = [
+  { latitude: 40.7828, longitude: -74.0065, weight: 1 },
+  { latitude: 41.7121, longitude: -74.0042, weight: 1 },
+  { latitude: 40.7102, longitude: -75.006, weight: 1 },
+  { latitude: 40.7123, longitude: -74.0052, weight: 1 },
+  { latitude: 40.7032, longitude: -74.0042, weight: 1 },
+  { latitude: 40.7198, longitude: -74.0024, weight: 1 },
+  { latitude: 41.7223, longitude: -74.0053, weight: 1 },
+  { latitude: 40.7181, longitude: -74.0042, weight: 1 },
+  { latitude: 40.7124, longitude: -74.0023, weight: 1 },
+  { latitude: 40.7648, longitude: -74.0012, weight: 1 },
+  { latitude: 41.7128, longitude: -74.0027, weight: 1 },
+  { latitude: 40.7223, longitude: -74.0153, weight: 1 },
+  { latitude: 40.7193, longitude: -74.0052, weight: 1 },
+  { latitude: 40.7241, longitude: -75.0013, weight: 1 },
+  { latitude: 41.7518, longitude: -74.0085, weight: 1 },
+  { latitude: 40.7599, longitude: -74.0093, weight: 1 },
+  { latitude: 41.7523, longitude: -74.0021, weight: 1 },
+  { latitude: 40.7342, longitude: -74.0152, weight: 1 },
+  { latitude: 40.7484, longitude: -75.0042, weight: 1 },
+  { latitude: 40.7929, longitude: -75.0023, weight: 1 },
+  { latitude: 40.7292, longitude: -74.0013, weight: 1 },
+  { latitude: 40.794, longitude: -74.0048, weight: 1 },
+  { latitude: 40.7874, longitude: -74.0052, weight: 1 },
+  { latitude: 40.7824, longitude: -74.0024, weight: 1 },
+  { latitude: 40.7232, longitude: -74.0094, weight: 1 },
+  { latitude: 41.7342, longitude: -74.0152, weight: 1 },
+  { latitude: 41.7484, longitude: -74.0012, weight: 1 },
+  { latitude: 41.7929, longitude: -74.0073, weight: 1 },
+  { latitude: 41.7292, longitude: -74.0013, weight: 1 },
+  { latitude: 41.794, longitude: -74.0058, weight: 1 },
+  { latitude: 41.7874, longitude: -74.0352, weight: 1 },
+  { latitude: 41.7824, longitude: -74.0024, weight: 1 },
+  { latitude: 41.7232, longitude: -74.0094, weight: 1 },
+  { latitude: 41.0342, longitude: -75.0152, weight: 1 },
+  { latitude: 41.0484, longitude: -75.0012, weight: 1 },
+  { latitude: 41.0929, longitude: -75.0073, weight: 1 },
+  { latitude: 41.0292, longitude: -74.0013, weight: 1 },
+  { latitude: 41.094, longitude: -74.0068, weight: 1 },
+  { latitude: 41.0874, longitude: -74.0052, weight: 1 },
+  { latitude: 41.0824, longitude: -74.0024, weight: 1 },
+  { latitude: 41.0232, longitude: -74.0014, weight: 1 },
+];
 
-function HomeScreen({ navigation }: any) {
-  const user: any = getUserFromDB();
+type ScreenProp = StackNavigationProp<RootStackParamList>;
 
+export function Home() {
+  const navigation = useNavigation<ScreenProp>();
+  const [search, setSearch] = React.useState("");
   return (
     <View style={styles.container}>
       <LogoHeader />
-
+      <ButtonNotification />
       <View style={styles.content}>
         <ButtonUser
-          onPress={async () => {
-            navigation.navigate("User", await getUserFromDB());
+          onPress={() => {
+            navigation.navigate("User");
           }}
         />
-
-        <Text style={styles.textName}>
-          Olá! {user?.socialName == "" ? user?.name : user?.socialName}
-        </Text>
-
+        <Text>Olá **username here**</Text>
         <ButtonLogoff
           onPress={() => {
-            AsyncStorage.clear();
             navigation.navigate("SignIn");
           }}
         />
       </View>
-
-      <ScrollView style={styles.content2}>
-        <Text style={styles.title}>Áreas de Risco</Text>
-
+      <View style={styles.content2}>
+        <Text style={styles.titulos}>Áreas de Risco</Text>
         <View style={styles.contentSearch}>
-          <TextInput style={styles.search} />
+          <TextInput
+            style={styles.searchBar}
+            placeholder="Digite outra região, bairro, cidade..."
+            onChangeText={(text) => setSearch(text)}
+          />
           <Image style={styles.iconSearch} source={IllustrationSearch} />
         </View>
-
         <View
           style={{
             alignSelf: "center",
@@ -65,28 +117,50 @@ function HomeScreen({ navigation }: any) {
             overflow: "hidden",
           }}
         >
-          <Text> Mapa quebrado atualmente </Text>
+          <MapView
+            style={styles.contentMap}
+            provider={PROVIDER_GOOGLE}
+            region={{
+              latitude: 40.7143,
+              longitude: -74.0042,
+              latitudeDelta: 0.009,
+              longitudeDelta: 0.035,
+            }}
+          >
+            <Heatmap
+              points={points}
+              opacity={0.5}
+              radius={40}
+              gradient={{
+                colors: ["white", "green", "yellow", "orange", "red"],
+                startPoints:
+                  Platform.OS === "ios"
+                    ? [0.01, 0.04, 0.1, 0.45, 0.5]
+                    : [0.1, 0.25, 0.5, 0.75, 1],
+                colorMapSize: 2000,
+              }}
+            ></Heatmap>
+          </MapView>
+          <ButtonLogoff
+            onPress={async () => {
+              let location = await getAddFromApi(search);
+              console.log(location.lat, location.lon);
+              await saveLocationDB(location.lat, location.lon);
+            }}
+          />
         </View>
-
-        <Text style={styles.textNameRegiao}>Região de Santos/SP</Text>
-
-        <View style={styles.subContent2}></View>
-      </ScrollView>
+      </View>
     </View>
   );
 }
 
-export function Home() {
-  const stackNavigator = createStackNavigator();
+function ButtonNotification({ ...rest }: RectButtonProps) {
   return (
-    <stackNavigator.Navigator
-      screenOptions={{
-        headerShown: false,
-      }}
-    >
-      <stackNavigator.Screen name="HomeScreen" component={HomeScreen} />
-      <stackNavigator.Screen name="User" component={User} />
-      <stackNavigator.Screen name="SignIn" component={SignIn} />
-    </stackNavigator.Navigator>
+    <RectButton {...rest}>
+      <Image
+        style={styles.iconNotification}
+        source={IllustrationNotification}
+      />
+    </RectButton>
   );
 }

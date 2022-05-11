@@ -12,7 +12,7 @@ type HomeScreenProp = StackNavigationProp<RootStackParamList, "Home">;
 
 export function CreateAccount() {
   const navigation = useNavigation<HomeScreenProp>();
-
+  console.log(navigation);
   const [name, setName] = React.useState("");
   const [socialName, setSocialName] = React.useState("");
   const [email, setEmail] = React.useState("");

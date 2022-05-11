@@ -20,9 +20,8 @@ type ChangePasswordScreenProp = StackNavigationProp<
   "ChangePassword"
 >;
 
-export function User(dbUser: any, edit: any) {
+export function User(dbUser: any) {
   const navigation = useNavigation<ChangePasswordScreenProp>();
-
   let user = dbUser?.route?.params[0];
 
   return (

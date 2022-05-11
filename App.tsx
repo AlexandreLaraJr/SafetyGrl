@@ -1,26 +1,31 @@
 import React from "react";
 import { LogBox } from "react-native";
-import AnimatedTabBar from "./src/components/AnimatedTabBar";
 import { NavigationContainer } from "@react-navigation/native";
 import { createStackNavigator } from "@react-navigation/stack";
+import { Home } from "./src/screens/Home";
+import AnimatedTabBar from "./src/components/AnimatedTabBar";
+import { User } from "./src/screens/User";
 import { SignIn } from "./src/screens/SignIn";
 import { CreateAccount } from "./src/screens/CreateAccount";
 
+const Stack = createStackNavigator();
+
 export default function App() {
-  const StackNav = createStackNavigator();
   LogBox.ignoreLogs(["Setting a timer", "AsyncStorage"]); //desliga o aviso de setTimeout
 
   return (
     <NavigationContainer>
-      <StackNav.Navigator
+      <Stack.Navigator
         screenOptions={{
           headerShown: false,
         }}
       >
-        <StackNav.Screen name="AnimTabBar" component={AnimatedTabBar} />
-        <StackNav.Screen name="SignInStackHome" component={SignIn} />
-        <StackNav.Screen name="CreateAccount" component={CreateAccount} />
-      </StackNav.Navigator>
+        <Stack.Screen name="AnimTab" component={AnimatedTabBar} />
+        <Stack.Screen name="Home" component={Home} />
+        <Stack.Screen name="User" component={User} />
+        <Stack.Screen name="SignIn" component={SignIn} />
+        <Stack.Screen name="CreateAccount" component={CreateAccount} />
+      </Stack.Navigator>
     </NavigationContainer>
   );
 }
