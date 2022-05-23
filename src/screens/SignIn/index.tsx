@@ -11,20 +11,31 @@ import { RootStackParamList } from "../RootStackPrams";
 import IllustrationImgLogo from "../../assets/Logo_app.png";
 import IllustrationImgNameLogo from "../../assets/SafetyGrl2.png";
 
-import AsyncStorage from "@react-native-async-storage/async-storage";
+import {
+  getUserFromDB,
+  setCredentials,
+  checkLogin,
+} from "../../../resources/userFunctions";
 
 import {
   ButtonCreateAccountSignIn,
   ButtonLogin,
 } from "../../components/ButtonIconSignIn";
-import { encrypt } from "../../../resources/securePassword";
 
 type createAccountScreenProp = StackNavigationProp<
   RootStackParamList,
   "CreateAccount"
 >;
 
+import AsyncStorage from "@react-native-async-storage/async-storage";
+import {
+  verifyCPFOnDb,
+  verifyPasswordOnDB,
+} from "../../../resources/verifications";
+import { encrypt } from "../../../resources/securePassword";
+
 export function SignIn(): any {
+  AsyncStorage.clear();
   const navigation = useNavigation<createAccountScreenProp>();
 
   const [login, setLogin] = React.useState("");
@@ -47,7 +58,7 @@ export function SignIn(): any {
       <View style={styles.content}>
         <TextInput
           style={styles.inputLogin}
-          placeholder=" CPF ou Email"
+          placeholder=" CPF "
           maxLength={40}
           onChangeText={(login) => setLogin(login)}
         />
@@ -62,13 +73,17 @@ export function SignIn(): any {
       </View>
       <ButtonLogin
         onPress={async () => {
-          /*
-        - Verificar se o usuário existe no banco de dados
-        - Comparar erros usando as funções de verifications
-        */
-
-          AsyncStorage.setItem("@utils:isLoggedIn", "true");
-          AsyncStorage.setItem("@user:login", login);
+          if (login === "" || password === "") {
+            Alert.alert("Erro", "Preencha todos os campos");
+          }
+          console.log(login, password);
+          setCredentials(login);
+          if (
+            (await verifyCPFOnDb(login)) &&
+            (await verifyPasswordOnDB(login, await encrypt(password)))
+          ) {
+            navigation.navigate("Home");
+          }
         }}
       />
       <ButtonCreateAccountSignIn
@@ -78,15 +93,4 @@ export function SignIn(): any {
       />
     </View>
   );
-}
-
-/***
- * Checks if the user is logged in based on
- * the existence of the token in the local storage
- * @param {navigation} Navigation prop of the screen
- */
-function checkLogin({ navigation }: createAccountScreenProp) {
-  AsyncStorage.getItem("@user:login").then((login) => {
-    if (login) navigation.navigate("Home");
-  });
 }
