@@ -13,15 +13,36 @@ export function isPasswordValid(password: string) {
 export async function updatePasswordOnDB(cpf: string, password: string) {
   await db.ref("users/" + cpf).update({ senha: password });
 }
+
+/***
+ * @param {string} password: Must be the hashed password
+ *
+ * @returns {Promise<boolean>} Promise<boolean>
+ */
 export async function verifyPasswordOnDB(
-  cpf: string,
+  identifier: string,
   password: string
-): Promise<any> {
+): Promise<boolean> {
+  console.log(`on verifyPass, password: ${password}`);
+  return await db
+    .ref("users/" + identifier)
+    .once("value")
+    .then((snap: any) => {
+      if (snap.val().senha == password) {
+        return true;
+      } else return false;
+    });
+}
+
+export async function verifyCPFOnDb(cpf: string) {
+  console.log(`on verifyCPF, cpf: ${cpf}\n typeof(cpf): ${typeof cpf}`);
   return await db
     .ref("users/" + cpf)
     .once("value")
     .then((snap: any) => {
-      if (snap.val().senha == password) {
+      console.log(`on verifyCPF, snap.val().cpf: ${snap.val().cpf}`);
+      if (snap.val().cpf == cpf) {
+        console.log(`snap.val().cpf: ${snap.val().cpf}`);
         return true;
       } else return false;
     });
@@ -35,20 +56,6 @@ export async function verifyEmailOnDb(email: string): Promise<boolean> {
     .then((snap: any[]) => {
       return snap.forEach((child) => {
         if (child.val().email == email) return true;
-      });
-    });
-  return isOnDB;
-}
-
-export async function verifyCPFOnDb(cpf: string) {
-  if (cpf.length != 11) return -4; // cpf invalido;
-  let isOnDB: boolean | Promise<any> = false;
-  isOnDB = await db
-    .ref("users")
-    .once("value")
-    .then((snap: any[]) => {
-      return snap.forEach((child) => {
-        if (child.val().cpf == cpf) return true;
       });
     });
   return isOnDB;

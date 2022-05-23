@@ -1,8 +1,10 @@
 import AsyncStorage from "@react-native-async-storage/async-storage";
+import { StackNavigationProp } from "@react-navigation/stack";
 import db from "../database/firebase";
+import { RootStackParamList } from "../src/screens/RootStackPrams";
 import { encrypt } from "./securePassword";
-import { verifyCPFOnDb } from "./verifications";
 import {
+  verifyCPFOnDb,
   isEmailValid,
   isPasswordValid,
   verifyEmailOnDb,
@@ -13,13 +15,6 @@ import {
  * Cria um usário no banco de dados baseado
  * nos parametros informados
  *
- * @param name Nome do usuário
- * @param socialName Nome Social do usuário
- * @param email Email do usuário
- * @param cpf CPF do usuário
- * @param telefone Telefone do usuário
- * @param senha Senha do usuário (não criptografada)
- * @param senha2 Confirmação de senha (não criptografada)
  * @returns Promise<number, JSON>
  */
 export async function createUserDB(
@@ -31,9 +26,10 @@ export async function createUserDB(
   senha: string,
   senha2: string
 ): Promise<any> {
-  let result: number | undefined = 0;
-  cpf = cpf.replace(/[^\d]+/g, "");
-  telefone = telefone.replace(/[^\d]+/g, "");
+  let result: number = 0;
+  cpf = cpf.replace(/[^\d]+/g, ""); //Remove pontuações
+  telefone = telefone.replace(/[^\d]+/g, ""); //Remove pontuações
+
   let user = {
     name: name,
     socialName: socialName || "",
@@ -43,7 +39,14 @@ export async function createUserDB(
     senha: encrypt(senha),
   };
 
-  result = await makeVerifications(senha, senha2, email, cpf, telefone, name);
+  result = await makeVerificationsCreate(
+    senha,
+    senha2,
+    email,
+    cpf,
+    telefone,
+    name
+  );
 
   await db.ref("users/" + cpf).set(user); // cadastra usuario no banco de dados
   return { result, user };
@@ -54,19 +57,19 @@ export async function createUserDB(
  * Retorna um objeto JSON do banco de dados
  * baseado no CPF do usuário
  *
- * @param cpf CPF do usuário
+ * @param {identifier} identifier email ou cpf
  * @returns Promise<JSON>
  */
-export async function getUserFromDB(cpf?: any) {
-  if (typeof cpf === "undefined") {
-    cpf = AsyncStorage.getItem("cpf").then((value) => {
+export async function getUserFromDB(identifier?: any) {
+  if (typeof identifier === "undefined") {
+    identifier = AsyncStorage.getItem("@user:identifier").then((value) => {
       return value;
     });
   }
   let user: any = [];
-  cpf = await cpf;
+  identifier = await identifier;
   await db
-    .ref("users/" + cpf)
+    .ref("users/" + identifier)
     .once("value")
     .then((snap: any) => {
       user.push(snap.val());
@@ -75,10 +78,12 @@ export async function getUserFromDB(cpf?: any) {
 }
 /**
  * Verifica se todos os dados são validos
+ * para criar uma conta nova
  *
  * @returns Numero baseado nas verificações 0 = Todos os dados são validos
  */
-export async function makeVerifications(
+
+export async function makeVerificationsCreate(
   senha: string,
   senha2: string,
   email: string,
@@ -97,4 +102,61 @@ export async function makeVerifications(
   if (await verifyEmailOnDb(email)) result = -8; // email ja cadastrado
 
   return result;
+}
+
+/***
+ * Creates local storage credentials for the user
+ * @param {identifier} identifier email or cpf
+ * @param {name} Name Optional, stores name
+ * @param {socialName} SocialName Optional, stores social name
+ */
+export function setCredentials(
+  identifier: string,
+  name?: string,
+  socialName?: string
+): void {
+  AsyncStorage.setItem("@utils:isLoggedIn", "true");
+  AsyncStorage.setItem("@user:identifier", identifier);
+  if (typeof name !== "undefined") {
+    AsyncStorage.setItem("@user:name", name);
+  }
+  if (typeof socialName !== "undefined") {
+    AsyncStorage.setItem("@user:socialName", socialName);
+  }
+}
+
+/**
+ * Checks database for user
+ *
+ * @param {identifier} identifier uuid of the user
+ *
+ * @returns {boolean} Boolean based on the existence of the user
+ */
+export async function validLogin(
+  identifier: string,
+  login: string,
+  password: string
+) {
+  let result = false;
+  db.ref("users/" + identifier)
+    .once("value")
+    .then((snap: any) => {
+      if (snap.val().cpf == login) {
+        if (snap.val().senha == encrypt(password)) {
+          result = true;
+        }
+      }
+    });
+  return result;
+}
+
+type createAccountScreenProp = StackNavigationProp<
+  RootStackParamList,
+  "CreateAccount"
+>;
+export function checkLogin({ navigation }: createAccountScreenProp) {
+  AsyncStorage.getItem("@user:login").then((login) => {
+    console.log(login);
+    if (login) navigation.navigate("Home");
+  });
 }
