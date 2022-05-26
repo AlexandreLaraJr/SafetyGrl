@@ -36,7 +36,7 @@ export async function createUserDB(
     email: email,
     cpf: cpf,
     telefone: telefone,
-    senha: encrypt(senha),
+    senha: await encrypt(senha),
   };
 
   result = await makeVerificationsCreate(
@@ -76,13 +76,13 @@ export async function getUserFromDB(identifier?: any) {
     });
   return user;
 }
+
 /**
  * Verifica se todos os dados são validos
  * para criar uma conta nova
  *
  * @returns Numero baseado nas verificações 0 = Todos os dados são validos
  */
-
 export async function makeVerificationsCreate(
   senha: string,
   senha2: string,
@@ -91,10 +91,17 @@ export async function makeVerificationsCreate(
   telefone: string,
   name: string
 ) {
+  console.log(`on makeVerificationsCreate, 
+  senha: ${senha}
+  senha2: ${senha2}
+  email: ${email}
+  cpf: ${cpf}
+  telefone: ${telefone}
+  name: ${name}`);
   let result = 0;
   if (senha != senha2) result = -1; // senhas diferentes
-  if (isPasswordValid(senha)) result = -2; // senha inválida.
-  if (isEmailValid(email)) result = -3; // email invalido
+  if (!isPasswordValid(senha)) result = -2; // senha inválida.
+  if (!isEmailValid(email)) result = -3; // email invalido
   if (cpf.length != 11) result = -4; // cpf invalido
   if (telefone.length < 11 || telefone.length > 11) result = -5; // telefone invalido
   if (name.length < 3) result = -6; // nome muito curto

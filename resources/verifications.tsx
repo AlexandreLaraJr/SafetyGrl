@@ -2,12 +2,12 @@ const db = require("../database/firebase");
 
 export function isEmailValid(email: string) {
   let reg = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
-  return reg.test(email) == false;
+  return reg.test(email);
 }
 
 export function isPasswordValid(password: string) {
   let reg = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z]).{8,}$/;
-  return reg.test(password) == true;
+  return reg.test(password);
 }
 
 export async function updatePasswordOnDB(cpf: string, password: string) {
@@ -40,11 +40,7 @@ export async function verifyCPFOnDb(cpf: string) {
     .ref("users/" + cpf)
     .once("value")
     .then((snap: any) => {
-      console.log(`on verifyCPF, snap.val().cpf: ${snap.val().cpf}`);
-      if (snap.val().cpf == cpf) {
-        console.log(`snap.val().cpf: ${snap.val().cpf}`);
-        return true;
-      } else return false;
+      return snap.child("cpf").exists();
     });
 }
 

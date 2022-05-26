@@ -29,7 +29,6 @@ import {
   getAddFromApi,
   saveLocationDB,
 } from "../../../resources/locationFunctions";
-import { useNavigation } from "@react-navigation/native";
 import { StackNavigationProp } from "@react-navigation/stack";
 import { RootStackParamList } from "../RootStackPrams";
 
@@ -79,9 +78,9 @@ let points = [
 
 type ScreenProp = StackNavigationProp<RootStackParamList>;
 
-export function Home() {
-  const navigation = useNavigation<ScreenProp>();
+export function Home({ navigation, user }: ScreenProp) {
   const [search, setSearch] = React.useState("");
+  console.log(user);
   return (
     <View style={styles.container}>
       <LogoHeader />
