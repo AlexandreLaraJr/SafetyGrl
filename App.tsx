@@ -7,6 +7,7 @@ import AnimatedTabBar from "./src/components/AnimatedTabBar";
 import { User } from "./src/screens/User";
 import { SignIn } from "./src/screens/SignIn";
 import { CreateAccount } from "./src/screens/CreateAccount";
+import { Statements2 } from "./src/screens/Statements2";
 
 const Stack = createStackNavigator();
 
@@ -25,6 +26,7 @@ export default function App() {
         <Stack.Screen name="User" component={User} />
         <Stack.Screen name="SignIn" component={SignIn} />
         <Stack.Screen name="CreateAccount" component={CreateAccount} />
+        <Stack.Screen name="Statements2" component={Statements2} />
       </Stack.Navigator>
     </NavigationContainer>
   );
