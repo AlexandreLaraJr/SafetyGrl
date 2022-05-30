@@ -16,16 +16,28 @@ import { StackNavigationProp } from "@react-navigation/stack";
 
 import { styles } from "./styles";
 import { ButtonCancelar, ButtonOk } from "../../components/ButtonComplaint";
+import { createComplaintDb } from "../../../resources/complaintStatementFunctions";
+import {
+  getAddFromApi,
+  saveLocationDB,
+} from "../../../resources/locationFunctions";
 
 type ScreenProp = StackNavigationProp<RootStackParamList>;
 
 export function Complaint() {
   const navigation = useNavigation<ScreenProp>();
+  const [crime, setCrime] = React.useState("");
+  const [date, setDate] = React.useState("");
+  const [hour, setHour] = React.useState("");
+  const [location, setLocation] = React.useState("");
+  const [altura, setAltura] = React.useState("");
+  const [idade, setIdade] = React.useState("");
+  const [misc, setMisc] = React.useState("");
 
   return (
     <View style={styles.container}>
       <LogoHeader />
-     
+
       <ScrollView style={styles.content}>
         <View style={styles.contentTitle}>
           <Image style={styles.iconAlert} source={IllustrationAlert} />
@@ -39,7 +51,10 @@ export function Complaint() {
           </View>
 
           <View style={styles.contentIcon}>
-            <TextInput style={styles.input} />
+            <TextInput
+              style={styles.input}
+              onChangeText={(crime) => setCrime(crime)}
+            />
           </View>
 
           <View style={styles.content3}>
@@ -50,8 +65,10 @@ export function Complaint() {
               </View>
 
               <View style={styles.contentIcon}>
-                <TextInput style={styles.inputHalf} />
-                
+                <TextInput
+                  style={styles.inputHalf}
+                  onChangeText={(date) => setDate(date)}
+                />
               </View>
             </View>
 
@@ -62,8 +79,10 @@ export function Complaint() {
               </View>
 
               <View style={styles.contentIcon}>
-                <TextInput style={styles.inputHalf} />
-                
+                <TextInput
+                  style={styles.inputHalf}
+                  onChangeText={(hour) => setHour(hour)}
+                />
               </View>
             </View>
           </View>
@@ -75,7 +94,11 @@ export function Complaint() {
             </View>
 
             <View style={styles.contentIcon}>
-              <TextInput style={styles.input} />
+              <TextInput
+                style={styles.input}
+                onChangeText={(location) => setLocation(location)}
+                textContentType="location"
+              />
               <Image style={styles.icon} source={IllustrationMapa} />
             </View>
           </View>
@@ -89,7 +112,11 @@ export function Complaint() {
               </View>
 
               <View style={styles.contentIcon}>
-                <TextInput style={styles.inputHalf} />                
+                <TextInput
+                  style={styles.inputHalf}
+                  onChangeText={(altura) => setAltura(altura)}
+                  keyboardType="numeric"
+                />
               </View>
             </View>
 
@@ -99,7 +126,11 @@ export function Complaint() {
               </View>
 
               <View style={styles.contentIcon}>
-                <TextInput style={styles.inputHalf} />
+                <TextInput
+                  style={styles.inputHalf}
+                  onChangeText={(idade) => setIdade(idade)}
+                  keyboardType="numeric"
+                />
               </View>
             </View>
           </View>
@@ -110,11 +141,29 @@ export function Complaint() {
             <TextInput
               style={styles.input}
               placeholder=" Roupas, cor da pele, cor do cabelo"
+              onChangeText={(misc) => setMisc(misc)}
             />
           </View>
 
           <View style={styles.buttons}>
-            <ButtonOk />
+            <ButtonOk
+              onPress={async () => {
+                await createComplaintDb(
+                  crime,
+                  date,
+                  hour,
+                  location,
+                  altura,
+                  idade,
+                  misc
+                );
+                let lat = await getAddFromApi(location);
+                let lon = await getAddFromApi(location);
+                lat = lat.lat;
+                lon = lon.lon;
+                await saveLocationDB(lat, lon);
+              }}
+            />
             <ButtonCancelar onPress={() => navigation.goBack()} />
           </View>
         </View>
