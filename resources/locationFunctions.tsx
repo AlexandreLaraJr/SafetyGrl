@@ -20,18 +20,18 @@ export async function saveLocationDB(lat: string, lon: string) {
     .ref("/utils/")
     .once("value")
     .then((snap: DataSnapshot | any) => {
-      return snap.val().counter;
+      return snap.val().locationCounter;
     });
   console.log(counter);
   db.ref("locations/" + counter)
     .update({
       latitude: lat,
       longitude: lon,
+      weight: 1,
     })
     .then(async () => {
-      console.log("Salvo");
-      await db.ref("utils/counter").update({
-        counter: counter + 1,
+      await db.ref("utils/").update({
+        locationCounter: counter + 1,
       });
     });
 }

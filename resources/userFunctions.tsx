@@ -111,27 +111,6 @@ export async function makeVerificationsCreate(
   return result;
 }
 
-/***
- * Creates local storage credentials for the user
- * @param {identifier} identifier email or cpf
- * @param {name} Name Optional, stores name
- * @param {socialName} SocialName Optional, stores social name
- */
-export function setCredentials(
-  identifier: string,
-  name?: string,
-  socialName?: string
-): void {
-  AsyncStorage.setItem("@utils:isLoggedIn", "true");
-  AsyncStorage.setItem("@user:identifier", identifier);
-  if (typeof name !== "undefined") {
-    AsyncStorage.setItem("@user:name", name);
-  }
-  if (typeof socialName !== "undefined") {
-    AsyncStorage.setItem("@user:socialName", socialName);
-  }
-}
-
 /**
  * Checks database for user
  *
@@ -155,15 +134,4 @@ export async function validLogin(
       }
     });
   return result;
-}
-
-type createAccountScreenProp = StackNavigationProp<
-  RootStackParamList,
-  "CreateAccount"
->;
-export function checkLogin({ navigation }: createAccountScreenProp) {
-  AsyncStorage.getItem("@user:login").then((login) => {
-    console.log(login);
-    if (login) navigation.navigate("Home");
-  });
 }
