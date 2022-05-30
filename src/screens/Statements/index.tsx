@@ -1,22 +1,13 @@
-import React from "react";
-import { View, Text, Image, ScrollView } from "react-native";
-
-import "react-native-gesture-handler";
 import { useNavigation } from "@react-navigation/native";
-import { StackNavigationProp } from "@react-navigation/stack";
-import { RootStackParamList } from "../RootStackPrams";
-
+import React from "react";
+import { Image, Text, View } from "react-native";
+import "react-native-gesture-handler";
 import IllustrationStatement2 from "../../assets/icone_depoimento.png";
-
-import { styles } from "./styles";
-import { LogoHeader } from "../../components/LogoHeader";
 import { ButtonStatement2 } from "../../components/ButtonStatement";
+import { LogoHeader } from "../../components/LogoHeader";
+import { styles } from "./styles";
 
-type ScreenProp = StackNavigationProp<RootStackParamList, "Statements2">;
-
-export function Statements() {
-  const navigation = useNavigation<ScreenProp>();
-
+export function Statements({ navigation }: any) {
   return (
     <View style={styles.container}>
       <LogoHeader />
@@ -26,9 +17,8 @@ export function Statements() {
           <Image style={styles.iconStatement} source={IllustrationStatement2} />
           <Text style={styles.title}>Depoimentos</Text>
         </View>
-       
-          <ButtonStatement2 onPress={() => navigation.navigate("Statements2")} />
-       
+
+        <ButtonStatement2 onPress={() => navigation.navigate("Statements2")} />
       </View>
     </View>
   );

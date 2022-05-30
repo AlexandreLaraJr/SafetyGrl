@@ -1,5 +1,5 @@
-import React from "react";
-import { View, Text, Image, StatusBar, TextInput } from "react-native";
+import React, { useState } from "react";
+import { View, Text, Image, TextInput } from "react-native";
 
 import "react-native-gesture-handler";
 import { useNavigation } from "@react-navigation/native";
@@ -11,11 +11,17 @@ import IllustrationStatement2 from "../../assets/icone_depoimento.png";
 import { styles } from "./styles";
 import { LogoHeader } from "../../components/LogoHeader";
 import { ButtonCancelar, ButtonOk } from "../../components/ButtonStatement2";
+import { Checkbox } from "react-native-paper";
+import { theme } from "../../global/styles/theme";
+import { createStatementDb } from "../../../resources/complaintStatementFunctions";
+import { getLocalName } from "../../../resources/localCreds";
 
 type ScreenProp = StackNavigationProp<RootStackParamList>;
 
 export function Statements2() {
   const navigation = useNavigation<ScreenProp>();
+  const [text, setText] = useState("");
+  const [toggleCheckBox, setToggleCheckBox] = useState(true);
 
   return (
     <View style={styles.container}>
@@ -28,20 +34,38 @@ export function Statements2() {
         </View>
 
         <View style={styles.contentStatement}>
-          <Text style={styles.subtitle}>* Seu depoimento é anônimo *</Text>
-
           <Text style={styles.data}>Depoimento</Text>
 
-          <TextInput style={styles.inputData2} />
+          <TextInput
+            style={styles.inputData2}
+            onChangeText={(newText) => setText(newText)}
+          />
 
           <Text style={styles.statement}>
             Seu depoimento é muito importante e pode ajudar outras vitimas a se
             fortalerecem.
           </Text>
+          <View style={{ flex: 1, flexDirection: "row" }}>
+            <Checkbox
+              status={toggleCheckBox ? "checked" : "unchecked"}
+              onPress={() => setToggleCheckBox(!toggleCheckBox)}
+              color={theme.colors.primary}
+            />
+            <Text style={{ fontSize: 16, color: "white" }}>
+              Denuncia Anônima
+            </Text>
+          </View>
         </View>
 
         <View style={styles.buttons}>
-          <ButtonOk onPress={() => navigation.navigate("Gambiarra")} />
+          <ButtonOk
+            onPress={async () => {
+              let name = await getLocalName();
+              console.log(name);
+              let user: any = toggleCheckBox ? "Anônimo" : name;
+              await createStatementDb(text, user);
+            }}
+          />
           <ButtonCancelar onPress={() => navigation.goBack()} />
         </View>
       </View>
