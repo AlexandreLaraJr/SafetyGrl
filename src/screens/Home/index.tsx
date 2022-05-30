@@ -24,11 +24,6 @@ import IllustrationSearch from "../../assets/icon-search.png";
 
 import { ButtonUser } from "../../components/ButtonHome";
 import { ButtonLogoff } from "../../components/Logoff";
-
-import {
-  getAddFromApi,
-  saveLocationDB,
-} from "../../../resources/locationFunctions";
 import { StackNavigationProp } from "@react-navigation/stack";
 import { RootStackParamList } from "../RootStackPrams";
 
@@ -140,13 +135,6 @@ export function Home({ navigation, user }: ScreenProp) {
               }}
             ></Heatmap>
           </MapView>
-          <ButtonLogoff
-            onPress={async () => {
-              let location = await getAddFromApi(search);
-              console.log(location.lat, location.lon);
-              await saveLocationDB(location.lat, location.lon);
-            }}
-          />
         </View>
       </View>
     </View>
