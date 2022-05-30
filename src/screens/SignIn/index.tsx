@@ -1,43 +1,22 @@
-import React from "react";
-import { View, Text, Image, StatusBar, TextInput, Alert } from "react-native";
-import { styles } from "./styles";
-
-import "react-native-gesture-handler";
-
 import { useNavigation } from "@react-navigation/native";
-import { StackNavigationProp } from "@react-navigation/stack";
-import { RootStackParamList } from "../RootStackPrams";
-
-import IllustrationImgLogo from "../../assets/Logo_app.png";
-import IllustrationImgNameLogo from "../../assets/SafetyGrl2.png";
-
-import {
-  getUserFromDB,
-  setCredentials,
-  checkLogin,
-} from "../../../resources/userFunctions";
-
-import {
-  ButtonCreateAccountSignIn,
-  ButtonLogin,
-} from "../../components/ButtonIconSignIn";
-
-type createAccountScreenProp = StackNavigationProp<
-  RootStackParamList,
-  "CreateAccount"
->;
-
-import AsyncStorage from "@react-native-async-storage/async-storage";
+import React from "react";
+import { Alert, Image, StatusBar, Text, TextInput, View } from "react-native";
+import "react-native-gesture-handler";
+import { checkLogin, setCredentials } from "../../../resources/localCreds";
+import { encrypt } from "../../../resources/securePassword";
 import {
   verifyCPFOnDb,
   verifyPasswordOnDB,
 } from "../../../resources/verifications";
-import { encrypt } from "../../../resources/securePassword";
+import IllustrationImgLogo from "../../assets/Logo_app.png";
+import IllustrationImgNameLogo from "../../assets/SafetyGrl2.png";
+import {
+  ButtonCreateAccountSignIn,
+  ButtonLogin,
+} from "../../components/ButtonIconSignIn";
+import { styles } from "./styles";
 
-export function SignIn(): any {
-  AsyncStorage.clear();
-  const navigation = useNavigation<createAccountScreenProp>();
-
+export function SignIn({ navigation }: any): any {
   const [login, setLogin] = React.useState("");
   const [password, setPassword] = React.useState("");
 
@@ -50,7 +29,6 @@ export function SignIn(): any {
         backgroundColor="transparent"
         translucent
       />
-
       <Image source={IllustrationImgLogo} style={styles.image} />
 
       <Image source={IllustrationImgNameLogo} style={styles.nameLogo} />
@@ -76,7 +54,6 @@ export function SignIn(): any {
           if (login === "" || password === "") {
             Alert.alert("Erro", "Preencha todos os campos");
           }
-          console.log(login, password);
           setCredentials(login);
           if (
             (await verifyCPFOnDb(login)) &&
