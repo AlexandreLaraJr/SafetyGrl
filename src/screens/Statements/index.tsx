@@ -1,7 +1,7 @@
-import { useNavigation } from "@react-navigation/native";
 import React from "react";
 import { Image, Text, View } from "react-native";
 import "react-native-gesture-handler";
+import db from "../../../database/firebase";
 import IllustrationStatement2 from "../../assets/icone_depoimento.png";
 import { ButtonStatement2 } from "../../components/ButtonStatement";
 import { LogoHeader } from "../../components/LogoHeader";
@@ -18,8 +18,25 @@ export function Statements({ navigation }: any) {
           <Text style={styles.title}>Depoimentos</Text>
         </View>
 
+        {async function test() {
+          console.log(await getFromDB()); //quebrado
+        }}
+
         <ButtonStatement2 onPress={() => navigation.navigate("Statements2")} />
       </View>
     </View>
   );
+}
+
+async function getFromDB() {
+  let data: any = [];
+  await db
+    .ref("/statements")
+    .once("value")
+    .then((snap) => {
+      snap.forEach((child) => {
+        data.push(child.val().text, child.val().user);
+      });
+    });
+  return data;
 }

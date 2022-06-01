@@ -24,6 +24,13 @@ export const styles = StyleSheet.create({
     justifyContent: "center",
     top: 25,
   },
+  contentText: {
+    flex: 1,
+    flexDirection: "row",
+    alignContent: "space-between",
+    marginLeft: 10,
+    paddingLeft: 10,
+  },
   title: {
     fontSize: 22,
     fontWeight: "bold",
@@ -35,9 +42,9 @@ export const styles = StyleSheet.create({
     height: 35,
   },
   content2: {
-    top: '5%',
-    left: '8%',
-    right: '8%',
-    marginBottom: 200
-  }
+    top: "5%",
+    left: "8%",
+    right: "8%",
+    marginBottom: 200,
+  },
 });
