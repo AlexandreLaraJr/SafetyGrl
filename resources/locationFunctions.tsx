@@ -13,7 +13,6 @@ export async function getAddFromApi(address: any) {
 
 export async function saveLocationDB(lat: string, lon: string) {
   if (!lat || !lon) {
-    console.log("Vazio");
     return;
   }
   let counter = await db
@@ -22,7 +21,6 @@ export async function saveLocationDB(lat: string, lon: string) {
     .then((snap: DataSnapshot | any) => {
       return snap.val().locationCounter;
     });
-  console.log(counter);
   db.ref("locations/" + counter)
     .update({
       latitude: lat,

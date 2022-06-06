@@ -61,7 +61,6 @@ export function Statements2() {
           <ButtonOk
             onPress={async () => {
               let name = await getLocalName();
-              console.log(name);
               let user: any = toggleCheckBox ? "Anônimo" : name;
               await createStatementDb(text, user);
             }}

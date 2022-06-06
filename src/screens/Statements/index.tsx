@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Image, Text, View } from "react-native";
 import "react-native-gesture-handler";
 import db from "../../../database/firebase";
@@ -8,6 +8,20 @@ import { LogoHeader } from "../../components/LogoHeader";
 import { styles } from "./styles";
 
 export function Statements({ navigation }: any) {
+  const [data, setData]: any = useState();
+
+  const getFromDB = async () => {
+    await db
+      .ref("/statements")
+      .once("value")
+      .then((snap) => {
+        setData(snap.val());
+      });
+  };
+
+  useEffect(() => {
+    getFromDB();
+  }, []);
   return (
     <View style={styles.container}>
       <LogoHeader />
@@ -18,25 +32,23 @@ export function Statements({ navigation }: any) {
           <Text style={styles.title}>Depoimentos</Text>
         </View>
 
-        {async function test() {
-          console.log(await getFromDB()); //quebrado
-        }}
+        <View style={styles.contentStatement}>
+          {typeof data == "undefined"
+            ? console.log("Deu undefined")
+            : data.map((item: any, index: number) => {
+                return (
+                  <View key={index} style={styles.contentStatementItem}>
+                    <Text style={styles.contentStatementTextTitle}>
+                      {item.user}
+                    </Text>
+                    <Text style={styles.contentStatementText}>{item.text}</Text>
+                  </View>
+                );
+              })}
+        </View>
 
         <ButtonStatement2 onPress={() => navigation.navigate("Statements2")} />
       </View>
     </View>
   );
-}
-
-async function getFromDB() {
-  let data: any = [];
-  await db
-    .ref("/statements")
-    .once("value")
-    .then((snap) => {
-      snap.forEach((child) => {
-        data.push(child.val().text, child.val().user);
-      });
-    });
-  return data;
 }

@@ -23,7 +23,6 @@ export async function verifyPasswordOnDB(
   identifier: string,
   password: string
 ): Promise<boolean> {
-  console.log(`on verifyPass, password: ${password}`);
   return await db
     .ref("users/" + identifier)
     .once("value")
@@ -35,7 +34,6 @@ export async function verifyPasswordOnDB(
 }
 
 export async function verifyCPFOnDb(cpf: string) {
-  console.log(`on verifyCPF, cpf: ${cpf}\n typeof(cpf): ${typeof cpf}`);
   return await db
     .ref("users/" + cpf)
     .once("value")

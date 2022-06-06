@@ -31,6 +31,29 @@ export const styles = StyleSheet.create({
     marginLeft: 10,
     paddingLeft: 10,
   },
+  contentStatement: {
+    flex: 1,
+    flexDirection: "row",
+    alignContent: "space-between",
+    marginTop: 10,
+    paddingLeft: 10,
+  },
+  contentStatementItem: {
+    flex: 1,
+    borderRadius: 8,
+    backgroundColor: "white",
+    height: "25%",
+    overflow: "hidden",
+    marginLeft: 10,
+    padding: 5,
+  },
+  contentStatementTextTitle: {
+    fontSize: 16,
+    fontWeight: "bold",
+  },
+  contentStatementText: {
+    fontSize: 16,
+  },
   title: {
     fontSize: 22,
     fontWeight: "bold",

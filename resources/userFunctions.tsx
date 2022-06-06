@@ -91,13 +91,6 @@ export async function makeVerificationsCreate(
   telefone: string,
   name: string
 ) {
-  console.log(`on makeVerificationsCreate, 
-  senha: ${senha}
-  senha2: ${senha2}
-  email: ${email}
-  cpf: ${cpf}
-  telefone: ${telefone}
-  name: ${name}`);
   let result = 0;
   if (senha != senha2) result = -1; // senhas diferentes
   if (!isPasswordValid(senha)) result = -2; // senha inválida.

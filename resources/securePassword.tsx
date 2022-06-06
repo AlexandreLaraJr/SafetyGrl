@@ -6,7 +6,6 @@ export function encrypt(password: string) {
       Crypto.CryptoDigestAlgorithm.SHA256,
       password
     );
-    console.log(digest);
     return digest;
   })();
 }

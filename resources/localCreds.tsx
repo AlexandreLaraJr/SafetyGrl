@@ -14,7 +14,6 @@ type createAccountScreenProp = StackNavigationProp<
  */
 export function checkLogin({ navigation }: createAccountScreenProp) {
   AsyncStorage.getItem("@user:login").then((login) => {
-    console.log(login);
     if (login) navigation.navigate("Home");
   });
 }
