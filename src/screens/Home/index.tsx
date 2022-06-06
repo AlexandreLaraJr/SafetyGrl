@@ -75,7 +75,6 @@ type ScreenProp = StackNavigationProp<RootStackParamList>;
 
 export function Home({ navigation, user }: ScreenProp) {
   const [search, setSearch] = React.useState("");
-  console.log(user);
   return (
     <View style={styles.container}>
       <LogoHeader />
@@ -115,8 +114,8 @@ export function Home({ navigation, user }: ScreenProp) {
             style={styles.contentMap}
             provider={PROVIDER_GOOGLE}
             region={{
-              latitude: 40.7143,
-              longitude: -74.0042,
+              latitude: -23.9426566,
+              longitude: -46.3263839,
               latitudeDelta: 0.009,
               longitudeDelta: 0.035,
             }}
