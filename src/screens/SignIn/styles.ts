@@ -1,5 +1,6 @@
 import { setStatusBarBackgroundColor } from "expo-status-bar";
 import { StyleSheet } from "react-native";
+import { white } from "react-native-paper/lib/typescript/styles/colors";
 import { theme } from "../../global/styles/theme";
 
 
@@ -15,7 +16,7 @@ export const styles = StyleSheet.create({
         marginTop: -50,
         marginBottom: 10,
         width: 230,
-        height:230,
+        height: 230,
     },
 
     nameLogo: {
@@ -31,11 +32,11 @@ export const styles = StyleSheet.create({
     inputLogin: {
         width: 210,
         height: 40,
-        backgroundColor: '#FFFFFF',
-        borderRadius: 8,
+        backgroundColor: "white",
+        borderRadius: 5,
         alignItems: 'center',
         borderWidth: 0.5,
-        marginBottom: 10,
+        marginBottom: 6,
         padding: 5
     },
 
@@ -43,7 +44,8 @@ export const styles = StyleSheet.create({
         color: theme.colors.primary,
         textDecorationLine: 'underline',
         left: 105,
-        paddingBottom: 10
+        paddingBottom: 10,
+        fontWeight: "bold"
     },
 
     containerIcons: {

@@ -17,6 +17,8 @@ export const styles = StyleSheet.create({
     marginBottom: 70,
     borderRadius: 8,
     alignItems: "center",
+    borderWidth: 2,
+    borderColor: theme.colors.footer,
   },
   contentTitle: {
     flexDirection: "row",
@@ -45,14 +47,20 @@ export const styles = StyleSheet.create({
     height: "25%",
     overflow: "hidden",
     marginLeft: 10,
+    marginRight: 15,
     padding: 5,
+    marginTop: 50,
+    borderWidth: 1,
+    borderColor: 'black',
   },
   contentStatementTextTitle: {
     fontSize: 16,
     fontWeight: "bold",
+    
   },
   contentStatementText: {
     fontSize: 16,
+    
   },
   title: {
     fontSize: 22,

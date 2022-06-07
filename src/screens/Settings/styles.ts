@@ -15,18 +15,22 @@ export const styles = StyleSheet.create({
     marginRight: "8%",
     marginBottom: "5%",
     borderRadius: 8,    
+    borderWidth: 2,
+    borderColor: theme.colors.footer,
   },
   contentTitle: {
     flexDirection: "row",
     alignItems: "center",
     top: '7%',
     left: '4%',
+    marginBottom: -5,
   },
   title: {
     fontSize: 22,
     fontWeight: "bold",
     color: theme.colors.title,
     marginLeft: 10,
+    
   },
   icon: {
     width: 35,
@@ -40,11 +44,13 @@ export const styles = StyleSheet.create({
   content2: {
     top: "6%",
     left: "8%", 
-    marginBottom: 150   
+    marginTop:-10,
+    marginBottom: 150,
+    
   },
   contentItems: {
     width:  '85%',
-    height: '5.5%',
+    height: '6.5%',
     flexDirection: "row",
     alignItems: "center",
     backgroundColor: "white",
@@ -52,17 +58,22 @@ export const styles = StyleSheet.create({
     borderWidth: 0.5,
     marginTop: '5%',
     marginBottom: '5%',
+    
   },
   items: {
     fontSize: 16,
     marginLeft: '4%',
     fontWeight: "bold",
+    
+    
   },
   contentItem2: {
     flexDirection: "row",
     justifyContent: "space-between",
     top: '2%',
     marginRight: "15%",
+    marginBottom: -10,
+    
   },
   text: {
     fontSize: 15
@@ -71,5 +82,6 @@ export const styles = StyleSheet.create({
     width: 50,
     height: 50,
     borderRadius: 50,
+    
   },
 });

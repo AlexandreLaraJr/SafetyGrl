@@ -41,7 +41,7 @@ export function Complaint() {
       <ScrollView style={styles.content}>
         <View style={styles.contentTitle}>
           <Image style={styles.iconAlert} source={IllustrationAlert} />
-          <Text style={styles.title}>Fazer Denúncia</Text>
+          <Text style={styles.title}>Realizar Denúncia</Text>
         </View>
 
         <View style={styles.content2}>

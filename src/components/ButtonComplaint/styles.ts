@@ -4,20 +4,34 @@ import { theme } from "../../global/styles/theme";
 
 export const styles = StyleSheet.create({
     button: {
-        width: 100,
+        width: 95,
         height: 45,
         backgroundColor: theme.colors.primary,
         borderRadius: 8,
         alignItems: 'center',
-        flexDirection: 'row'
+        flexDirection: 'row',
+        marginRight: '3%'
     },
-    text: {
-        flex: 1,
+    textOk: {
+        flex: 0,
         color: 'white',
         fontSize: 15,
+        marginLeft: 37,
         textAlign: 'center',
         alignItems: 'center',
         justifyContent: 'center',
-        fontWeight: 'bold' 
+        fontWeight: 'bold' ,
+        
+    },
+    textCancel: {
+        flex: 0,
+        color: 'white',
+        fontSize: 15,
+        marginLeft: 8, 
+        textAlign: 'center',
+        alignItems: 'center',
+        justifyContent: 'center',
+        fontWeight: 'bold' ,
+        
     },
 })

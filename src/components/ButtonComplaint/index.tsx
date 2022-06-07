@@ -16,8 +16,8 @@ export function ButtonOk({...rest}: RectButtonProps){
     return(
         <RectButton style={styles.button}
             {...rest} >
-            <Text style={styles.text}>
-                OK
+            <Text style={styles.textOk}>
+                 OK
             </Text>
         </RectButton>
     )
@@ -27,7 +27,7 @@ export function ButtonCancelar({...rest}: RectButtonProps){
     return(
         <RectButton style={styles.button}
             {...rest} >
-            <Text style={styles.text}>
+            <Text style={styles.textCancel}>
                 CANCELAR
             </Text>
         </RectButton>

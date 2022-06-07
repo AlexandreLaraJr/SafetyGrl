@@ -16,6 +16,8 @@ export const styles = StyleSheet.create({
         marginBottom: 70,
         borderRadius: 8,
         alignItems: 'center',
+        borderWidth: 2,
+        borderColor: theme.colors.footer,
     },
     contentTitle: {        
         alignItems: 'center',

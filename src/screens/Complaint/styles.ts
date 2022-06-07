@@ -15,18 +15,23 @@ export const styles = StyleSheet.create({
     marginRight: "8%",
     marginBottom: "5%",
     borderRadius: 8, 
+    borderWidth: 2,
+    borderColor: theme.colors.footer,
+    
   },
   contentTitle: {
     flexDirection: "row",
     alignItems: "center",
     top: '5%',
     left: '5%',
+    marginBottom: -10,
   },
   title: {
     fontSize: 22,
     fontWeight: "bold",
     color: theme.colors.title,
-    left: '20%',
+    left: '50%',
+    
   },
   iconAlert: {
     width: 40,
@@ -36,18 +41,25 @@ export const styles = StyleSheet.create({
     top: '5%',
     left: '8%',
     right: '8%',
+    marginTop: 10,
     marginBottom: 200,
   },
   content3: {
     flexDirection: "row",
+    marginTop: -10,
+    marginBottom: -10,
   },
+
   content5: {
-    right: '45%'
+    right: '45%',
+    
+    
   },  
   contentItems: {
     flexDirection: "row",
-    marginTop: 7,
-    marginBottom: 7,
+    marginTop: 5,
+    marginBottom: 0,
+    
   },
   items: {
     fontSize: 15,
@@ -55,7 +67,6 @@ export const styles = StyleSheet.create({
   textRed: {
     fontSize: 16,
     color: "red",
-    //right: -5,
   },
   input: {
     width: '83%',
@@ -64,6 +75,7 @@ export const styles = StyleSheet.create({
     borderWidth: 0.5,
     borderRadius: 8,
     padding: 5,
+    
   },
   contentIcon: {
     flexDirection: "row",
@@ -91,8 +103,8 @@ export const styles = StyleSheet.create({
     fontSize: 16,
     fontWeight: "bold",
     right: -2,
-    marginTop: 12,
-    marginBottom: 16,
+    marginTop: 5,
+    marginBottom: 10,
   },
   buttons: {
     flexDirection: "row",

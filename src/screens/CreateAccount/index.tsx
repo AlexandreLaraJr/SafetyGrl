@@ -30,7 +30,7 @@ export function CreateAccount() {
         <TextInput
           style={styles.inputData}
           returnKeyType="next"
-          placeholder="Digite seu nome"
+          placeholder=" Digite seu nome"
           onChangeText={(name) => setName(name)}
         />
 
@@ -39,7 +39,7 @@ export function CreateAccount() {
         <TextInput
           style={styles.inputData}
           returnKeyType="next"
-          placeholder="Digite seu nome social"
+          placeholder=" Digite seu nome social"
           onChangeText={(socialName) => setSocialName(socialName)}
         />
 
@@ -49,7 +49,7 @@ export function CreateAccount() {
           style={styles.inputData}
           returnKeyType="next"
           keyboardType="email-address"
-          placeholder="Digite seu email"
+          placeholder=" Digite seu e-mail"
           onChangeText={(email) => setEmail(email)}
         />
 
@@ -58,7 +58,7 @@ export function CreateAccount() {
         <TextInput
           style={styles.inputData}
           returnKeyType="next"
-          placeholder="Digite seu CPF sem pontuação"
+          placeholder=" Digite seu CPF, somente números"
           keyboardType="numeric"
           onChangeText={(cpf) => setCpf(cpf)}
         />
@@ -68,7 +68,7 @@ export function CreateAccount() {
         <TextInput
           style={styles.inputData}
           returnKeyType="next"
-          placeholder="Digite seu telefone com o ddd sem parenteses e sem espaços"
+          placeholder=" Digite seu telefone, somente números"
           onChangeText={(telefone) => setTelefone(telefone)}
         />
 
@@ -141,7 +141,7 @@ function switchStatusCode(statusCode: any, navigation: HomeScreenProp) {
       Alert.alert("Erro", "Telefone inválido");
       break;
     case -6:
-      Alert.alert("Erro", "Nome muito curto");
+      Alert.alert("Erro", "Digite seu nome completo");
       break;
     case -7:
       Alert.alert("Erro", "CPF já cadastrado");

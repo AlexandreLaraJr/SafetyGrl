@@ -3,14 +3,14 @@ import { theme } from '../../global/styles/theme'
 
 export const styles = StyleSheet.create({
     containerCreateAccountConfirm: {
-        width: 165,
+        width: 200,
         height: 40,
         backgroundColor: theme.colors.primary,
         borderRadius: 8,
         flexDirection: 'row',
         alignItems: 'center',
         position: 'absolute', //deixa em cima ou em baixo
-        bottom: 120,
+        bottom: 20,
         //shadowColor: theme.colors.primary,
     },
     titleCriarContaConfirm: {
@@ -19,5 +19,7 @@ export const styles = StyleSheet.create({
         fontSize: 15,
         textAlign: 'center',
         fontWeight: 'bold',
+        justifyContent: 'center',
+        height: '50%'
     },
 })
