@@ -8,7 +8,7 @@ TODO:
 - Mapa
 */
 
-import React from "react";
+import React, { useEffect, useState } from "react";
 
 import { View, Image, Text, TextInput, Platform } from "react-native";
 import MapView, { Heatmap, PROVIDER_GOOGLE } from "react-native-maps";
@@ -26,6 +26,7 @@ import { ButtonUser } from "../../components/ButtonHome";
 import { ButtonLogoff } from "../../components/Logoff";
 import { StackNavigationProp } from "@react-navigation/stack";
 import { RootStackParamList } from "../RootStackPrams";
+import { getLocalName } from "../../../resources/localCreds";
 
 let points = [
   { latitude: 40.7828, longitude: -74.0065, weight: 1 },
@@ -73,8 +74,18 @@ let points = [
 
 type ScreenProp = StackNavigationProp<RootStackParamList>;
 
-export function Home({ navigation, user }: ScreenProp) {
+export function Home({ navigation }: ScreenProp) {
   const [search, setSearch] = React.useState("");
+  const [data, setData]: any = useState();
+
+  const getLocalCreds = async () => {
+    const localName = await getLocalName();
+    setData(localName);
+  };
+
+  useEffect(() => {
+    getLocalCreds();
+  }, []);
   return (
     <View style={styles.container}>
       <LogoHeader />
@@ -85,7 +96,11 @@ export function Home({ navigation, user }: ScreenProp) {
             navigation.navigate("User");
           }}
         />
-        <Text>Olá **username here**</Text>
+        {typeof data == "undefined" ? (
+          console.log("Deu undefined")
+        ) : (
+          <Text>Olá {data}</Text>
+        )}
         <ButtonLogoff
           onPress={() => {
             navigation.navigate("SignIn");

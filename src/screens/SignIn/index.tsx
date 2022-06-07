@@ -59,7 +59,7 @@ export function SignIn({ navigation }: any): any {
             (await verifyCPFOnDb(login)) &&
             (await verifyPasswordOnDB(login, await encrypt(password)))
           ) {
-            navigation.navigate("Home");
+            navigation.navigate("AnimTab");
           }
         }}
       />
