@@ -48,7 +48,7 @@ export async function createUserDB(
     name
   );
 
-  await db.ref("users/" + cpf).set(user); // cadastra usuario no banco de dados
+  if (result == 0) await db.ref("users/" + cpf).set(user); // cadastra usuario no banco de dados
   return { result, user };
 }
 

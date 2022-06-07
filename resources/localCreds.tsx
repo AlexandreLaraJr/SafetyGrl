@@ -13,35 +13,35 @@ type createAccountScreenProp = StackNavigationProp<
  * @param navigation - navigation prop
  */
 export function checkLogin({ navigation }: createAccountScreenProp) {
-  AsyncStorage.getItem("@user:login").then((login) => {
-    if (login) navigation.navigate("Home");
+  AsyncStorage.getItem("@user:isLogggedIn").then((login) => {
+    if (login) navigation.navigate("AnimTab");
   });
 }
 
 /***
  * Creates local storage credentials for the user
- * @param {identifier} identifier email or cpf
+ * @param {identifier} identifier cpf
  * @param {name} Name Optional, stores name
  * @param {socialName} SocialName Optional, stores social name
  */
-export function setCredentials(
+export async function setCredentials(
   identifier: string,
   name?: string,
   socialName?: string
-): void {
-  AsyncStorage.setItem("@utils:isLoggedIn", "true");
-  AsyncStorage.setItem("@user:identifier", identifier);
+): Promise<void> {
+  await AsyncStorage.setItem("@utils:isLoggedIn", "true");
+  await AsyncStorage.setItem("@user:identifier", identifier);
   if (typeof name !== "undefined") {
-    AsyncStorage.setItem("@user:name", name);
+    await AsyncStorage.setItem("@user:name", name);
   }
   if (typeof socialName !== "undefined") {
-    AsyncStorage.setItem("@user:socialName", socialName);
+    await AsyncStorage.setItem("@user:socialName", socialName);
   }
 }
 
 /***
  * Gets the property 'name' from '@user:name' in local storage
- * @returns returns the identifier of the user
+ * @returns returns the name on the local storage
  */
 export async function getLocalName() {
   if (!(await AsyncStorage.getItem("@user:socialName"))) {
@@ -53,5 +53,7 @@ export async function getLocalName() {
           return snapshot.val().name;
         });
     }
+    return await AsyncStorage.getItem("@user:name");
   }
+  return await AsyncStorage.getItem("@user:socialName");
 }
