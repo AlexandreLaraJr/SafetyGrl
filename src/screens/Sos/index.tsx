@@ -1,5 +1,5 @@
 import React from "react";
-import { View, Text } from "react-native";
+import { View, Text, Linking } from "react-native";
 
 import "react-native-gesture-handler";
 import { useNavigation } from "@react-navigation/native";
@@ -26,7 +26,9 @@ export function Sos() {
             O botão SOS foi acionado {"\n \n"}A ligação para polícia será
             realizada em...
           </Text>
-
+          {setTimeout(() => {
+            Linking.openURL("tel:190");
+          }, 5000)}
           <ButtonCancelar onPress={() => navigation.goBack()} />
         </View>
       </View>
