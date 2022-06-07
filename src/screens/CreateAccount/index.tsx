@@ -7,6 +7,7 @@ import { LogoHeader } from "../../components/LogoHeader";
 import { RootStackParamList } from "../RootStackPrams";
 import { createUserDB } from "../../../resources/userFunctions";
 import { styles } from "./styles";
+import { setCredentials } from "../../../resources/localCreds";
 
 type HomeScreenProp = StackNavigationProp<RootStackParamList, "Home">;
 
@@ -115,7 +116,14 @@ function switchStatusCode(statusCode: any, navigation: HomeScreenProp) {
   switch (statusCode["result"]) {
     case 0:
       Alert.alert("Usuário criado com sucesso!");
-      navigation.navigate("Home", statusCode["user"]);
+      setCredentials(
+        statusCode["user"]["cpf"], //certo
+        statusCode["user"]["name"], //certo
+        statusCode["user"]["socialName"]
+      ).then(() => {
+        console.log("Credentials setted");
+        navigation.navigate("AnimTab");
+      });
       break;
     case -1:
       Alert.alert("Erro", "As senhas não coincidem");

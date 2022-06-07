@@ -88,7 +88,7 @@ export function EditUser(dbUser: any) {
 
                 await updateUser(user?.cpf, email, telefone);
                 Alert.alert("Dados atualizados com sucesso!");
-                navigation.navigate("Home", await getUserFromDB(user?.cpf));
+                navigation.navigate("AnimTab");
               }}
             />
             <ButtonCancel onPress={() => navigation.goBack()} />
