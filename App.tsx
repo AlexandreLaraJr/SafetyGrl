@@ -20,6 +20,7 @@ export default function App() {
         screenOptions={{
           headerShown: false,
         }}
+        initialRouteName="SignIn"
       >
         <Stack.Screen name="AnimTab" component={AnimatedTabBar} />
         <Stack.Screen name="Home" component={Home} />
