@@ -48,8 +48,8 @@ export const styles = StyleSheet.create({
   },
   iconNotification: {
     flex: -1,
-    alignItems: 'center',
-    marginLeft: '90%',
+    alignItems: "center",
+    marginLeft: "90%",
     width: 30,
     height: 30,
     tintColor: "#513D3E",
@@ -69,9 +69,9 @@ export const styles = StyleSheet.create({
     borderWidth: 0.5,
     paddingLeft: 5,
     left: "20%",
-    marginRight: -10
+    marginRight: -10,
   },
-  
+
   titulos: {
     fontSize: 22,
     fontWeight: "bold",

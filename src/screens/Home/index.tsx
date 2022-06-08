@@ -26,7 +26,7 @@ import { ButtonUser } from "../../components/ButtonHome";
 import { ButtonLogoff } from "../../components/Logoff";
 import { StackNavigationProp } from "@react-navigation/stack";
 import { RootStackParamList } from "../RootStackPrams";
-import { getLocalName } from "../../../resources/localCreds";
+import { clearCreds, getLocalName } from "../../../resources/localCreds";
 
 let points = [
   { latitude: 40.7828, longitude: -74.0065, weight: 1 },
@@ -79,7 +79,8 @@ export function Home({ navigation }: ScreenProp) {
   const [data, setData]: any = useState();
 
   const getLocalCreds = async () => {
-    const localName = await getLocalName();
+    let localName = await getLocalName();
+    localName = localName.split(" ")[0];
     setData(localName);
   };
 
@@ -99,10 +100,11 @@ export function Home({ navigation }: ScreenProp) {
         {typeof data == "undefined" ? (
           console.log("Deu undefined")
         ) : (
-          <Text>Olá {data}</Text>
+          <Text>Olá {data}</Text> //aqui eh o text do Olá usuário
         )}
         <ButtonLogoff
           onPress={() => {
+            clearCreds();
             navigation.navigate("SignIn");
           }}
         />
