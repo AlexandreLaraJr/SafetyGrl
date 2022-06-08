@@ -4,6 +4,7 @@ import { Alert, Image, StatusBar, Text, TextInput, View } from "react-native";
 import "react-native-gesture-handler";
 import { checkLogin, setCredentials } from "../../../resources/localCreds";
 import { encrypt } from "../../../resources/securePassword";
+import { getUserFromDB } from "../../../resources/userFunctions";
 import {
   verifyCPFOnDb,
   verifyPasswordOnDB,
@@ -20,7 +21,11 @@ export function SignIn({ navigation }: any): any {
   const [login, setLogin] = React.useState("");
   const [password, setPassword] = React.useState("");
 
-  checkLogin(navigation);
+  checkLogin().then((value: any) => {
+    if (value) {
+      navigation.navigate("AnimTab");
+    }
+  });
 
   return (
     <View style={styles.container}>
@@ -54,7 +59,12 @@ export function SignIn({ navigation }: any): any {
           if (login === "" || password === "") {
             Alert.alert("Erro", "Preencha todos os campos");
           }
-          setCredentials(login);
+
+          const user = await getUserFromDB(login);
+          if (user[0].socialName !== "")
+            setCredentials(user[0].cpf, user[0].name, user[0].socialName);
+          else setCredentials(user[0].cpf, user[0].name);
+
           if (
             (await verifyCPFOnDb(login)) &&
             (await verifyPasswordOnDB(login, await encrypt(password)))
