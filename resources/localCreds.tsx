@@ -38,7 +38,7 @@ export async function setCredentials(
 }
 
 /***
- * Gets the property 'name' from '@user:name' in local storage
+ * Gets the values of '@user:name' or '@user:socialName' if exists in local storage
  * @returns returns the name on the local storage
  */
 export async function getLocalName() {

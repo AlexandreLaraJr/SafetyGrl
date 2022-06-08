@@ -27,6 +27,7 @@ import { ButtonLogoff } from "../../components/Logoff";
 import { StackNavigationProp } from "@react-navigation/stack";
 import { RootStackParamList } from "../RootStackPrams";
 import { clearCreds, getLocalName } from "../../../resources/localCreds";
+import { getPointsFromDB } from "../../../resources/locationFunctions";
 
 let points = [
   { latitude: 40.7828, longitude: -74.0065, weight: 1 },
@@ -77,6 +78,7 @@ type ScreenProp = StackNavigationProp<RootStackParamList>;
 export function Home({ navigation }: ScreenProp) {
   const [search, setSearch] = React.useState("");
   const [data, setData]: any = useState();
+  const [points, setPoints] = useState([]);
 
   const getLocalCreds = async () => {
     let localName = await getLocalName();
@@ -84,8 +86,15 @@ export function Home({ navigation }: ScreenProp) {
     setData(localName);
   };
 
+  const getPoints = async () => {
+    let pointsDB: any = await getPointsFromDB();
+    console.log(`pointsDB: ${pointsDB}`);
+    setPoints(pointsDB);
+  };
+
   useEffect(() => {
     getLocalCreds();
+    getPoints();
   }, []);
   return (
     <View style={styles.container}>

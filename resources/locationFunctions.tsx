@@ -1,5 +1,6 @@
 const db = require("../database/firebase");
 import { DataSnapshot } from "@firebase/database";
+
 export async function getAddFromApi(address: any) {
   address = address.replace(/\s/g, "+");
   try {
@@ -11,10 +12,12 @@ export async function getAddFromApi(address: any) {
   } catch (error) {}
 }
 
-export async function saveLocationDB(lat: string, lon: string) {
+export async function saveLocationDB(lat: any, lon: any) {
   if (!lat || !lon) {
     return;
   }
+  lat = parseFloat(lat);
+  lon = parseFloat(lon);
   db.ref("/utils/")
     .once("value")
     .then((snap: DataSnapshot | any) => {
@@ -27,4 +30,21 @@ export async function saveLocationDB(lat: string, lon: string) {
         locationCounter: snap.val().locationCounter + 1,
       });
     });
+}
+
+export async function getPointsFromDB() {
+  const points: any[] = [];
+  db.ref("/locations/")
+    .once("value")
+    .then((snap: DataSnapshot | any) => {
+      return snap.forEach((child: any) => {
+        points.push({
+          latitude: child.val().latitude,
+          longitude: child.val().longitude,
+          weight: child.val().weight,
+        });
+      });
+    });
+  console.log(`points: ${points}`);
+  return points;
 }
