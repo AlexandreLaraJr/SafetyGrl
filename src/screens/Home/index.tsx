@@ -94,7 +94,7 @@ export function Home({ navigation }: ScreenProp) {
 
   useEffect(() => {
     getLocalCreds();
-    getPoints();
+    //getPoints();
   }, []);
   return (
     <View style={styles.container}>
