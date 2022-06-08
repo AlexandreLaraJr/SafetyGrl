@@ -1,26 +1,19 @@
-import React from "react";
-import { View, ScrollView, Text, Image, TextInput } from "react-native";
-import "react-native-gesture-handler";
-
-import { LogoHeader } from "../../components/LogoHeader";
-
-import IllustrationAlert from "../../assets/icone-_alert_1.png";
-import IllustrationCalendar from "../../assets/icone-calendar.png";
-import IllustrationRelogio from "../../assets/icone-relogio.png";
-import IllustrationMapa from "../../assets/icone-mapa.png";
-import IllustrationTransparent from "../../assets/branco.png";
-
-import { RootStackParamList } from "../RootStackPrams";
 import { useNavigation } from "@react-navigation/native";
 import { StackNavigationProp } from "@react-navigation/stack";
-
-import { styles } from "./styles";
-import { ButtonCancelar, ButtonOk } from "../../components/ButtonComplaint";
+import React from "react";
+import { Alert, Image, ScrollView, Text, TextInput, View } from "react-native";
+import "react-native-gesture-handler";
 import { createComplaintDb } from "../../../resources/complaintStatementFunctions";
 import {
   getAddFromApi,
   saveLocationDB,
 } from "../../../resources/locationFunctions";
+import IllustrationMapa from "../../assets/icone-mapa.png";
+import IllustrationAlert from "../../assets/icone-_alert_1.png";
+import { ButtonCancelar, ButtonOk } from "../../components/ButtonComplaint";
+import { LogoHeader } from "../../components/LogoHeader";
+import { RootStackParamList } from "../RootStackPrams";
+import { styles } from "./styles";
 
 type ScreenProp = StackNavigationProp<RootStackParamList>;
 
@@ -148,20 +141,26 @@ export function Complaint() {
           <View style={styles.buttons}>
             <ButtonOk
               onPress={async () => {
-                await createComplaintDb(
-                  crime,
-                  date,
-                  hour,
-                  location,
-                  altura,
-                  idade,
-                  misc
-                );
-                let lat = await getAddFromApi(location);
-                let lon = await getAddFromApi(location);
-                lat = lat.lat;
-                lon = lon.lon;
-                await saveLocationDB(lat, lon);
+                if (crime == "" || date == "" || hour == "" || location == "") {
+                  Alert.alert("Preencha todos os campos!");
+                } else {
+                  await createComplaintDb(
+                    crime,
+                    date,
+                    hour,
+                    location,
+                    altura,
+                    idade,
+                    misc
+                  );
+                  let lat = await getAddFromApi(location);
+                  let lon = await getAddFromApi(location);
+                  lat = lat.lat;
+                  lon = lon.lon;
+                  await saveLocationDB(lat, lon);
+                  Alert.alert("Denúncia realizada com sucesso!");
+                  navigation.navigate("AnimTab");
+                }
               }}
             />
             <ButtonCancelar onPress={() => navigation.goBack()} />

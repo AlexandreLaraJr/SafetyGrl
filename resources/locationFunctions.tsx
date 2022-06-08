@@ -15,21 +15,16 @@ export async function saveLocationDB(lat: string, lon: string) {
   if (!lat || !lon) {
     return;
   }
-  let counter = await db
-    .ref("/utils/")
+  db.ref("/utils/")
     .once("value")
     .then((snap: DataSnapshot | any) => {
-      return snap.val().locationCounter;
-    });
-  db.ref("locations/" + counter)
-    .update({
-      latitude: lat,
-      longitude: lon,
-      weight: 1,
-    })
-    .then(async () => {
-      await db.ref("utils/").update({
-        locationCounter: counter + 1,
+      db.ref("locations/" + snap.val().locationCounter).update({
+        latitude: lat,
+        longitude: lon,
+        weight: 1,
+      });
+      db.ref("utils/").update({
+        locationCounter: snap.val().locationCounter + 1,
       });
     });
 }

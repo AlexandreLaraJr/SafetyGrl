@@ -1,28 +1,24 @@
-import React from "react";
-import { View, Text, Image, TextInput } from "react-native";
-
-import "react-native-gesture-handler";
 import { useNavigation } from "@react-navigation/native";
 import { StackNavigationProp } from "@react-navigation/stack";
-import { RootStackParamList } from "../RootStackPrams";
-
+import React from "react";
+import { Image, Text, View } from "react-native";
+import "react-native-gesture-handler";
 import IllustrationUser from "../../assets/icone_user.png";
-
-import { styles } from "./styles";
-import { LogoHeader } from "../../components/LogoHeader";
 import {
   ButtonAlterarSenha,
   ButtonEditarDados,
 } from "../../components/ButtonUser";
+import { LogoHeader } from "../../components/LogoHeader";
+import { RootStackParamList } from "../RootStackPrams";
+import { styles } from "./styles";
 
 type ChangePasswordScreenProp = StackNavigationProp<
   RootStackParamList,
   "ChangePassword"
 >;
 
-export function User(dbUser: any) {
+export function User() {
   const navigation = useNavigation<ChangePasswordScreenProp>();
-  let user = dbUser?.route?.params[0];
 
   return (
     <View style={styles.container}>
@@ -38,39 +34,39 @@ export function User(dbUser: any) {
           <Text style={styles.datas}>NOME</Text>
 
           <View style={styles.contentPersonalDatas}>
-            <Text style={styles.personalDatas}>
-              {user?.name ? user.name : "ERRO"}
-            </Text>
+            <Text style={styles.personalDatas}>{/* Nome do usuário */}</Text>
           </View>
 
           <Text style={styles.datas}>EMAIL</Text>
 
           <View style={styles.contentPersonalDatas}>
-            <Text style={styles.personalDatas}>{user?.email}</Text>
+            <Text style={styles.personalDatas}>{/* Email do usuário */}</Text>
           </View>
 
           <Text style={styles.datas}>CPF</Text>
 
           <View style={styles.contentPersonalDatas}>
-            <Text style={styles.personalDatas}>{user?.cpf}</Text>
+            <Text style={styles.personalDatas}>{/* CPF do usuário */}</Text>
           </View>
 
           <Text style={styles.datas}>TELEFONE</Text>
 
           <View style={styles.contentPersonalDatas}>
-            <Text style={styles.personalDatas}>{user?.telefone}</Text>
+            <Text style={styles.personalDatas}>
+              {/* Telefone do usuário */}
+            </Text>
           </View>
         </View>
 
         <View style={styles.contentEdit}>
           <ButtonEditarDados
             onPress={() => {
-              navigation.navigate("EditUser", dbUser);
+              navigation.navigate("EditUser");
             }}
           />
 
           <ButtonAlterarSenha
-            onPress={() => navigation.navigate("ChangePassword", user)}
+            onPress={() => navigation.navigate("ChangePassword")}
           />
         </View>
       </View>

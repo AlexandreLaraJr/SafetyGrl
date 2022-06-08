@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { View, Text, Image, TextInput } from "react-native";
+import { View, Text, Image, TextInput, Alert } from "react-native";
 
 import "react-native-gesture-handler";
 import { useNavigation } from "@react-navigation/native";
@@ -63,6 +63,8 @@ export function Statements2() {
               let name = await getLocalName();
               let user: any = toggleCheckBox ? "Anônimo" : name;
               await createStatementDb(text, user);
+              Alert.alert("Depoimento enviado com sucesso!");
+              navigation.navigate("AnimTab");
             }}
           />
           <ButtonCancelar onPress={() => navigation.goBack()} />

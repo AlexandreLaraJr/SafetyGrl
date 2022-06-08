@@ -24,11 +24,10 @@ export function Sos() {
         <View style={styles.contentTitle}>
           <Text style={styles.title}>
             O botão SOS foi acionado {"\n \n"}A ligação para polícia será
-            realizada em...
+            realizada em alguns segundos...
           </Text>
-          {setTimeout(() => {
-            Linking.openURL("tel:190");
-          }, 5000)}
+          {navigation.navigate("AnimTab")}
+          {Linking.openURL("tel:190")}
           <ButtonCancelar onPress={() => navigation.goBack()} />
         </View>
       </View>

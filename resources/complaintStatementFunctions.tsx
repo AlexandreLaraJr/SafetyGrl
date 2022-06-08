@@ -10,32 +10,44 @@ export async function createComplaintDb(
   idade: any,
   misc: any
 ) {
-  let uuid = await db
-    .ref("/utils/")
+  db.ref("/utils/")
     .once("value")
     .then((snap: DataSnapshot | any) => {
-      return snap.val().complaintCounter;
+      if (typeof snap.val().complaintCounter == "undefined") {
+        db.ref("/utils/").update({
+          complaintCounter: 1,
+        });
+      }
+      db.ref("/complaints/" + snap.val().complaintCounter).set({
+        crime: crime,
+        date: date,
+        hour: hour,
+        location: location,
+        altura: altura,
+        idade: idade,
+        misc: misc,
+      });
+      db.ref("/utils/").update({
+        complaintCounter: snap.val().complaintCounter + 1,
+      });
     });
-  db.ref("/complaints/" + uuid).set({
-    crime: crime,
-    date: date,
-    hour: hour,
-    location: location,
-    altura: altura,
-    idade: idade,
-    misc: misc,
-  });
 }
 
-export async function createStatementDb(text: string, user: string) {
-  let uuid = await db
-    .ref("/utils/")
+export function createStatementDb(text: string, user: string) {
+  db.ref("/utils/")
     .once("value")
     .then((snap: DataSnapshot | any) => {
-      return snap.val().statementCounter;
+      if (typeof snap.val().statementCounter == "undefined") {
+        db.ref("/utils/").update({
+          statementCounter: 1,
+        });
+      }
+      db.ref("/statements/" + snap.val().statementCounter).set({
+        text: text,
+        user: user,
+      });
+      db.ref("/utils/").update({
+        statementCounter: snap.val().statementCounter + 1,
+      });
     });
-  db.ref("/statements/" + uuid).set({
-    text: text,
-    user: user,
-  });
 }

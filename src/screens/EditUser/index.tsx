@@ -19,10 +19,9 @@ type ChangePasswordScreenProp = StackNavigationProp<
   "ChangePassword"
 >;
 
-export function EditUser(dbUser: any) {
+export function EditUser() {
   const navigation = useNavigation<ChangePasswordScreenProp>();
 
-  let user = dbUser?.route?.params.route?.params[0];
   const [email, setEmail] = React.useState("");
   const [telefone, setTelefone] = React.useState("");
   const [senha, setSenha] = React.useState("");
@@ -43,7 +42,6 @@ export function EditUser(dbUser: any) {
           <View style={styles.contentPersonalDatas}>
             <TextInput
               style={styles.personalDatas}
-              placeholder={user?.email}
               onChangeText={(email) => setEmail(email)}
             ></TextInput>
           </View>
@@ -53,7 +51,6 @@ export function EditUser(dbUser: any) {
           <View style={styles.contentPersonalDatas}>
             <TextInput
               style={styles.personalDatas}
-              placeholder={user?.telefone}
               onChangeText={(telefone) => setTelefone(telefone)}
             ></TextInput>
           </View>
@@ -70,74 +67,11 @@ export function EditUser(dbUser: any) {
           </View>
 
           <View style={styles.buttonContainer}>
-            <ButtonOk
-              onPress={async () => {
-                if (!(await isPasswordCorrect(user?.cpf, senha))) {
-                  Alert.alert("Senha incorreta");
-                  return;
-                }
-                if (!isEmailValid(email) && email != "") {
-                  Alert.alert("Email inválido!");
-                  return;
-                }
-
-                if (telefone.length < 11 || telefone.length > 11) {
-                  Alert.alert("Telefone inválido!");
-                  return;
-                }
-
-                await updateUser(user?.cpf, email, telefone);
-                Alert.alert("Dados atualizados com sucesso!");
-                navigation.navigate("AnimTab");
-              }}
-            />
+            <ButtonOk />
             <ButtonCancel onPress={() => navigation.goBack()} />
           </View>
         </View>
       </View>
     </View>
   );
-}
-
-async function updateUser(cpf: string, email: string, telefone: string) {
-  const db = require("../../../database/firebase");
-
-  let user = {
-    email: email,
-    telefone: telefone,
-  };
-
-  let userOnDB = await getUserFromDB(cpf);
-
-  user.email == "" ? (user.email = userOnDB.email) : null;
-  user.telefone == "" ? (user.telefone = userOnDB.telefone) : null;
-
-  await db.ref("users/" + cpf).update({
-    email: user.email,
-    telefone: user.telefone,
-  });
-}
-
-async function getUserFromDB(cpf: string) {
-  const db = require("../../../database/firebase");
-
-  let user = await db.ref("users/" + cpf).once("value");
-
-  return user.val();
-}
-
-function isEmailValid(email: string) {
-  let reg = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2, 3})+$/;
-  return reg.test(email) == true;
-}
-
-async function isPasswordCorrect(cpf: string, senha: string) {
-  const db = require("../../../database/firebase");
-  let result = await db
-    .ref("/users/" + cpf)
-    .once("value")
-    .then(async (snap: any) => {
-      return snap.val().senha == senha;
-    });
-  return result;
 }

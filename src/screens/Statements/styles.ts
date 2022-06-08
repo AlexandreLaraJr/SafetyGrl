@@ -51,16 +51,14 @@ export const styles = StyleSheet.create({
     padding: 5,
     marginTop: 50,
     borderWidth: 1,
-    borderColor: 'black',
+    borderColor: "black",
   },
   contentStatementTextTitle: {
     fontSize: 16,
     fontWeight: "bold",
-    
   },
   contentStatementText: {
     fontSize: 16,
-    
   },
   title: {
     fontSize: 22,
