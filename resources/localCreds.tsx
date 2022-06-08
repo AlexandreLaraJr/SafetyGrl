@@ -12,10 +12,8 @@ type createAccountScreenProp = StackNavigationProp<
  * Checks the property '@user:login' in local storage, if true goes to home screen
  * @param navigation - navigation prop
  */
-export function checkLogin({ navigation }: createAccountScreenProp) {
-  AsyncStorage.getItem("@user:isLogggedIn").then((login) => {
-    if (login) navigation.navigate("AnimTab");
-  });
+export async function checkLogin() {
+  return await AsyncStorage.getItem("@utils:isLoggedIn");
 }
 
 /***
@@ -56,4 +54,10 @@ export async function getLocalName() {
     return await AsyncStorage.getItem("@user:name");
   }
   return await AsyncStorage.getItem("@user:socialName");
+}
+
+export function clearCreds() {
+  AsyncStorage.clear().then(() => {
+    console.log("cleared");
+  });
 }
