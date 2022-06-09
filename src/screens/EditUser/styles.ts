@@ -9,56 +9,66 @@ export const styles = StyleSheet.create({
   content: {
     backgroundColor: theme.colors.secundaryBackgroung,
     flex: 1,
-    marginTop: "5%",
+    marginTop: '30%',
     marginLeft: "8%",
     marginRight: "8%",
-    marginBottom: "20%",
+    marginBottom: "5%",
+    alignItems: 'center',
     borderRadius: 8,
-    alignItems: "center",
+    borderWidth: 2,
+    borderColor: theme.colors.footer,
   },
   contentTitle: {
     flexDirection: "row",
     alignItems: "center",
     justifyContent: "center",
-    top: "5%",
-    left: "-4%",
+    top: '5%',
+    left: '-10%',
   },
   title: {
     fontSize: 22,
     fontWeight: "bold",
     color: theme.colors.title,
-    right: "-10%",
+    right: '-1%',
   },
   iconUser: {
     width: 45,
   },
   contentDatas: {
-    top: "7%",
-    left: "10%",
+    top: '10%',
   },
   datas: {
     color: theme.colors.blackopacity,
     fontSize: 16,
-    fontWeight: "600",
-    marginBottom: 15,
+    fontWeight: "bold",
+    marginTop: '1%',
+    marginBottom: '4%',
+    marginLeft: '10%'
   },
   contentPersonalDatas: {
-    backgroundColor: theme.colors.datasBackgroung,
+    backgroundColor: 'white',
     width: 290,
-    height: "auto",
+    height: 35,
     borderRadius: 8,
     borderWidth: 0.5,
-    marginBottom: 20,
+    marginBottom: '1%',
     justifyContent: "center",
+    marginLeft: '10%'
+
   },
   personalDatas: {
     color: "black",
     fontSize: 15,
     padding: 5,
+    
   },
   contentEdit: {
     flexDirection: "row",
-    marginTop: 100,
+    justifyContent: "center",
+    position: "absolute",
+    bottom: "20%",
+
+    
   },
   buttonStyle: {
     width: "30%",
@@ -84,6 +94,7 @@ export const styles = StyleSheet.create({
     justifyContent: "center",
     fontWeight: "bold",
   },
+  
   buttonContainer: {
     justifyContent: "space-around",
     flex: 1,

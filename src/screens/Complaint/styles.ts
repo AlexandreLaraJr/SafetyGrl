@@ -10,7 +10,7 @@ export const styles = StyleSheet.create({
   content: {
     backgroundColor: theme.colors.secundaryBackgroung,
     flex: 1,
-    marginTop: '5%',
+    marginTop: '30%',
     marginLeft: "8%",
     marginRight: "8%",
     marginBottom: "5%",
@@ -43,23 +43,20 @@ export const styles = StyleSheet.create({
     right: '8%',
     marginTop: 10,
     marginBottom: 200,
+    
   },
   content3: {
     flexDirection: "row",
-    marginTop: -10,
-    marginBottom: -10,
+    marginTop: '-2%',
+    marginBottom: '-2%',
   },
 
   content5: {
-    right: '45%',
-    
-    
+    right: '45%',   
   },  
   contentItems: {
     flexDirection: "row",
-    marginTop: 5,
-    marginBottom: 0,
-    
+    marginTop: '1%',
   },
   items: {
     fontSize: 15,
@@ -69,8 +66,10 @@ export const styles = StyleSheet.create({
     color: "red",
   },
   input: {
+    flex: 0,
     width: '83%',
-    height: 25,
+    height: '70%',
+    
     backgroundColor: "white",
     borderWidth: 0.5,
     borderRadius: 8,
@@ -80,36 +79,39 @@ export const styles = StyleSheet.create({
   contentIcon: {
     flexDirection: "row",
     alignItems: "center",
-    marginBottom: 15,
-    top: 8,
+    marginBottom: '3%',
+    
   },
   inputHalf: {
-    width: '58%',
-    height: 25,
+    width: '59%',
+    height: '60%',
     backgroundColor: "white",
     borderWidth: 0.5,
     borderRadius: 8,
     padding: 5,
+    marginBottom: '5%',
   },
   icon: {
     width: 15,
     height: 15,
-    left: '-85%'
+    left: '-65%'
   },
   content4: {
     //left: 25
+    
   },
   title2: {
     fontSize: 16,
     fontWeight: "bold",
     right: -2,
-    marginTop: 5,
-    marginBottom: 10,
+    marginTop: '2%',
+    marginBottom: '4%',
+    
   },
   buttons: {
     flexDirection: "row",
     justifyContent: "space-around",
-    bottom: -50,
+    bottom: '-20%',
     right: "6%"
   },
   

@@ -31,13 +31,13 @@ export function User() {
         </View>
 
         <View style={styles.contentDatas}>
-          <Text style={styles.datas}>NOME</Text>
+          <Text style={styles.datas}>Nome</Text>
 
           <View style={styles.contentPersonalDatas}>
             <Text style={styles.personalDatas}>{/* Nome do usuário */}</Text>
           </View>
 
-          <Text style={styles.datas}>EMAIL</Text>
+          <Text style={styles.datas}>E-mail</Text>
 
           <View style={styles.contentPersonalDatas}>
             <Text style={styles.personalDatas}>{/* Email do usuário */}</Text>
@@ -49,7 +49,7 @@ export function User() {
             <Text style={styles.personalDatas}>{/* CPF do usuário */}</Text>
           </View>
 
-          <Text style={styles.datas}>TELEFONE</Text>
+          <Text style={styles.datas}>Telefone</Text>
 
           <View style={styles.contentPersonalDatas}>
             <Text style={styles.personalDatas}>

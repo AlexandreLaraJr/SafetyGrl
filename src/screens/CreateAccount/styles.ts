@@ -6,6 +6,7 @@ export const styles = StyleSheet.create({
         flex: 1,
         alignItems: 'center',
         backgroundColor: theme.colors.background
+        
     },
     content: {
         width: '100%',
@@ -14,23 +15,26 @@ export const styles = StyleSheet.create({
         justifyContent:'center',
         alignItems: 'center',
         marginTop: 62,
+        
     },
     logo: {
         width: 46,
         height: 46,
         marginRight: 9
+        
     },
     nameLogo: {
         width: 125,
-        height: 30
+        height: 30,
     },
     content2: {
         flex: 1,
-        marginTop: 10,
+        marginTop: '25%',
     },
     NameData: {
-        marginTop: 10,
-        marginBottom: 5,
+        fontWeight: 'bold', 
+        marginTop: '3%',
+        marginBottom: '2%',
         color: theme.colors.blackopacity,
     },
     inputData: {
@@ -42,6 +46,7 @@ export const styles = StyleSheet.create({
         alignItems: 'center',
         borderWidth: 0.5,
         marginTop: 3,
+        fontWeight: 'bold',
     },   
 
 })

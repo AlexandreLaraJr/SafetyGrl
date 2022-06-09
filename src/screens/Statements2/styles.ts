@@ -9,51 +9,61 @@ export const styles = StyleSheet.create({
   },
   content: {
     backgroundColor: theme.colors.secundaryBackgroung,
-    flex: 1,
-    marginTop: 50,
-    marginLeft: 35,
-    marginRight: 35,
-    marginBottom: 100,
+    flex: 1, 
+    marginTop: '30%',
+    marginLeft: "8%",
+    marginRight: "8%",
+    marginBottom: "15%",
     borderRadius: 8,
-    alignItems: "center",
+    alignItems: "center",    
+    borderWidth: 2,
+    borderColor: theme.colors.footer,
   },
   contentTitle: {
     flexDirection: "row",
     alignItems: "center",
     justifyContent: "center",
-    top: 25,
+    top: '10%',
   },
   title: {
     fontSize: 22,
     fontWeight: "bold",
     color: theme.colors.title,
-    paddingLeft: 20,
+    paddingLeft: '6%',
+    
   },
   iconStatement: {
     width: 35,
     height: 35,
   },
   contentStatement: {
-    top: 40,
-    marginHorizontal: 35,
+    marginTop: '5%',
+    marginBottom: '50%',
+    marginHorizontal: '10%',
+    
+    
+    borderWidth: 2,
+    borderColor: theme.colors.footer,
   },
   data: {
-    marginTop: 30,
+    marginTop: '5%',
     fontSize: 16,
   },
   inputData: {
-    width: 270,
-    height: 30,
+    width: '100%',
+    height: '100%',
     backgroundColor: "white",
     borderRadius: 6,
     borderWidth: 0.5,
     marginTop: 18,
     paddingLeft: 5,
+    
   },
   subtitle: {
     marginTop: 15,
     fontSize: 15,
     textAlign: "center",
+
   },
   inputData2: {
     width: 270,
@@ -63,12 +73,15 @@ export const styles = StyleSheet.create({
     borderWidth: 0.5,
     marginTop: 20,
     paddingLeft: 5,
+    
   },
   statement: {
-    color: "white",
-    marginTop: 20,
+    color: "black",
+    marginTop: '5%',
     marginHorizontal: -5,
     textAlign: "center",
+
+    
   },
   buttons: {
     flexDirection: "row",

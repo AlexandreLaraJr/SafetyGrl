@@ -43,7 +43,7 @@ export function ChangePassword(pUser: any) {
             style={styles.input}
             onChangeText={(password) => setNewPwd(password)}
           />
-          <Text>Confirme a nova senha:</Text>
+          <Text style={styles.items}>Confirme a nova senha:</Text>
           <TextInput
             style={styles.input}
             onChangeText={(password) => setNewPwd2(password)}

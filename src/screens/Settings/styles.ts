@@ -10,11 +10,11 @@ export const styles = StyleSheet.create({
   content: {
     backgroundColor: theme.colors.secundaryBackgroung,
     flex: 1,
-    marginTop: '5%',
+    marginTop: '30%',
     marginLeft: "8%",
     marginRight: "8%",
     marginBottom: "5%",
-    borderRadius: 8,    
+    borderRadius: 8,
     borderWidth: 2,
     borderColor: theme.colors.footer,
   },

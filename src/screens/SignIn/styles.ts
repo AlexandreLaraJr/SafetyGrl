@@ -15,18 +15,19 @@ export const styles = StyleSheet.create({
     image: {
         marginTop: -50,
         marginBottom: 10,
-        width: 230,
-        height: 230,
+        width: '60%',
+        height: '30%',
+        
     },
 
     nameLogo: {
-        width: 205,
-        height: 48,
-        marginBottom: 40
+        width: '55%',
+        height: '6%',
+        marginBottom: '10%',
     },
 
     content: {
-        paddingHorizontal: 60
+        paddingHorizontal: '1%',
     },
 
     inputLogin: {
@@ -37,14 +38,14 @@ export const styles = StyleSheet.create({
         alignItems: 'center',
         borderWidth: 0.5,
         marginBottom: 6,
-        padding: 5
+        padding: 5,
     },
 
     forgotPassword: {
         color: theme.colors.primary,
         textDecorationLine: 'underline',
-        left: 105,
-        paddingBottom: 10,
+        left: '27%',
+        paddingBottom: '2%',
         fontWeight: "bold"
     },
 

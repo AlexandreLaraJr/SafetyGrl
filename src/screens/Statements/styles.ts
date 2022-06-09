@@ -11,10 +11,10 @@ export const styles = StyleSheet.create({
   content: {
     backgroundColor: theme.colors.secundaryBackgroung,
     flex: 1,
-    marginTop: 24,
-    marginLeft: 35,
-    marginRight: 35,
-    marginBottom: 70,
+    marginTop: '30%',
+    marginLeft: "8%",
+    marginRight: "8%",
+    marginBottom: "5%",
     borderRadius: 8,
     alignItems: "center",
     borderWidth: 2,
@@ -24,7 +24,7 @@ export const styles = StyleSheet.create({
     flexDirection: "row",
     alignItems: "center",
     justifyContent: "center",
-    top: 25,
+    top: '8%',
   },
   contentText: {
     flex: 1,
@@ -32,13 +32,13 @@ export const styles = StyleSheet.create({
     alignContent: "space-between",
     marginLeft: 10,
     paddingLeft: 10,
+    
   },
   contentStatement: {
     flex: 1,
     flexDirection: "row",
     alignContent: "space-between",
-    marginTop: 10,
-    paddingLeft: 10,
+    marginLeft: '4%',
   },
   contentStatementItem: {
     flex: 1,
@@ -46,16 +46,19 @@ export const styles = StyleSheet.create({
     backgroundColor: "white",
     height: "25%",
     overflow: "hidden",
-    marginLeft: 10,
-    marginRight: 15,
-    padding: 5,
-    marginTop: 50,
+    // marginLeft: '5%',
+    marginRight: '5%',
+    padding: '1%',
+    marginTop: '15%',
     borderWidth: 1,
     borderColor: "black",
+    
+    
   },
   contentStatementTextTitle: {
     fontSize: 16,
     fontWeight: "bold",
+    
   },
   contentStatementText: {
     fontSize: 16,
@@ -64,7 +67,8 @@ export const styles = StyleSheet.create({
     fontSize: 22,
     fontWeight: "bold",
     color: theme.colors.title,
-    paddingLeft: 20,
+    paddingLeft: '5%',
+    
   },
   iconStatement: {
     width: 35,
@@ -75,5 +79,6 @@ export const styles = StyleSheet.create({
     left: "8%",
     right: "8%",
     marginBottom: 200,
+    
   },
 });

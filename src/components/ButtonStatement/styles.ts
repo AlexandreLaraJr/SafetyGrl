@@ -3,17 +3,19 @@ import { theme } from "../../global/styles/theme";
 
 export const styles = StyleSheet.create({
   container: {
-    width: 200,
-    height: 40,
+    width: '60%',
+    height: '5%',
     backgroundColor: theme.colors.primary,
     borderRadius: 8,
     borderWidth: 1,
+    marginBottom: '15%',
     borderColor: "white",
     flexDirection: "row",
     alignItems: "center",
     position: "absolute", //deixa em cima ou em baixo
     bottom: 30,
     //shadowColor: theme.colors.primary,
+    
   },
   titleButton: {
     flex: 1,
@@ -21,5 +23,6 @@ export const styles = StyleSheet.create({
     fontSize: 15,
     textAlign: "center",
     fontWeight: "bold",
+    
   },
 });

@@ -10,57 +10,65 @@ export const styles = StyleSheet.create({
   content: {
     backgroundColor: theme.colors.secundaryBackgroung,
     flex: 1,
-    marginTop: 24,
-    marginLeft: 35,
-    marginRight: 35,
-    marginBottom: 70,
+    marginTop: '30%',
+    marginLeft: "8%",
+    marginRight: "8%",
+    marginBottom: "5%",
+    alignItems: 'center',
     borderRadius: 8,
-    alignItems: "center",
+    borderWidth: 2,
+    borderColor: theme.colors.footer,
   },
   contentTitle: {
     flexDirection: "row",
     alignItems: "center",
     justifyContent: "center",
-    top: 25,
-    left: -50,
+    top: '5%',
+    left: '-10%',
   },
   title: {
     fontSize: 22,
     fontWeight: "bold",
     color: theme.colors.title,
-    right: -10,
+    right: '-1%',
   },
   iconUser: {
     width: 45,
   },
   contentDatas: {
-    top: 60,
+    top: '10%',
   },
   datas: {
     color: theme.colors.blackopacity,
     fontSize: 16,
-    fontWeight: "600",
-    marginBottom: 15,
+    fontWeight: "bold",
+    marginTop: '1%',
+    marginBottom: '4%',
+    
   },
   contentPersonalDatas: {
-    backgroundColor: theme.colors.datasBackgroung,
+    backgroundColor: 'white',
     width: 290,
     height: 35,
     borderRadius: 8,
     borderWidth: 0.5,
-    marginBottom: 20,
+    marginBottom: '1%',
     justifyContent: "center",
+    
   },
   personalDatas: {
     color: "black",
     fontSize: 15,
     padding: 5,
+    
   },
   contentEdit: {
     flexDirection: "row",
     justifyContent: "center",
     position: "absolute",
-    bottom: "10%",
+    bottom: "20%",
+
+    
   },
   datasEdit: {
     fontSize: 15,
