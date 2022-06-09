@@ -1,21 +1,15 @@
-import React from "react";
-import { View, Text, Linking } from "react-native";
-
-import "react-native-gesture-handler";
 import { useNavigation } from "@react-navigation/native";
 import { StackNavigationProp } from "@react-navigation/stack";
-import { RootStackParamList } from "../RootStackPrams";
-
-import { styles } from "./styles";
-import { LogoHeader } from "../../components/LogoHeader";
-
+import React from "react";
+import { Linking, Text, View } from "react-native";
+import "react-native-gesture-handler";
+import { ButtonConfirm } from "../../components/ButtonConfirm";
 import { ButtonCancelar } from "../../components/ButtonSOS";
+import { LogoHeader } from "../../components/LogoHeader";
+import { RootStackParamList } from "../RootStackPrams";
+import { styles } from "./styles";
 
-type ScreenProp = StackNavigationProp<RootStackParamList, "Statements2">;
-
-export function Sos() {
-  const navigation = useNavigation<ScreenProp>();
-
+export function Sos({ navigation }: StackNavigationProp<RootStackParamList>) {
   return (
     <View style={styles.container}>
       <LogoHeader />
@@ -24,10 +18,11 @@ export function Sos() {
         <View style={styles.contentTitle}>
           <Text style={styles.title}>
             O botão SOS foi acionado {"\n \n"}A ligação para polícia será
-            realizada em alguns segundos...
+            realizada em alguns segundos... {/*corrigir esse texto*/}
           </Text>
-          {navigation.navigate("AnimTab")}
-          {Linking.openURL("tel:190")}
+          <ButtonConfirm //ver esse botão
+            onPress={async () => await Linking.openURL("tel:190")}
+          />
           <ButtonCancelar onPress={() => navigation.goBack()} />
         </View>
       </View>
