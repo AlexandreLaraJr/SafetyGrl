@@ -19,7 +19,7 @@ import { RootStackParamList } from "../RootStackPrams";
 type ScreenProp = StackNavigationProp<RootStackParamList>;
 
 export function Home({ navigation }: ScreenProp) {
-  const [, setSearch] = React.useState("");
+  const [search, setSearch] = React.useState("");
   const [data, setData]: any = useState();
   const [points, setPoints]: any = useState([
     { latitude: -23.9426566, longitude: -46.3263839, weight: 1 },
