@@ -46,7 +46,6 @@ export function ChangePassword() {
 
         <View style={styles.content2}>
           <Text style={styles.items}>Digite a senha atual:</Text>
-          {console.log(cpf)}
           <TextInput
             style={styles.input}
             secureTextEntry={true}

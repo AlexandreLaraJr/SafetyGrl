@@ -159,7 +159,7 @@ export function Complaint() {
                   lon = lon.lon;
                   await saveLocationDB(lat, lon);
                   Alert.alert("Denúncia realizada com sucesso!");
-                  navigation.navigate("AnimTab");
+                  navigation.goBack();
                 }
               }}
             />

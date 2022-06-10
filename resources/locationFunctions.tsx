@@ -1,5 +1,6 @@
 const db = require("../database/firebase");
 import { DataSnapshot } from "@firebase/database";
+import { AnyTxtRecord } from "dns";
 
 export async function getAddFromApi(address: any) {
   address = address.replace(/\s/g, "+");
@@ -12,24 +13,52 @@ export async function getAddFromApi(address: any) {
   } catch (error) {}
 }
 
+async function verifyLocationOnDB(lat: any, lon: any) {
+  let isOnDB: boolean = false;
+  await db
+    .ref("locations/")
+    .once("value")
+    .then((snap: DataSnapshot) => {
+      snap.forEach((child: any) => {
+        if (child.val().latitude == lat && child.val().longitude == lon) {
+          incrementWeigth(child.key);
+          isOnDB = true;
+        }
+      });
+    });
+  return isOnDB;
+}
+
+async function incrementWeigth(key: any) {
+  const weight = await db
+    .ref(`locations/${key}`)
+    .once("value")
+    .then((snap: DataSnapshot | any) => {
+      return snap.val().weight;
+    });
+  await db.ref(`locations/${key}`).update({ weight: weight + 0.1 });
+}
+
 export async function saveLocationDB(lat: any, lon: any) {
   if (!lat || !lon) {
     return;
   }
   lat = parseFloat(lat);
   lon = parseFloat(lon);
-  db.ref("/utils/")
-    .once("value")
-    .then((snap: DataSnapshot | any) => {
-      db.ref("locations/" + snap.val().locationCounter).update({
-        latitude: lat,
-        longitude: lon,
-        weight: 1,
+  if (!(await verifyLocationOnDB(lat, lon))) {
+    db.ref("/utils/")
+      .once("value")
+      .then((snap: DataSnapshot | any) => {
+        db.ref("locations/" + snap.val().locationCounter).update({
+          latitude: lat,
+          longitude: lon,
+          weight: 0.1,
+        });
+        db.ref("utils/").update({
+          locationCounter: snap.val().locationCounter + 1,
+        });
       });
-      db.ref("utils/").update({
-        locationCounter: snap.val().locationCounter + 1,
-      });
-    });
+  }
 }
 
 export async function getPointsFromDB() {

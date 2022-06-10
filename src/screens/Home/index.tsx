@@ -11,7 +11,11 @@ TODO:
 import React, { useEffect, useState } from "react";
 
 import { View, Image, Text, TextInput, Platform } from "react-native";
-import MapView, { Heatmap, PROVIDER_GOOGLE } from "react-native-maps";
+import MapView, {
+  Heatmap,
+  PROVIDER_GOOGLE,
+  WeightedLatLng,
+} from "react-native-maps";
 
 import { styles } from "./styles";
 
@@ -31,6 +35,7 @@ import {
   getPointsFromDB,
   returnFromDB,
 } from "../../../resources/locationFunctions";
+import db from "../../../database/firebase";
 
 let points = [
   { latitude: 40.7828, longitude: -74.0065, weight: 1 },
@@ -81,7 +86,9 @@ type ScreenProp = StackNavigationProp<RootStackParamList>;
 export function Home({ navigation }: ScreenProp) {
   const [search, setSearch] = React.useState("");
   const [data, setData]: any = useState();
-  const [points, setPoints]: any = useState([]);
+  const [points, setPoints]: any = useState([
+    { latitude: -23.9426566, longitude: -46.3263839, weight: 1 },
+  ]);
 
   const getLocalCreds = async () => {
     let localName = await getLocalName();
@@ -97,15 +104,11 @@ export function Home({ navigation }: ScreenProp) {
   useEffect(() => {
     getLocalCreds();
     getPoints();
-  });
+  }, []);
   return (
     <View style={styles.container}>
       <LogoHeader />
-      <ButtonNotification />
       <View style={styles.content}>
-        {/* {typeof points == "undefined"
-          ? console.log("Deu undefined")
-          : console.log(points)} */}
         <ButtonUser
           onPress={() => {
             navigation.navigate("User");
@@ -153,7 +156,7 @@ export function Home({ navigation }: ScreenProp) {
               longitudeDelta: 0.035,
             }}
           >
-            {/* <Heatmap
+            <Heatmap
               points={points}
               opacity={0.5}
               radius={40}
@@ -165,7 +168,7 @@ export function Home({ navigation }: ScreenProp) {
                     : [0.1, 0.25, 0.5, 0.75, 1],
                 colorMapSize: 2000,
               }}
-            ></Heatmap> */}
+            ></Heatmap>
           </MapView>
         </View>
       </View>
@@ -173,13 +176,5 @@ export function Home({ navigation }: ScreenProp) {
   );
 }
 
-function ButtonNotification({ ...rest }: RectButtonProps) {
-  return (
-    <RectButton {...rest}>
-      <Image
-        style={styles.iconNotification}
-        source={IllustrationNotification}
-      />
-    </RectButton>
-  );
-}
+
+
