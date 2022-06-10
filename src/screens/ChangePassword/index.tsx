@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Text, TextInput, View } from "react-native";
 import "react-native-gesture-handler";
 
@@ -10,19 +10,32 @@ import { RootStackParamList } from "../RootStackPrams";
 
 import { Alert } from "react-native";
 import {
+  isPasswordValid,
   updatePasswordOnDB,
   verifyPasswordOnDB,
 } from "../../../resources/verifications";
 import { ButtonCancelar, ButtonOk } from "../../components/ButtonComplaint";
 import { styles } from "./styles";
+import { encrypt } from "../../../resources/securePassword";
+import { getLocalCPF } from "../../../resources/localCreds";
 
 type ScreenProp = StackNavigationProp<RootStackParamList>;
 
-export function ChangePassword(pUser: any) {
+export function ChangePassword() {
   const navigation = useNavigation<ScreenProp>();
+  const [cpf, setCpf] = React.useState("");
   const [psswd, setPsswd] = React.useState("");
   const [NewPwd, setNewPwd] = React.useState("");
   const [NewPwd2, setNewPwd2] = React.useState("");
+
+  const getLocalCreds = async () => {
+    let localcpf: any = await getLocalCPF();
+    setCpf(localcpf);
+  };
+
+  useEffect(() => {
+    getLocalCreds();
+  });
 
   return (
     <View style={styles.container}>
@@ -33,6 +46,7 @@ export function ChangePassword(pUser: any) {
 
         <View style={styles.content2}>
           <Text style={styles.items}>Digite a senha atual:</Text>
+          {console.log(cpf)}
           <TextInput
             style={styles.input}
             secureTextEntry={true}
@@ -54,14 +68,21 @@ export function ChangePassword(pUser: any) {
           <View style={styles.buttons}>
             <ButtonOk
               onPress={async () => {
-                if (await verifyPasswordOnDB(pUser.route.params.cpf, psswd)) {
-                  if (NewPwd == NewPwd2) {
-                    updatePasswordOnDB(pUser.route.params.cpf, NewPwd);
+                let correct = 1;
+                if (await verifyPasswordOnDB(cpf, await encrypt(psswd))) {
+                  if (NewPwd == NewPwd2 && isPasswordValid(NewPwd)) {
+                    await updatePasswordOnDB(cpf, await encrypt(NewPwd));
                   } else {
                     Alert.alert("Senhas não conferem!");
+                    correct = 0;
                   }
                 } else {
                   Alert.alert("Senha incorreta!");
+                  correct = 0;
+                }
+                if (correct == 1) {
+                  Alert.alert("Senha alterada com sucesso");
+                  navigation.goBack();
                 }
               }}
             />
