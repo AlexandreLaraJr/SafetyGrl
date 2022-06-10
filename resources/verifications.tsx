@@ -17,7 +17,7 @@ export async function updatePasswordOnDB(cpf: string, password: string) {
 /***
  * @param {string} password: Must be the hashed password
  *
- * @returns {Promise<boolean>} Promise<boolean>
+ * @returns {Promise<boolean>} Promise in form of boolean
  */
 export async function verifyPasswordOnDB(
   identifier: string,
