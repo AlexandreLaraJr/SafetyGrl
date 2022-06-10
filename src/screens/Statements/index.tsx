@@ -34,7 +34,7 @@ export function Statements({ navigation }: any) {
 
         <View style={styles.contentStatement}>
           {typeof data == "undefined"
-            ? console.log("Deu undefined")
+            ? console.log("Deu undefined em data no statements")
             : data.map((item: any, index: number) => {
                 return (
                   <View key={index} style={styles.contentStatementItem}>

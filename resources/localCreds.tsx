@@ -58,6 +58,6 @@ export async function getLocalName() {
 
 export function clearCreds() {
   AsyncStorage.clear().then(() => {
-    console.log("cleared");
+    console.log("cleared local creds");
   });
 }

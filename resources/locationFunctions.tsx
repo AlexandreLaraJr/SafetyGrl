@@ -34,10 +34,11 @@ export async function saveLocationDB(lat: any, lon: any) {
 
 export async function getPointsFromDB() {
   const points: any[] = [];
-  db.ref("/locations/")
+  await db
+    .ref("/locations/")
     .once("value")
     .then((snap: DataSnapshot | any) => {
-      return snap.forEach((child: any) => {
+      snap.forEach((child: any) => {
         points.push({
           latitude: child.val().latitude,
           longitude: child.val().longitude,
@@ -45,6 +46,9 @@ export async function getPointsFromDB() {
         });
       });
     });
-  console.log(`points: ${points}`);
   return points;
+}
+
+export async function returnFromDB() {
+  return await getPointsFromDB();
 }
