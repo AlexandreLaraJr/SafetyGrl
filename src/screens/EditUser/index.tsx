@@ -22,6 +22,7 @@ type ChangePasswordScreenProp = StackNavigationProp<
 export function EditUser() {
   const navigation = useNavigation<ChangePasswordScreenProp>();
 
+  const [socialName, setSocialName] = React.useState("");
   const [email, setEmail] = React.useState("");
   const [telefone, setTelefone] = React.useState("");
   const [senha, setSenha] = React.useState("");
@@ -37,6 +38,15 @@ export function EditUser() {
         </View>
 
         <View style={styles.contentDatas}>
+          <Text style={styles.datas}>NOME SOCIAL</Text>
+
+          <View style={styles.contentPersonalDatas}>
+            <TextInput
+              style={styles.personalDatas}
+              onChangeText={(socialName) => setSocialName(socialName)}
+            ></TextInput>
+          </View>
+
           <Text style={styles.datas}>EMAIL</Text>
 
           <View style={styles.contentPersonalDatas}>

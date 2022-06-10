@@ -1,20 +1,20 @@
 import React from "react";
-import { View, Text, TextInput } from "react-native";
+import { Text, TextInput, View } from "react-native";
 import "react-native-gesture-handler";
 
 import { LogoHeader } from "../../components/LogoHeader";
 
-import { RootStackParamList } from "../RootStackPrams";
 import { useNavigation } from "@react-navigation/native";
 import { StackNavigationProp } from "@react-navigation/stack";
+import { RootStackParamList } from "../RootStackPrams";
 
-import { styles } from "./styles";
-import { ButtonCancelar, ButtonOk } from "../../components/ButtonComplaint";
 import { Alert } from "react-native";
 import {
-  verifyPasswordOnDB,
   updatePasswordOnDB,
+  verifyPasswordOnDB,
 } from "../../../resources/verifications";
+import { ButtonCancelar, ButtonOk } from "../../components/ButtonComplaint";
+import { styles } from "./styles";
 
 type ScreenProp = StackNavigationProp<RootStackParamList>;
 
@@ -35,17 +35,20 @@ export function ChangePassword(pUser: any) {
           <Text style={styles.items}>Digite a senha atual:</Text>
           <TextInput
             style={styles.input}
+            secureTextEntry={true}
             onChangeText={(psswd) => setPsswd(psswd)}
           />
           <Text style={styles.items}>Digite a nova senha:</Text>
 
           <TextInput
             style={styles.input}
+            secureTextEntry={true}
             onChangeText={(password) => setNewPwd(password)}
           />
           <Text style={styles.items}>Confirme a nova senha:</Text>
           <TextInput
             style={styles.input}
+            secureTextEntry={true}
             onChangeText={(password) => setNewPwd2(password)}
           />
           <View style={styles.buttons}>

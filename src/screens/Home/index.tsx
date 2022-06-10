@@ -81,7 +81,7 @@ type ScreenProp = StackNavigationProp<RootStackParamList>;
 export function Home({ navigation }: ScreenProp) {
   const [search, setSearch] = React.useState("");
   const [data, setData]: any = useState();
-  const [points, setPoints] = useState([]);
+  const [points, setPoints]: any = useState([]);
 
   const getLocalCreds = async () => {
     let localName = await getLocalName();
@@ -97,12 +97,15 @@ export function Home({ navigation }: ScreenProp) {
   useEffect(() => {
     getLocalCreds();
     getPoints();
-  }, []);
+  });
   return (
     <View style={styles.container}>
       <LogoHeader />
       <ButtonNotification />
       <View style={styles.content}>
+        {typeof points == "undefined"
+          ? console.log("Deu undefined")
+          : console.log(points)}
         <ButtonUser
           onPress={() => {
             navigation.navigate("User");
@@ -150,7 +153,7 @@ export function Home({ navigation }: ScreenProp) {
               longitudeDelta: 0.035,
             }}
           >
-            <Heatmap
+            {/* <Heatmap
               points={points}
               opacity={0.5}
               radius={40}
@@ -162,7 +165,7 @@ export function Home({ navigation }: ScreenProp) {
                     : [0.1, 0.25, 0.5, 0.75, 1],
                 colorMapSize: 2000,
               }}
-            ></Heatmap>
+            ></Heatmap> */}
           </MapView>
         </View>
       </View>
