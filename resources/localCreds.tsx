@@ -56,6 +56,10 @@ export async function getLocalName() {
   return await AsyncStorage.getItem("@user:socialName");
 }
 
+export async function getLocalCPF() {
+  return await AsyncStorage.getItem("@user:identifier");
+}
+
 export function clearCreds() {
   AsyncStorage.clear().then(() => {
     console.log("cleared local creds");
