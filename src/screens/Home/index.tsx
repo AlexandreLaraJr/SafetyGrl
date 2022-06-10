@@ -1,90 +1,25 @@
-/*
-TODO:
-- Logo
-- Icone notificações
-- Usuario
-- Barra de Pesquisa
-- Botão logout
-- Mapa
-*/
-
 import React, { useEffect, useState } from "react";
 
-import { View, Image, Text, TextInput, Platform } from "react-native";
-import MapView, {
-  Heatmap,
-  PROVIDER_GOOGLE,
-  WeightedLatLng,
-} from "react-native-maps";
+import { Image, Platform, Text, TextInput, View } from "react-native";
+import MapView, { Heatmap, PROVIDER_GOOGLE } from "react-native-maps";
 
 import { styles } from "./styles";
 
-import { RectButton, RectButtonProps } from "react-native-gesture-handler";
-
 import { LogoHeader } from "../../components/LogoHeader";
 
-import IllustrationNotification from "../../assets/icone-bell.png";
 import IllustrationSearch from "../../assets/icon-search.png";
 
+import { StackNavigationProp } from "@react-navigation/stack";
+import { clearCreds, getLocalName } from "../../../resources/localCreds";
+import { returnFromDB } from "../../../resources/locationFunctions";
 import { ButtonUser } from "../../components/ButtonHome";
 import { ButtonLogoff } from "../../components/Logoff";
-import { StackNavigationProp } from "@react-navigation/stack";
 import { RootStackParamList } from "../RootStackPrams";
-import { clearCreds, getLocalName } from "../../../resources/localCreds";
-import {
-  getPointsFromDB,
-  returnFromDB,
-} from "../../../resources/locationFunctions";
-import db from "../../../database/firebase";
-
-let points = [
-  { latitude: 40.7828, longitude: -74.0065, weight: 1 },
-  { latitude: 41.7121, longitude: -74.0042, weight: 1 },
-  { latitude: 40.7102, longitude: -75.006, weight: 1 },
-  { latitude: 40.7123, longitude: -74.0052, weight: 1 },
-  { latitude: 40.7032, longitude: -74.0042, weight: 1 },
-  { latitude: 40.7198, longitude: -74.0024, weight: 1 },
-  { latitude: 41.7223, longitude: -74.0053, weight: 1 },
-  { latitude: 40.7181, longitude: -74.0042, weight: 1 },
-  { latitude: 40.7124, longitude: -74.0023, weight: 1 },
-  { latitude: 40.7648, longitude: -74.0012, weight: 1 },
-  { latitude: 41.7128, longitude: -74.0027, weight: 1 },
-  { latitude: 40.7223, longitude: -74.0153, weight: 1 },
-  { latitude: 40.7193, longitude: -74.0052, weight: 1 },
-  { latitude: 40.7241, longitude: -75.0013, weight: 1 },
-  { latitude: 41.7518, longitude: -74.0085, weight: 1 },
-  { latitude: 40.7599, longitude: -74.0093, weight: 1 },
-  { latitude: 41.7523, longitude: -74.0021, weight: 1 },
-  { latitude: 40.7342, longitude: -74.0152, weight: 1 },
-  { latitude: 40.7484, longitude: -75.0042, weight: 1 },
-  { latitude: 40.7929, longitude: -75.0023, weight: 1 },
-  { latitude: 40.7292, longitude: -74.0013, weight: 1 },
-  { latitude: 40.794, longitude: -74.0048, weight: 1 },
-  { latitude: 40.7874, longitude: -74.0052, weight: 1 },
-  { latitude: 40.7824, longitude: -74.0024, weight: 1 },
-  { latitude: 40.7232, longitude: -74.0094, weight: 1 },
-  { latitude: 41.7342, longitude: -74.0152, weight: 1 },
-  { latitude: 41.7484, longitude: -74.0012, weight: 1 },
-  { latitude: 41.7929, longitude: -74.0073, weight: 1 },
-  { latitude: 41.7292, longitude: -74.0013, weight: 1 },
-  { latitude: 41.794, longitude: -74.0058, weight: 1 },
-  { latitude: 41.7874, longitude: -74.0352, weight: 1 },
-  { latitude: 41.7824, longitude: -74.0024, weight: 1 },
-  { latitude: 41.7232, longitude: -74.0094, weight: 1 },
-  { latitude: 41.0342, longitude: -75.0152, weight: 1 },
-  { latitude: 41.0484, longitude: -75.0012, weight: 1 },
-  { latitude: 41.0929, longitude: -75.0073, weight: 1 },
-  { latitude: 41.0292, longitude: -74.0013, weight: 1 },
-  { latitude: 41.094, longitude: -74.0068, weight: 1 },
-  { latitude: 41.0874, longitude: -74.0052, weight: 1 },
-  { latitude: 41.0824, longitude: -74.0024, weight: 1 },
-  { latitude: 41.0232, longitude: -74.0014, weight: 1 },
-];
 
 type ScreenProp = StackNavigationProp<RootStackParamList>;
 
 export function Home({ navigation }: ScreenProp) {
-  const [search, setSearch] = React.useState("");
+  const [, setSearch] = React.useState("");
   const [data, setData]: any = useState();
   const [points, setPoints]: any = useState([
     { latitude: -23.9426566, longitude: -46.3263839, weight: 1 },
@@ -175,6 +110,3 @@ export function Home({ navigation }: ScreenProp) {
     </View>
   );
 }
-
-
-
