@@ -9,7 +9,8 @@ export const styles = StyleSheet.create({
         flex: 1,
         justifyContent: 'center',
         alignItems: 'center',
-        backgroundColor: theme.colors.background
+        backgroundColor: theme.colors.background,
+        
     },
 
     image: {
@@ -21,13 +22,14 @@ export const styles = StyleSheet.create({
     },
 
     nameLogo: {
-        width: '55%',
-        height: '6%',
+        width: '60%',
+        height: '7%',
         marginBottom: '10%',
     },
 
     content: {
         paddingHorizontal: '1%',
+        
     },
 
     inputLogin: {
@@ -52,5 +54,6 @@ export const styles = StyleSheet.create({
     containerIcons: {
         flexDirection: 'row',
         top: 70,
+        
     }
 })
