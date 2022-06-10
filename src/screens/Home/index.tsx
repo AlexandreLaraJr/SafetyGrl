@@ -103,9 +103,9 @@ export function Home({ navigation }: ScreenProp) {
       <LogoHeader />
       <ButtonNotification />
       <View style={styles.content}>
-        {typeof points == "undefined"
+        {/* {typeof points == "undefined"
           ? console.log("Deu undefined")
-          : console.log(points)}
+          : console.log(points)} */}
         <ButtonUser
           onPress={() => {
             navigation.navigate("User");

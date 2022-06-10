@@ -24,18 +24,24 @@ export const styles = StyleSheet.create({
     justifyContent: "center",
     top: '5%',
     left: '-10%',
+
+    
   },
   title: {
     fontSize: 22,
     fontWeight: "bold",
     color: theme.colors.title,
     right: '-1%',
+
+    
   },
   iconUser: {
     width: 45,
   },
   contentDatas: {
     top: '10%',
+    marginRight: '10%'
+    
   },
   datas: {
     color: theme.colors.blackopacity,
@@ -43,7 +49,9 @@ export const styles = StyleSheet.create({
     fontWeight: "bold",
     marginTop: '1%',
     marginBottom: '4%',
-    marginLeft: '10%'
+
+    
+    marginLeft: '10%',
   },
   contentPersonalDatas: {
     backgroundColor: 'white',
@@ -53,8 +61,9 @@ export const styles = StyleSheet.create({
     borderWidth: 0.5,
     marginBottom: '1%',
     justifyContent: "center",
-    marginLeft: '10%'
+    marginLeft: '10%',
 
+    
   },
   personalDatas: {
     color: "black",
@@ -78,12 +87,14 @@ export const styles = StyleSheet.create({
     alignItems: "center",
     flexDirection: "row",
     padding: 20,
+    
   },
   datasEdit: {
     fontSize: 15,
     textDecorationLine: "underline",
     color: theme.colors.footer,
     fontWeight: "500",
+    
   },
   buttonText: {
     flex: 1,
@@ -93,14 +104,15 @@ export const styles = StyleSheet.create({
     alignItems: "center",
     justifyContent: "center",
     fontWeight: "bold",
+    
+    
+    marginTop: '20%' ,
   },
   
   buttonContainer: {
-    justifyContent: "space-around",
-    flex: 1,
-    flexDirection: "row",
-    width: "100%",
-    marginTop: "10%",
-    marginBottom: "10%",
+    flexDirection: 'row',
+    justifyContent: 'space-around',
+    marginTop: '15%',
+    marginLeft: '10%',
   },
 });

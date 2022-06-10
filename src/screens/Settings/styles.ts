@@ -17,6 +17,8 @@ export const styles = StyleSheet.create({
     borderRadius: 8,
     borderWidth: 2,
     borderColor: theme.colors.footer,
+
+    
   },
   contentTitle: {
     flexDirection: "row",
@@ -24,6 +26,8 @@ export const styles = StyleSheet.create({
     top: '7%',
     left: '4%',
     marginBottom: -5,
+
+    
   },
   title: {
     fontSize: 22,
@@ -35,11 +39,14 @@ export const styles = StyleSheet.create({
   icon: {
     width: 35,
     height: 35,    
+    
   },
   icon2: {
     width: 20,
     height: 20,
     left: "15%",
+
+    
   },
   content2: {
     top: "6%",
@@ -72,16 +79,18 @@ export const styles = StyleSheet.create({
     justifyContent: "space-between",
     top: '2%',
     marginRight: "15%",
-    marginBottom: -10,
+    marginBottom: '-5%',
     
   },
   text: {
-    fontSize: 15
+    fontSize: 15,
+    marginBottom: '8%',
   },
   button: {
     width: 50,
-    height: 50,
+    height: 30,
     borderRadius: 50,
+    marginTop: '-1%',
     
   },
 });

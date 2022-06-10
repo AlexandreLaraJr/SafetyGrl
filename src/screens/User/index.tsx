@@ -68,6 +68,7 @@ export function User() {
           <ButtonAlterarSenha
             onPress={() => navigation.navigate("ChangePassword")}
           />
+          
         </View>
       </View>
     </View>

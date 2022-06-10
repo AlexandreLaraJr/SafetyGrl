@@ -25,7 +25,9 @@ export const styles = StyleSheet.create({
         fontWeight: "bold",
         color: theme.colors.title,
         marginTop: '5%',
-        right: '20%',
+        right: '24%',
+
+        
         
     },
     content2: {

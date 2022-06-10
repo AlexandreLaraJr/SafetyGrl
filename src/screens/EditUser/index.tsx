@@ -7,12 +7,12 @@ import { StackNavigationProp } from "@react-navigation/stack";
 import { RootStackParamList } from "../RootStackPrams";
 
 import IllustrationUser from "../../assets/icone_user.png";
-
+import {
+  ButtonOkData,
+  ButtonCancelarData,
+} from "../../components/ButtonChangePersonalData";
 import { styles } from "./styles";
 import { LogoHeader } from "../../components/LogoHeader";
-
-import { ButtonOk } from "../../components/ButtonOk";
-import { ButtonCancel } from "../../components/ButtonCancel";
 
 type ChangePasswordScreenProp = StackNavigationProp<
   RootStackParamList,
@@ -38,7 +38,7 @@ export function EditUser() {
         </View>
 
         <View style={styles.contentDatas}>
-          <Text style={styles.datas}>NOME SOCIAL</Text>
+          <Text style={styles.datas}>Nome Social</Text>
 
           <View style={styles.contentPersonalDatas}>
             <TextInput
@@ -47,7 +47,7 @@ export function EditUser() {
             ></TextInput>
           </View>
 
-          <Text style={styles.datas}>EMAIL</Text>
+          <Text style={styles.datas}>E-mail</Text>
 
           <View style={styles.contentPersonalDatas}>
             <TextInput
@@ -56,7 +56,7 @@ export function EditUser() {
             ></TextInput>
           </View>
 
-          <Text style={styles.datas}>TELEFONE</Text>
+          <Text style={styles.datas}>Telefone</Text>
 
           <View style={styles.contentPersonalDatas}>
             <TextInput
@@ -77,9 +77,11 @@ export function EditUser() {
           </View>
 
           <View style={styles.buttonContainer}>
-            <ButtonOk />
-            <ButtonCancel onPress={() => navigation.goBack()} />
+            <ButtonOkData />
+
+            <ButtonCancelarData onPress={() => navigation.goBack()} />
           </View>
+
         </View>
       </View>
     </View>

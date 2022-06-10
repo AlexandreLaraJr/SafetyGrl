@@ -14,8 +14,8 @@ export function Settings() {
   const [isEnabled2, setIsEnabled2] = React.useState(false);
   const [isEnabled3, setIsEnabled3] = React.useState(false);
   const [isEnabled4, setIsEnabled4] = React.useState(false);
-  const [isEnabled5, setIsEnabled5] = React.useState(false);
-  const [isEnabled6, setIsEnabled6] = React.useState(false);
+  const [isEnabled5, setIsEnabled5] = React.useState(true);
+  const [isEnabled6, setIsEnabled6] = React.useState(true);
   const toggleSwitch1 = () => setIsEnabled1((previousState) => !previousState);
   const toggleSwitch2 = () => setIsEnabled2((previousState) => !previousState);
   const toggleSwitch3 = () => setIsEnabled3((previousState) => !previousState);

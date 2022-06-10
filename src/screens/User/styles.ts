@@ -25,6 +25,7 @@ export const styles = StyleSheet.create({
     justifyContent: "center",
     top: '5%',
     left: '-10%',
+    
   },
   title: {
     fontSize: 22,
@@ -61,19 +62,23 @@ export const styles = StyleSheet.create({
     fontSize: 15,
     padding: 5,
     
-  },
-  contentEdit: {
-    flexDirection: "row",
-    justifyContent: "center",
-    position: "absolute",
-    bottom: "20%",
-
     
+  },
+
+  buttons: {
+    flexDirection: 'row',
+    justifyContent: 'space-around',
+    marginTop: '30%' ,
+  },
+
+  contentEdit: {
+    flexDirection: 'row',
+    justifyContent: 'space-around',
+    marginTop: '30%' ,
+    marginRight: '10%',
   },
   datasEdit: {
     fontSize: 15,
-    textDecorationLine: "underline",
-    color: theme.colors.footer,
-    fontWeight: "500",
+    fontWeight: "bold",
   },
 });
