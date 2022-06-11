@@ -54,6 +54,7 @@ export const styles = StyleSheet.create({
     marginTop:-10,
     marginBottom: 150,
     
+    
   },
   contentItems: {
     width:  '85%',
@@ -66,12 +67,12 @@ export const styles = StyleSheet.create({
     marginTop: '5%',
     marginBottom: '5%',
     
+    
   },
   items: {
     fontSize: 16,
     marginLeft: '4%',
-    fontWeight: "bold",
-    
+    fontWeight: "bold",    
     
   },
   contentItem2: {
@@ -80,11 +81,12 @@ export const styles = StyleSheet.create({
     top: '2%',
     marginRight: "15%",
     marginBottom: '-5%',
-    
   },
   text: {
     fontSize: 15,
     marginBottom: '8%',
+
+    
   },
   button: {
     width: 50,
