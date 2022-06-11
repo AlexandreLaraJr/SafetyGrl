@@ -29,7 +29,7 @@ export const styles = StyleSheet.create({
     marginTop: '4%',
     marginLeft: "8%",
     marginRight: "8%",
-    marginBottom: '30%',
+    marginBottom: '15%',
     borderWidth: 2,
     borderColor: theme.colors.footer,
   },

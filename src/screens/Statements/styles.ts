@@ -14,7 +14,7 @@ export const styles = StyleSheet.create({
     marginTop: '30%',
     marginLeft: "8%",
     marginRight: "8%",
-    marginBottom: "30%",
+    marginBottom: "6.3%",
     borderRadius: 8,
     alignItems: "center",
     borderWidth: 2,
@@ -32,6 +32,7 @@ export const styles = StyleSheet.create({
     alignContent: "space-between",
     marginLeft: 10,
     paddingLeft: 10,
+    
     
   },
   contentStatement: {
