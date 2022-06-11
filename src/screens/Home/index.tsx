@@ -91,16 +91,10 @@ export function Home({ navigation }: ScreenProp) {
         </View>
         <View style={styles.content2}>
           <Text style={styles.titulos}>Áreas de Risco</Text>
-          <View style={styles.contentSearch}>
-            <TextInput
-              style={styles.searchBar}
-              placeholder="Digite outra região, bairro, cidade..."
-              onChangeText={(text) => setSearch(text)}
-            />
-            <Image style={styles.iconSearch} source={IllustrationSearch} />
-          </View>
+         
           <View
             style={{
+              marginTop: '20%',
               alignSelf: "center",
               marginBottom: 90,
               borderRadius: 10,

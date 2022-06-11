@@ -14,7 +14,7 @@ export const styles = StyleSheet.create({
     marginTop: '30%',
     marginLeft: "8%",
     marginRight: "8%",
-    marginBottom: "5%",
+    marginBottom: "30%",
     borderRadius: 8,
     alignItems: "center",
     borderWidth: 2,
@@ -39,14 +39,17 @@ export const styles = StyleSheet.create({
     flexDirection: "row",
     alignContent: "space-between",
     marginLeft: '4%',
+    height: '100%',
+    marginTop: '15%',
+    marginBottom: "100%",
+    
   },
   contentStatementItem: {
     flex: 1,
     borderRadius: 8,
     backgroundColor: "white",
-    height: "25%",
+    height: "100%",
     overflow: "hidden",
-    // marginLeft: '5%',
     marginRight: '5%',
     padding: '1%',
     marginTop: '15%',
@@ -62,6 +65,7 @@ export const styles = StyleSheet.create({
   },
   contentStatementText: {
     fontSize: 16,
+    
   },
   title: {
     fontSize: 22,
