@@ -3,13 +3,14 @@ import { theme } from "../../global/styles/theme";
 
 export const styles = StyleSheet.create({
   buttonStyle: {
-    width: "30%",
-    height: 45,
+    // width: "30%",
+    // height: 45,
     backgroundColor: theme.colors.primary,
     borderRadius: 8,
     alignItems: "center",
     flexDirection: "row",
     padding: 20,
+    
   },
   buttonText: {
     flex: 1,
@@ -19,5 +20,6 @@ export const styles = StyleSheet.create({
     alignItems: "center",
     justifyContent: "center",
     fontWeight: "bold",
+    marginTop: '5%',
   },
 });

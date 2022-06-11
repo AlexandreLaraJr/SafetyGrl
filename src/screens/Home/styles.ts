@@ -51,16 +51,6 @@ export const styles = StyleSheet.create({
     borderWidth: 1,
     overflow: "hidden",
   },
-  // iconNotification: {
-  //   flex: 0,
-  //   alignItems: 'flex-end',
-  //   marginLeft: "90%",
-  //   marginTop: '6%',
-  //   marginBottom: '10%',
-  //   width: 30,
-  //   height: 30,
-  //   tintColor: "black",
-  // },
 
   iconSearch: {
     flex: -1,

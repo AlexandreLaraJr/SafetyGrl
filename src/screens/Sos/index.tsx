@@ -17,10 +17,12 @@ export function Sos({ navigation }: StackNavigationProp<RootStackParamList>) {
       <View style={styles.content}>
         <View style={styles.contentTitle}>
           <Text style={styles.title}>
-            O botão SOS foi acionado {"\n \n"}A ligação para polícia será
-            realizada em alguns segundos... {/*corrigir esse texto*/}
+            Chamada S.O.S
           </Text>
-          <ButtonConfirm //ver esse botão
+          <Text style={styles.text}>
+            Confirme para realizar a ligação
+          </Text>
+          <ButtonConfirm style={styles.callButton}
             onPress={async () => await Linking.openURL("tel:190")}
           />
           <ButtonCancelar onPress={() => navigation.goBack()} />

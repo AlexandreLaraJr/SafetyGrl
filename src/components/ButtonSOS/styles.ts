@@ -8,7 +8,9 @@ export const styles = StyleSheet.create({
         backgroundColor: 'red',
         borderRadius: 8,
         flexDirection: 'row',
-        alignItems: 'center',        
+        alignItems: 'center',    
+        
+        
     },
     titleLogin: {
         flex: 1,
@@ -16,5 +18,7 @@ export const styles = StyleSheet.create({
         fontSize: 15,
         textAlign: 'center',
         fontWeight: 'bold',
+
+        
     },
 })
