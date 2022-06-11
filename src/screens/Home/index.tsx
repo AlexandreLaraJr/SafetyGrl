@@ -91,10 +91,10 @@ export function Home({ navigation }: ScreenProp) {
         </View>
         <View style={styles.content2}>
           <Text style={styles.titulos}>Áreas de Risco</Text>
-         
+
           <View
             style={{
-              marginTop: '20%',
+              marginTop: "20%",
               alignSelf: "center",
               marginBottom: 90,
               borderRadius: 10,
