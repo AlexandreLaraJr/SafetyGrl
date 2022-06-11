@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import { Text, TextInput, View } from "react-native";
+import { Text, TextInput, View, KeyboardAvoidingView } from "react-native";
 import "react-native-gesture-handler";
 
 import { LogoHeader } from "../../components/LogoHeader";

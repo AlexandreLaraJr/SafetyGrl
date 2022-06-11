@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { View, Text, Image, TextInput, Alert } from "react-native";
+import { View, Text, Image, TextInput, Alert,KeyboardAvoidingView } from "react-native";
 
 import "react-native-gesture-handler";
 import { useNavigation } from "@react-navigation/native";
@@ -24,7 +24,7 @@ export function Statements2() {
   const [toggleCheckBox, setToggleCheckBox] = useState(true);
 
   return (
-    <View style={styles.container}>
+    <KeyboardAvoidingView style={styles.container} behavior="height">
       <LogoHeader />
 
       <View style={styles.content}>
@@ -36,6 +36,7 @@ export function Statements2() {
         <View style={styles.contentStatement}>
           <Text style={styles.data}>Depoimento</Text>
 
+          
           <TextInput
             style={styles.inputData2}
             onChangeText={(newText) => setText(newText)}
@@ -69,6 +70,6 @@ export function Statements2() {
           <ButtonCancelar onPress={() => navigation.goBack()} />
         </View>
       </View>
-    </View>
+    </KeyboardAvoidingView>
   );
 }

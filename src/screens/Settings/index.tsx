@@ -1,5 +1,5 @@
 import React from "react";
-import { View,ScrollView , Text, Image, Switch, } from "react-native";
+import { View,ScrollView , Text, Image, Switch} from "react-native";
 import "react-native-gesture-handler";
 import { LogoHeader } from "../../components/LogoHeader";
 import IllustrationSettings from "../../assets/icone-settings.png";

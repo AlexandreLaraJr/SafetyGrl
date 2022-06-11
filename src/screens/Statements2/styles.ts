@@ -46,6 +46,8 @@ export const styles = StyleSheet.create({
   data: {
     marginTop: '5%',
     fontSize: 16,
+
+    
   },
   inputData: {
     width: '100%',
@@ -55,6 +57,8 @@ export const styles = StyleSheet.create({
     borderWidth: 0.5,
     marginTop: 18,
     paddingLeft: 5,
+    
+
     
   },
   subtitle: {
