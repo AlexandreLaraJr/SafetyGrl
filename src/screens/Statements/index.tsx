@@ -39,6 +39,7 @@ export function Statements({ navigation }: any) {
   }, []);
   return (
     <ScrollView
+      style={styles.container}
       refreshControl={
         <RefreshControl refreshing={refreshing} onRefresh={onRefresh} />
       }

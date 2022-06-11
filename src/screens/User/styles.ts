@@ -13,7 +13,7 @@ export const styles = StyleSheet.create({
     marginTop: "30%",
     marginLeft: "8%",
     marginRight: "8%",
-    marginBottom: "5%",
+    marginBottom: "26%",
     alignItems: "center",
     borderRadius: 8,
     borderWidth: 2,
@@ -70,8 +70,10 @@ export const styles = StyleSheet.create({
   contentEdit: {
     flexDirection: "row",
     justifyContent: "space-around",
-    marginTop: "30%",
+    marginTop: "25%",
     marginRight: "10%",
+
+    
   },
   datasEdit: {
     fontSize: 15,

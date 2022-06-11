@@ -13,7 +13,7 @@ export const styles = StyleSheet.create({
     marginTop: '30%',
     marginLeft: "8%",
     marginRight: "8%",
-    marginBottom: "15%",
+    marginBottom: "26%",
     borderRadius: 8,
     alignItems: "center",    
     borderWidth: 2,
@@ -37,13 +37,11 @@ export const styles = StyleSheet.create({
     height: 35,
   },
   contentStatement: {
-    marginTop: '5%',
+    marginTop: '15%',
     marginBottom: '50%',
     marginHorizontal: '10%',
     
     
-    borderWidth: 2,
-    borderColor: theme.colors.footer,
   },
   data: {
     marginTop: '5%',
@@ -73,6 +71,8 @@ export const styles = StyleSheet.create({
     borderWidth: 0.5,
     marginTop: 20,
     paddingLeft: 5,
+
+    
     
   },
   statement: {
@@ -80,14 +80,18 @@ export const styles = StyleSheet.create({
     marginTop: '5%',
     marginHorizontal: -5,
     textAlign: "center",
+    marginLeft: '5%',
+    marginRight: '5%',
+    marginBottom: '5%'
 
-    
   },
   buttons: {
     flexDirection: "row",
     position: "absolute", //deixa em cima ou em baixo
-    bottom: 45,
+    bottom: '10%',
     justifyContent: "center",
-    right: 20,
+    // right: 20,
+
   },
+
 });

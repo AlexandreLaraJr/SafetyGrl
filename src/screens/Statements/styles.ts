@@ -6,17 +6,20 @@ export const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: theme.colors.background,
-    paddingBottom: 20,
+    paddingBottom: 10,
+
+    
   },
   content: {
     backgroundColor: theme.colors.secundaryBackgroung,
-    flex: 1,
+    flex: 0,
     marginTop: '30%',
     marginLeft: "8%",
     marginRight: "8%",
-    marginBottom: "6.3%",
+    height: 492,
     borderRadius: 8,
     alignItems: "center",
+    
     borderWidth: 2,
     borderColor: theme.colors.footer,
   },
@@ -24,17 +27,24 @@ export const styles = StyleSheet.create({
     flexDirection: "row",
     alignItems: "center",
     justifyContent: "center",
-    top: '8%',
-  },
-  contentText: {
-    flex: 1,
-    flexDirection: "row",
-    alignContent: "space-between",
-    marginLeft: 10,
-    paddingLeft: 10,
+    marginTop: '8%',
     
     
   },
+
+  title: {
+    fontSize: 22,
+    fontWeight: "bold",
+    color: theme.colors.title,
+    paddingLeft: '5%',
+    
+  },
+  
+  iconStatement: {
+    width: 35,
+    height: 35,
+  },
+  
   contentStatement: {
     flex: 1,
     flexDirection: "row",
@@ -42,9 +52,11 @@ export const styles = StyleSheet.create({
     marginLeft: '4%',
     height: '100%',
     marginTop: '15%',
-    marginBottom: "100%",
+    marginBottom: "70%",
+    
     
   },
+
   contentStatementItem: {
     flex: 1,
     borderRadius: 8,
@@ -53,7 +65,6 @@ export const styles = StyleSheet.create({
     overflow: "hidden",
     marginRight: '5%',
     padding: '1%',
-    marginTop: '15%',
     borderWidth: 1,
     borderColor: "black",
     
@@ -66,24 +77,6 @@ export const styles = StyleSheet.create({
   },
   contentStatementText: {
     fontSize: 16,
-    
-  },
-  title: {
-    fontSize: 22,
-    fontWeight: "bold",
-    color: theme.colors.title,
-    paddingLeft: '5%',
-    
-  },
-  iconStatement: {
-    width: 35,
-    height: 35,
-  },
-  content2: {
-    top: "5%",
-    left: "8%",
-    right: "8%",
-    marginBottom: 200,
     
   },
 });

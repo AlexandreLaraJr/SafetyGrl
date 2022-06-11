@@ -14,7 +14,6 @@ export const styles = StyleSheet.create({
     alignItems: "center",
     position: "absolute", //deixa em cima ou em baixo
     bottom: 30,
-    //shadowColor: theme.colors.primary,
     
   },
   titleButton: {

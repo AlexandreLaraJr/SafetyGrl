@@ -42,19 +42,18 @@ export function Statements2() {
           />
 
           <Text style={styles.statement}>
-            Seu depoimento é muito importante e pode ajudar outras vitimas a se
-            fortalerecem.
+            Seu depoimento é muito importante! Ele pode ajudar outras vitimas a se fortalerecem.
           </Text>
-          <View style={{ flex: 1, flexDirection: "row" }}>
+          <View>
             <Checkbox
               status={toggleCheckBox ? "checked" : "unchecked"}
               onPress={() => setToggleCheckBox(!toggleCheckBox)}
-              color={theme.colors.primary}
+              color={'black'}
             />
-            <Text style={{ fontSize: 16, color: "white" }}>
+          </View>
+            <Text style={{ fontSize: 16, color: "black", marginTop: '-11%', marginLeft: '13%' }}>
               Denuncia Anônima
             </Text>
-          </View>
         </View>
 
         <View style={styles.buttons}>
