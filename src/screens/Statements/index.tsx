@@ -55,7 +55,7 @@ export function Statements({ navigation }: any) {
             <Text style={styles.title}>Depoimentos</Text>
           </View>
 
-          <ScrollView style={styles.contentStatement}>
+          <View style={styles.contentStatement}>
             {typeof data == "undefined"
               ? console.log("Deu undefined em data no statements")
               : data.map((item: any, index: number) => {
@@ -70,7 +70,7 @@ export function Statements({ navigation }: any) {
                     </View>
                   );
                 })}
-          </ScrollView>
+          </View>
 
           <ButtonStatement2
             onPress={() => navigation.navigate("Statements2")}
