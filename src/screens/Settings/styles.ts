@@ -80,7 +80,7 @@ export const styles = StyleSheet.create({
     justifyContent: "space-between",
     top: '2%',
     marginRight: "15%",
-    marginBottom: '-5%',
+    marginBottom: '-1%',
   },
   text: {
     fontSize: 15,

@@ -20,12 +20,12 @@ export function Sos({ navigation }: StackNavigationProp<RootStackParamList>) {
             Chamada S.O.S
           </Text>
           <Text style={styles.text}>
-            Confirme para realizar a ligação
+            SOS Ativado
           </Text>
-          <ButtonConfirm style={styles.callButton}
+          {/*<ButtonConfirm style={styles.callButton}
             onPress={async () => await Linking.openURL("tel:190")}
           />
-          <ButtonCancelar onPress={() => navigation.goBack()} />
+  <ButtonCancelar onPress={() => navigation.goBack()} />*/}
         </View>
       </View>
     </View>

@@ -35,11 +35,10 @@ export const styles = StyleSheet.create({
         
     },
     text:{
-        fontSize: 23,
+        fontSize: 32,
         color: 'white',
         textAlign: 'center',
-        marginTop: '20%',
-
+        marginTop: '40%',
         marginLeft: '20%',
         marginRight: '20%',
         // marginBottom: '0%'
