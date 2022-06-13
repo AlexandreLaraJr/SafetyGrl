@@ -41,6 +41,7 @@ export const styles = StyleSheet.create({
         marginTop: '40%',
         marginLeft: '20%',
         marginRight: '20%',
+        fontWeight: 'bold'
         // marginBottom: '0%'
         
         
