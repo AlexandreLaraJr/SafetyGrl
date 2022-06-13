@@ -16,8 +16,7 @@ export const styles = StyleSheet.create({
     marginBottom: "26%",
     borderRadius: 8, 
     borderWidth: 2,
-    borderColor: theme.colors.footer,
-    
+    borderColor: theme.colors.footer
   },
   contentTitle: {
     flexDirection: "row",

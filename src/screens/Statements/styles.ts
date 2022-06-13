@@ -5,21 +5,18 @@ import { theme } from "../../global/styles/theme";
 export const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: theme.colors.background,
-    paddingBottom: 10,
-
-    
+    backgroundColor: theme.colors.background
   },
   content: {
     backgroundColor: theme.colors.secundaryBackgroung,
-    flex: 0,
+    flex: 1,
     marginTop: '30%',
     marginLeft: "8%",
     marginRight: "8%",
-    height: 492,
+    marginBottom: "26%",
+    height: 475,
     borderRadius: 8,
-    alignItems: "center",
-    
+    //alignItems: "center",    
     borderWidth: 2,
     borderColor: theme.colors.footer,
   },
@@ -28,8 +25,6 @@ export const styles = StyleSheet.create({
     alignItems: "center",
     justifyContent: "center",
     marginTop: '8%',
-    
-    
   },
 
   title: {

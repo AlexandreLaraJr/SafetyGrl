@@ -15,15 +15,15 @@ export const styles = StyleSheet.create({
     marginRight: "8%",
     marginBottom: "26%",
     borderRadius: 8,
-    alignItems: "center",    
     borderWidth: 2,
     borderColor: theme.colors.footer,
   },
   contentTitle: {
     flexDirection: "row",
     alignItems: "center",
-    justifyContent: "center",
-    top: '10%',
+    top: '5%',
+    left: '5%',
+    marginBottom: -10,
   },
   title: {
     fontSize: 22,
@@ -75,9 +75,6 @@ export const styles = StyleSheet.create({
     borderWidth: 0.5,
     marginTop: 20,
     paddingLeft: 5,
-
-    
-    
   },
   statement: {
     color: "black",
@@ -91,11 +88,8 @@ export const styles = StyleSheet.create({
   },
   buttons: {
     flexDirection: "row",
-    position: "absolute", //deixa em cima ou em baixo
     bottom: '10%',
     justifyContent: "center",
-    // right: 20,
-
   },
 
 });

@@ -15,6 +15,7 @@ import { Checkbox } from "react-native-paper";
 import { theme } from "../../global/styles/theme";
 import { createStatementDb } from "../../../resources/complaintStatementFunctions";
 import { getLocalName } from "../../../resources/localCreds";
+import { ScrollView } from "react-native-gesture-handler";
 
 type ScreenProp = StackNavigationProp<RootStackParamList>;
 
@@ -27,7 +28,7 @@ export function Statements2() {
     <KeyboardAvoidingView style={styles.container} behavior="height">
       <LogoHeader />
 
-      <View style={styles.content}>
+      <ScrollView style={styles.content}>
         <View style={styles.contentTitle}>
           <Image style={styles.iconStatement} source={IllustrationStatement2} />
           <Text style={styles.title}>Realizar Depoimento</Text>
@@ -53,7 +54,7 @@ export function Statements2() {
             />
           </View>
             <Text style={{ fontSize: 16, color: "black", marginTop: '-11%', marginLeft: '13%' }}>
-              Denuncia Anônima
+              Depoimento Anônimo
             </Text>
         </View>
 
@@ -69,7 +70,7 @@ export function Statements2() {
           />
           <ButtonCancelar onPress={() => navigation.goBack()} />
         </View>
-      </View>
+      </ScrollView>
     </KeyboardAvoidingView>
   );
 }

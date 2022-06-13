@@ -38,7 +38,7 @@ export function Statements({ navigation }: any) {
     getFromDB();
   }, []);
   return (
-    <ScrollView
+    <View
       style={styles.container}
       refreshControl={
         <RefreshControl refreshing={refreshing} onRefresh={onRefresh} />
@@ -47,7 +47,7 @@ export function Statements({ navigation }: any) {
       <View style={styles.container}>
         <LogoHeader />
 
-        <View style={styles.content}>
+        <ScrollView style={styles.content}>
           <View style={styles.contentTitle}>
             <Image
               style={styles.iconStatement}
@@ -76,8 +76,8 @@ export function Statements({ navigation }: any) {
           <ButtonStatement2
             onPress={() => navigation.navigate("Statements2")}
           />
-        </View>
+        </ScrollView>
       </View>
-    </ScrollView>
+    </View>
   );
 }
