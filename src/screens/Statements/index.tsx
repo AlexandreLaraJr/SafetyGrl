@@ -38,16 +38,16 @@ export function Statements({ navigation }: any) {
     getFromDB();
   }, []);
   return (
-    <View
-      style={styles.container}
-      refreshControl={
-        <RefreshControl refreshing={refreshing} onRefresh={onRefresh} />
-      }
-    >
+    <View style={styles.container}>
       <View style={styles.container}>
         <LogoHeader />
 
-        <ScrollView style={styles.content}>
+        <ScrollView
+          style={styles.content}
+          refreshControl={
+            <RefreshControl refreshing={refreshing} onRefresh={onRefresh} />
+          }
+        >
           <View style={styles.contentTitle}>
             <Image
               style={styles.iconStatement}
