@@ -14,7 +14,6 @@ export const styles = StyleSheet.create({
     marginLeft: "8%",
     marginRight: "8%",
     marginBottom: "26%",
-    alignItems: "center",
     borderRadius: 8,
     borderWidth: 2,
     borderColor: theme.colors.footer,
@@ -37,6 +36,8 @@ export const styles = StyleSheet.create({
   },
   contentDatas: {
     top: "10%",
+    marginLeft: '8%'
+    
   },
   datas: {
     color: theme.colors.blackopacity,
@@ -70,8 +71,8 @@ export const styles = StyleSheet.create({
   contentEdit: {
     flexDirection: "row",
     justifyContent: "space-around",
-    marginTop: "25%",
-    marginRight: "10%",
+    marginTop: "30%",
+    //marginRight: "10%",
 
     
   },

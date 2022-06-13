@@ -4,7 +4,7 @@ import { theme } from "../../global/styles/theme";
 export const styles = StyleSheet.create({
     container: {
         flex: 1,
-        alignItems: 'center',
+        //alignItems: 'center',
         backgroundColor: theme.colors.background
         
     },
@@ -30,6 +30,8 @@ export const styles = StyleSheet.create({
     content2: {
         flex: 1,
         marginTop: '25%',
+        marginLeft: '15%'
+        
     },
     NameData: {
         fontWeight: 'bold', 

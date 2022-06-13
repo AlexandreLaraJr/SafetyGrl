@@ -1,6 +1,7 @@
 import { useNavigation } from "@react-navigation/native";
 import React from "react";
 import { Alert, Image, StatusBar, Text, TextInput, View } from "react-native";
+import { ScrollView } from "react-native-gesture-handler";
 import "react-native-gesture-handler";
 import { checkLogin, setCredentials } from "../../../resources/localCreds";
 import { encrypt } from "../../../resources/securePassword";

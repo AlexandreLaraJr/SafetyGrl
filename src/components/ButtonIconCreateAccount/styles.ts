@@ -10,7 +10,8 @@ export const styles = StyleSheet.create({
         flexDirection: 'row',
         alignItems: 'center',
         position: 'absolute', //deixa em cima ou em baixo
-        bottom: 20,
+        bottom: '10%',
+        alignSelf: 'center'
         //shadowColor: theme.colors.primary,
     },
     titleCriarContaConfirm: {

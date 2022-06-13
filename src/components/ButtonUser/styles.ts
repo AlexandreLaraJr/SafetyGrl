@@ -7,7 +7,7 @@ export const styles = StyleSheet.create({
         
         marginLeft: '20%',
         marginRight: '20%',
-        width: 100, 
+        width: 120, 
         height: 40,
         borderRadius: 8,
         backgroundColor: theme.colors.primary,

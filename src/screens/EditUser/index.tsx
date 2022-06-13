@@ -1,6 +1,6 @@
 import React from "react";
-import { View, Text, Image, TextInput, Alert } from "react-native";
-
+import { Image, Text, TextInput, Alert, View } from "react-native";
+import { ScrollView } from "react-native-gesture-handler";
 import "react-native-gesture-handler";
 import { useNavigation } from "@react-navigation/native";
 import { StackNavigationProp } from "@react-navigation/stack";
@@ -32,7 +32,7 @@ export function EditUser() {
     <View style={styles.container}>
       <LogoHeader />
 
-      <View style={styles.content}>
+      <ScrollView style={styles.content}>
         <View style={styles.contentTitle}>
           <Image style={styles.iconUser} source={IllustrationUser} />
           <Text style={styles.title}>Dados Pessoais</Text>
@@ -103,7 +103,7 @@ export function EditUser() {
             <ButtonCancelarData onPress={() => navigation.goBack()} />
           </View>
         </View>
-      </View>
+      </ScrollView>
     </View>
   );
 }

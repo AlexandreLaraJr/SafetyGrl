@@ -22,8 +22,8 @@ export const styles = StyleSheet.create({
     },
 
     nameLogo: {
-        width: '60%',
-        height: '7%',
+        width: '47%',
+        height: '5%',
         marginBottom: '10%',
     },
 

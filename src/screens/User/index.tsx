@@ -1,7 +1,8 @@
 import { useNavigation } from "@react-navigation/native";
 import { StackNavigationProp } from "@react-navigation/stack";
 import React, { useEffect } from "react";
-import { Image, RefreshControl, ScrollView, Text, View } from "react-native";
+import { Image, RefreshControl, Text, View } from "react-native";
+import { ScrollView } from "react-native-gesture-handler";
 import "react-native-gesture-handler";
 import { getLocalCPF } from "../../../resources/localCreds";
 import { getUserFromDB } from "../../../resources/userFunctions";
@@ -46,7 +47,7 @@ export function User() {
   }, []);
 
   return (
-    <ScrollView
+    <View
       style={styles.container}
       refreshControl={
         <RefreshControl refreshing={refreshing} onRefresh={onRefresh} />
@@ -54,7 +55,7 @@ export function User() {
     >
       <LogoHeader />
 
-      <View style={styles.content}>
+      <ScrollView style={styles.content}>
         <View style={styles.contentTitle}>
           <Image style={styles.iconUser} source={IllustrationUser} />
           <Text style={styles.title}>Dados Pessoais</Text>
@@ -112,7 +113,7 @@ export function User() {
             onPress={() => navigation.navigate("ChangePassword")}
           />
         </View>
-      </View>
-    </ScrollView>
+      </ScrollView>
+    </View>
   );
 }

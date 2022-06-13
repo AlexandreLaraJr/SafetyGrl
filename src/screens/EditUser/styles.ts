@@ -13,7 +13,6 @@ export const styles = StyleSheet.create({
     marginLeft: "8%",
     marginRight: "8%",
     marginBottom: "26%",
-    alignItems: 'center',
     borderRadius: 8,
     borderWidth: 2,
     borderColor: theme.colors.footer,
@@ -24,16 +23,12 @@ export const styles = StyleSheet.create({
     justifyContent: "center",
     top: '5%',
     left: '-10%',
-
-    
   },
   title: {
     fontSize: 22,
     fontWeight: "bold",
     color: theme.colors.title,
     right: '-1%',
-
-    
   },
   iconUser: {
     width: 45,
@@ -62,8 +57,6 @@ export const styles = StyleSheet.create({
     marginBottom: '1%',
     justifyContent: "center",
     marginLeft: '10%',
-
-    
   },
   personalDatas: {
     color: "black",

@@ -2,6 +2,7 @@ import { useNavigation } from "@react-navigation/native";
 import { StackNavigationProp } from "@react-navigation/stack";
 import React from "react";
 import { Alert, Text, TextInput, View } from "react-native";
+import { ScrollView } from "react-native-gesture-handler";
 import { ButtonCreateAccount } from "../../components/ButtonIconCreateAccount";
 import { LogoHeader } from "../../components/LogoHeader";
 import { RootStackParamList } from "../RootStackPrams";
@@ -25,7 +26,7 @@ export function CreateAccount() {
     <View style={styles.container}>
       <LogoHeader />
 
-      <View style={styles.content2}>
+      <ScrollView style={styles.content2}>
         <Text style={styles.NameData}>Nome</Text>
 
         <TextInput
@@ -92,7 +93,7 @@ export function CreateAccount() {
             setConfirmPassword(confirmPassword)
           }
         />
-      </View>
+      </ScrollView>
 
       <ButtonCreateAccount
         onPress={async () => {

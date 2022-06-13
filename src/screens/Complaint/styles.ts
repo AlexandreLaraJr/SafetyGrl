@@ -67,18 +67,16 @@ export const styles = StyleSheet.create({
   input: {
     flex: 0,
     width: '83%',
-    height: '70%',
-    
+    height: '80%',    
     backgroundColor: "white",
     borderWidth: 0.5,
     borderRadius: 8,
-    padding: 5,
-    
+    padding: 5,    
   },
   contentIcon: {
     flexDirection: "row",
     alignItems: "center",
-    marginBottom: '3%',
+    marginBottom: '5%',
     
   },
   inputHalf: {
