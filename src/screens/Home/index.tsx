@@ -101,7 +101,6 @@ export function Home({ navigation }: ScreenProp) {
               borderWidth: 2,
               borderColor: "black",
               overflow: "hidden",
-              
             }}
           >
             <MapView

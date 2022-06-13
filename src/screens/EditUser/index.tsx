@@ -13,6 +13,7 @@ import {
 } from "../../components/ButtonChangePersonalData";
 import { styles } from "./styles";
 import { LogoHeader } from "../../components/LogoHeader";
+import { editUserDB } from "../../../resources/userFunctions";
 
 type ChangePasswordScreenProp = StackNavigationProp<
   RootStackParamList,
@@ -22,10 +23,10 @@ type ChangePasswordScreenProp = StackNavigationProp<
 export function EditUser() {
   const navigation = useNavigation<ChangePasswordScreenProp>();
 
-  const [socialName, setSocialName] = React.useState("");
-  const [email, setEmail] = React.useState("");
-  const [telefone, setTelefone] = React.useState("");
-  const [senha, setSenha] = React.useState("");
+  const [socialName, setSocialName]: any = React.useState(undefined);
+  const [email, setEmail]: any = React.useState(undefined);
+  const [telefone, setTelefone]: any = React.useState(undefined);
+  const [senha, setSenha]: any = React.useState(undefined);
 
   return (
     <View style={styles.container}>
@@ -77,11 +78,30 @@ export function EditUser() {
           </View>
 
           <View style={styles.buttonContainer}>
-            <ButtonOkData />
+            <ButtonOkData
+              onPress={async () => {
+                if (senha === undefined) {
+                  Alert.alert("Senha não pode ser vazia");
+                  return;
+                }
+                let result = await editUserDB(
+                  socialName,
+                  email,
+                  telefone,
+                  senha
+                );
+                if (result == -1) {
+                  Alert.alert("Senha incorreta");
+                }
+                if (result == 0) {
+                  Alert.alert("Dados alterados com sucesso");
+                  navigation.navigate("AnimTab");
+                }
+              }}
+            />
 
             <ButtonCancelarData onPress={() => navigation.goBack()} />
           </View>
-
         </View>
       </View>
     </View>

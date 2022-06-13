@@ -1,7 +1,7 @@
 import { useNavigation } from "@react-navigation/native";
 import { StackNavigationProp } from "@react-navigation/stack";
 import React, { useEffect } from "react";
-import { Image, Text, View } from "react-native";
+import { Image, RefreshControl, ScrollView, Text, View } from "react-native";
 import "react-native-gesture-handler";
 import { getLocalCPF } from "../../../resources/localCreds";
 import { getUserFromDB } from "../../../resources/userFunctions";
@@ -23,6 +23,20 @@ export function User() {
   const navigation = useNavigation<ChangePasswordScreenProp>();
   const [user, setUser]: any = React.useState();
 
+  const wait = (timeout: any) => {
+    return new Promise((resolve) => setTimeout(resolve, timeout));
+  };
+
+  const [refreshing, setRefreshing] = React.useState(false);
+
+  const onRefresh = React.useCallback(() => {
+    setRefreshing(true);
+    wait(2000).then(() => {
+      getData();
+      setRefreshing(false);
+    });
+  }, []);
+
   const getData = async () => {
     setUser(await getUserFromDB(await getLocalCPF()));
   };
@@ -32,7 +46,12 @@ export function User() {
   }, []);
 
   return (
-    <View style={styles.container}>
+    <ScrollView
+      style={styles.container}
+      refreshControl={
+        <RefreshControl refreshing={refreshing} onRefresh={onRefresh} />
+      }
+    >
       <LogoHeader />
 
       <View style={styles.content}>
@@ -94,6 +113,6 @@ export function User() {
           />
         </View>
       </View>
-    </View>
+    </ScrollView>
   );
 }

@@ -1,7 +1,5 @@
 import AsyncStorage from "@react-native-async-storage/async-storage";
-import { StackNavigationProp } from "@react-navigation/stack";
 import db from "../database/firebase";
-import { RootStackParamList } from "../src/screens/RootStackPrams";
 import { encrypt } from "./securePassword";
 import {
   verifyCPFOnDb,
@@ -127,4 +125,52 @@ export async function validLogin(
       }
     });
   return result;
+}
+
+/**
+ *
+ * @param socialName optional
+ * @param email optional
+ * @param telefone optional
+ * @param password raw password, encrypt as soon as gets to the function
+ * @returns 0 if passwords dont match
+ */
+export async function editUserDB(
+  socialName?: any,
+  email?: any,
+  telefone?: any,
+  password?: any
+): Promise<number | undefined> {
+  console.log(socialName, email, telefone, password);
+  console.log(
+    typeof socialName,
+    typeof email,
+    typeof telefone,
+    typeof password
+  );
+  let cpf = await AsyncStorage.getItem("@user:identifier");
+  password = await encrypt(password);
+  let encryptPassword = await db
+    .ref("users/" + cpf)
+    .once("value")
+    .then((snap) => {
+      return snap.val().senha;
+    });
+  if (password != encryptPassword) return -1;
+  if (typeof socialName !== "undefined" && socialName !== "") {
+    await db.ref("users/" + cpf).update({
+      socialName: socialName,
+    });
+  }
+  if (typeof email !== "undefined" && email !== "") {
+    await db.ref("users/" + cpf).update({
+      email: email,
+    });
+  }
+  if (typeof telefone !== "undefined" && telefone !== "") {
+    await db.ref("users/" + cpf).update({
+      telefone: telefone,
+    });
+  }
+  return 0;
 }

@@ -5,31 +5,30 @@ export const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: theme.colors.background,
-    paddingBottom: '10%',
-    
+    paddingBottom: "10%",
   },
   content: {
-    height: '7%',
+    height: "7%",
     flexDirection: "row",
     backgroundColor: theme.colors.secundaryBackgroung,
     borderRadius: 8,
     borderWidth: 2,
     borderColor: theme.colors.footer,
-    marginLeft: '8%',
-    marginRight: '8%',
+    marginLeft: "8%",
+    marginRight: "8%",
     alignItems: "center",
     justifyContent: "space-between",
-    marginTop: '30%',
+    marginTop: "30%",
   },
   content2: {
     backgroundColor: theme.colors.secundaryBackgroung,
     flex: -1,
     borderRadius: 8,
-    
-    marginTop: '4%',
+
+    marginTop: "4%",
     marginLeft: "8%",
     marginRight: "8%",
-    marginBottom: '15%',
+    marginBottom: "15%",
     borderWidth: 2,
     borderColor: theme.colors.footer,
   },
@@ -40,23 +39,20 @@ export const styles = StyleSheet.create({
     borderRadius: 4,
     borderWidth: 1,
     overflow: "hidden",
-    
   },
 
   iconSearch: {
     flex: -1,
-    marginLeft: '-3%',
+    marginLeft: "-3%",
     width: 20,
     height: 20,
   },
-  
+
   titulos: {
     fontSize: 22,
     fontWeight: "bold",
     color: theme.colors.title,
     alignSelf: "center",
     top: "5%",
-
-    
   },
 });
