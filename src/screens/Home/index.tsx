@@ -53,6 +53,7 @@ export function Home({ navigation }: ScreenProp) {
   const onRefresh = React.useCallback(() => {
     setRefreshing(true);
     wait(2000).then(() => {
+      getLocalCreds();
       getPoints();
       setRefreshing(false);
     });

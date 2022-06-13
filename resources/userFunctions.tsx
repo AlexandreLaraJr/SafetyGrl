@@ -161,6 +161,7 @@ export async function editUserDB(
     await db.ref("users/" + cpf).update({
       socialName: socialName,
     });
+    await AsyncStorage.setItem("@user:socialName", socialName);
   }
   if (typeof email !== "undefined" && email !== "") {
     await db.ref("users/" + cpf).update({
